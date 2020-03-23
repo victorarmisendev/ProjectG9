@@ -8,71 +8,46 @@ public class MyProceduralMap : MonoBehaviour
     public GameObject[] chunks;
     public GameObject currentChunk;
 
+    public GameObject[] spawnedChunks;
+
     private Vector3 spawnPos;
     private Quaternion spawnRot;
 
+    private int counter = 1;
+
+    int counterRemove = 0;
+
+    private void Start()
+    {
+        //InvokeRepeating("renewChunks", 5.0f, 5.0f);
+        spawnedChunks[0] = currentChunk;
+    }
 
 
 
     GameObject pickChunk(GameObject currentChunk)
     {
-        if (currentChunk.tag == "ForwardRoad")
-        {
-            int rand = Random.Range(2, 3);
+            int rand = Random.Range(0, 4);
             return chunks[rand];
-        }
-        else if (currentChunk.tag == "LeftTurn")
-        {
-            int rand = Random.Range(1, 2);
-            return chunks[rand];
-        }
-        else
-        {
-            int rand = Random.Range(1, 3);
-            return chunks[rand];
-        }
     }
+
+
 
     void spawnChunk()
     {
         spawnPos = currentChunk.transform.position;
         spawnRot = currentChunk.transform.rotation;
-        print(currentChunk.transform.position);
         GameObject chunkToSpawn = pickChunk(currentChunk);
-        if(currentChunk.tag == "ForwardRoad")
-        {
-            if (chunkToSpawn.tag == "ForwardRoad")
-            {
-                spawnPos = currentChunk.transform.position + new Vector3(0, 0, 30);
-            }
-            else if (chunkToSpawn.tag == "LeftTurn")
-            {
-                spawnRot = currentChunk.transform.rotation * Quaternion.Euler(0, 180, 0);
-
-            }
-            else
-            {
-                spawnPos = currentChunk.transform.position + new Vector3(20, 0, 20);
-                spawnRot = currentChunk.transform.rotation * Quaternion.Euler(0, 90, 0);
-            }
-        }
-        else if(currentChunk.tag == "LeftTurn")
-        {
-            if (chunkToSpawn.tag == "ForwardRoad")
-            {
-                spawnPos = currentChunk.transform.position + new Vector3(-50, 0, 20);
-                spawnRot = currentChunk.transform.rotation * Quaternion.Euler(0, 90, 0);
-            }
-            else
-            {
-                spawnPos = currentChunk.transform.position + new Vector3(20, 0, 20);
-                spawnRot = currentChunk.transform.rotation * Quaternion.Euler(0, 90, 0);
-            }
-        }
-
-
+        spawnPos = currentChunk.transform.position + new Vector3(0, 0, 30 * counter);
+            
         Instantiate(chunkToSpawn, spawnPos, spawnRot);
-        currentChunk = chunkToSpawn;
+        //spawnedChunks[counter] = chunkToSpawn;
+        counter++;
+        if(currentChunk == null)
+        {
+            print("porque no furula?");
+        }
+        
     }
 
     private void Update()
@@ -82,5 +57,11 @@ public class MyProceduralMap : MonoBehaviour
             spawnChunk();
         }
     }
+
+    //void renewChunks()
+    //{
+    //    Destroy(spawnedChunks[counterRemove]);
+    //    counterRemove++;
+    //}
 
 }
