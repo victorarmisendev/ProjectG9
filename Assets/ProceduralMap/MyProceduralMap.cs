@@ -17,15 +17,20 @@ public class MyProceduralMap : MonoBehaviour
 
     int counterRemove = 0;
 
+    Queue<GameObject> myQueue = new Queue<GameObject>();
+
+    List<GameObject> chunkList = new List<GameObject>();
+
     private void Start()
     {
-        //InvokeRepeating("renewChunks", 5.0f, 5.0f);
+        InvokeRepeating("spawnChunk", 2.0f, 2.0f);
         spawnedChunks[0] = currentChunk;
+        chunkList.Add(currentChunk);
     }
 
 
 
-    GameObject pickChunk(GameObject currentChunk)
+    GameObject pickChunk()
     {
             int rand = Random.Range(0, 4);
             return chunks[rand];
@@ -37,17 +42,27 @@ public class MyProceduralMap : MonoBehaviour
     {
         spawnPos = currentChunk.transform.position;
         spawnRot = currentChunk.transform.rotation;
-        GameObject chunkToSpawn = pickChunk(currentChunk);
+        GameObject chunkToSpawn = pickChunk();
+        
         spawnPos = currentChunk.transform.position + new Vector3(0, 0, 30 * counter);
             
-        Instantiate(chunkToSpawn, spawnPos, spawnRot);
-        //spawnedChunks[counter] = chunkToSpawn;
+        GameObject newChunk = Instantiate(chunkToSpawn, spawnPos, spawnRot);
         counter++;
-        if(currentChunk == null)
+
+        myQueue.Enqueue(newChunk);
+        if(counter > 5)
         {
-            print("porque no furula?");
+            removeChunk();
         }
-        
+
+
+    }
+
+    private void removeChunk()
+    {
+        GameObject chunkToDestroy;
+        chunkToDestroy = myQueue.Dequeue();
+        Destroy(chunkToDestroy);
     }
 
     private void Update()
