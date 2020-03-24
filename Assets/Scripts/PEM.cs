@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class PEM : MonoBehaviour
 {
     public float Speed;
     public float dmg;
+    public int stundur;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,10 +20,11 @@ public class Bullet : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.GetComponent<PlayerControler>() != null)
+        if(collision.gameObject.GetComponent<PlayerControler>()!=null)
         {
 
-            collision.gameObject.GetComponent<Movement>().DMG(dmg);
+            collision.gameObject.GetComponent<PlayerControler>().Stun(stundur);
+            collision.gameObject.GetComponent<PlayerControler>().DMG(dmg);
         }
         Destroy(gameObject);
     }

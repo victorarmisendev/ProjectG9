@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class BalaAlquitran : MonoBehaviour
 {
     public float Speed;
     public float dmg;
+    public GameObject ObjSuleo;
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(gameObject, 7);
+        Destroy(gameObject, 3);
     }
 
     // Update is called once per frame
@@ -21,9 +22,12 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<PlayerControler>() != null)
         {
-
-            collision.gameObject.GetComponent<Movement>().DMG(dmg);
+            Instantiate(ObjSuleo.transform, new Vector3( gameObject.transform.position.x,7.39f, gameObject.transform.position.z), Quaternion.identity);
         }
         Destroy(gameObject);
+    }
+    private void OnDestroy()
+    {
+        Instantiate(ObjSuleo.transform, new Vector3(gameObject.transform.position.x, 7.39f, gameObject.transform.position.z), Quaternion.identity);
     }
 }

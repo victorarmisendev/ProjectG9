@@ -45,4 +45,12 @@ public class Movement : MonoBehaviour
         //RB.MovePosition(RB.position + Mov * moveSpeed * Time.fixedDeltaTime); // Movimiento en XY.       
 
     }
+    public void Stun(int segundos)
+    {
+
+    }
+    public void DMG (float dmg)
+    {
+
+    }
 }

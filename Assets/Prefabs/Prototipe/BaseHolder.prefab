@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &44719161212837977
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3279246937566711391}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3279246937566711391
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 44719161212837977}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -5.5852866, y: -1.56, z: 17.1}
+  m_LocalScale: {x: 10.964834, y: 10.744095, z: 43.509712}
+  m_Children: []
+  m_Father: {fileID: 1606140611639959434}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1606140610623738130
 GameObject:
   m_ObjectHideFlags: 0
@@ -10,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1606140610623738131}
   - component: {fileID: 1606140610623738125}
-  - component: {fileID: 1606140610623738124}
+  - component: {fileID: 2489238619733665490}
   m_Layer: 0
   m_Name: BaseHolder
   m_TagString: Untagged
@@ -51,7 +81,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1606140610623738124
+--- !u!114 &2489238619733665490
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -60,11 +90,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1606140610623738130}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5dc4ee9b4df23fb49aa38499226f572c, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a17cd86f913ac341838b5ee47a580f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  RB: {fileID: 1606140610623738125}
+  RB: {fileID: 0}
 --- !u!1 &1606140610833872300
 GameObject:
   m_ObjectHideFlags: 0
@@ -187,7 +217,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.511}
   m_LocalScale: {x: 0.36667997, y: 0.30273998, z: 0.013256071}
-  m_Children: []
+  m_Children:
+  - {fileID: 3279246937566711391}
   m_Father: {fileID: 1606140611719415338}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -453,7 +484,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bullet: {fileID: 627368519756807136, guid: 8f549c20738c9b1488ded11e52f35cd3, type: 3}
-  BulletSP: {fileID: 1606140611639959433}
+  BulletSP: {fileID: 44719161212837977}
   g: {x: 0, y: 0, z: 0}
 --- !u!1 &1606140612007419582
 GameObject:
