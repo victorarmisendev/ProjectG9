@@ -1,6 +1,131 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.UI;
+
+public class PlayerControler : MonoBehaviour
+{
+    [Header("Camera")]
+    public Camera mainCamera;
+    [Header("Movement")]
+    public Rigidbody RB;
+    public float moveSpeed = 4.5f;
+    private Vector3 inputDirection;
+    private Vector3 movement;
+    // InputActions
+    PlayerInputActions inputAction;
+    // Move
+    Vector2 movementInput;
+
+    public bool canmove = true;
+    GameObject a = null;
+    private int StunDuration = 0;
+
+    void Awake()
+    {
+        inputAction = new PlayerInputActions();
+        inputAction.PlayerControls.Move.performed += ctx =>
+        movementInput = ctx.ReadValue<Vector2>();
+    }
+    void Start()
+    {
+        RB = gameObject.GetComponent<Rigidbody>();
+    }
+    void Update()
+    {
+    }
+    void Gamepad()
+    {
+        ///GAMEPA//////////////
+        //var gamepad = Gamepad.current;
+        //if (gamepad == null)
+        //    return;
+
+        ////Acelerar con el de RT. 
+        //if (gamepad.rightTrigger.isPressed)
+        //{
+        //    RB.MovePosition(RB.position + transform.forward * moveSpeed * Time.fixedDeltaTime);
+        //}
+
+        //Vector2 gp = gamepad.leftStick.ReadValue();
+
+        //if(gp.x > 0.0f)
+        //{
+        //    RB.MoveRotation(RB.rotation * Quaternion.Euler(0.0f , 100.0f * Time.fixedDeltaTime, 0.0f));
+        //}
+        //if (gp.x < 0.0f)
+        //{
+        //    RB.MoveRotation(RB.rotation * Quaternion.Euler(0.0f, -100.0f * Time.fixedDeltaTime, 0.0f));
+        //}
+        ////////////////////
+    }
+
+    private void FixedUpdate()
+    {
+        float h = movementInput.x;
+        float v = movementInput.y;
+
+        Vector3 Mov = new Vector3(h, v, 0.0f);
+        Debug.Log(Mov);
+
+        RB.MovePosition(RB.position + new Vector3(Mov.x, 0.0f, Mov.y) * moveSpeed * Time.fixedDeltaTime); // Movimiento en XY.       
+    }
+
+    public void Stun(int segundos)
+    {
+        canmove = false;
+        StartCoroutine(stun(segundos));
+    }
+    IEnumerator stun(float s)
+    {
+        yield return new WaitForSeconds(3);//VER COMO HACER SIN HARDCODE
+        canmove = true;
+    }
+    public void DMG(float dmg)
+    {
+
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.GetComponent<Alquitran>() != null)
+        {
+
+            a = other.gameObject;
+            moveSpeed = other.gameObject.GetComponent<Alquitran>().slow;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.GetComponent<Alquitran>() != null)
+        {
+
+            moveSpeed = 5.0f;
+        }
+    }
+    public void ChangeSpeed(float _newSpeed)
+    {
+        moveSpeed = _newSpeed;
+    }
+
+    //NO TOCAR ESTAS FUNCIONES, O NO IRA EL INPUT.
+    private void OnEnable()
+    {
+        inputAction.Enable();
+    }
+
+    private void OnDisable()
+    {
+        inputAction.Disable();
+    }
+    //////////////
+}
+
+/*
+ 
+    using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 
@@ -12,50 +137,9 @@ public class PlayerControler : MonoBehaviour
     public bool canmove = true;
     GameObject a = null;
     private int StunDuration=0;
-   /* void Start()
-    {
-        RB = gameObject.GetComponent<Rigidbody>();
-    }*/
 
-    void Update()
-    {
-        Mov.x = Input.GetAxisRaw("Horizontal");
-        Mov.z = Input.GetAxisRaw("Vertical");
-    }
-    private void FixedUpdate()
-    {
-        if (canmove)
-        {
-            if(a==null)
-            {
-                moveSpeed = 5.0f;
-            }
-            var gamepad = Gamepad.current;
-            if (gamepad == null)
-                return;
 
-            //Acelerar con el de RT. 
-            if (gamepad.rightTrigger.isPressed)
-            {
-                RB.MovePosition(RB.position + transform.forward * moveSpeed * Time.fixedDeltaTime);
-            }
-
-            Vector2 gp = gamepad.leftStick.ReadValue();
-
-            if (gp.x > 0.0f)
-            {
-                RB.MoveRotation(RB.rotation * Quaternion.Euler(0.0f, 100.0f * Time.fixedDeltaTime, 0.0f));
-            }
-            if (gp.x < 0.0f)
-            {
-                RB.MoveRotation(RB.rotation * Quaternion.Euler(0.0f, -100.0f * Time.fixedDeltaTime, 0.0f));
-            }
-
-            //RB.MovePosition(RB.position + Mov * moveSpeed * Time.fixedDeltaTime); // Movimiento en XY.    
-        }
-
-    }
-    public void Stun(int segundos)
+     public void Stun(int segundos)
     {
         canmove = false;
         StartCoroutine(stun(segundos));
@@ -90,4 +174,94 @@ public class PlayerControler : MonoBehaviour
     {
         moveSpeed = _newSpeed;
     }
+    */
+
+
+/*
+ using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+public class Movement : MonoBehaviour
+{
+    [Header("Camera")]
+    public Camera mainCamera;
+    [Header("Movement")]
+    public Rigidbody RB;
+    public float moveSpeed = 4.5f;
+    private Vector3 inputDirection;
+    private Vector3 movement;
+    // InputActions
+    PlayerInputActions inputAction;
+    // Move
+    Vector2 movementInput;
+
+    void Awake()
+    {
+        inputAction = new PlayerInputActions();
+        inputAction.PlayerControls.Move.performed += ctx =>
+        movementInput = ctx.ReadValue<Vector2>();
+    }
+    void Start()
+    {     
+        RB = gameObject.GetComponent<Rigidbody>();
+    }
+    void Update()
+    {
+    }
+    void Gamepad()
+    {
+        ///GAMEPA//////////////
+        //var gamepad = Gamepad.current;
+        //if (gamepad == null)
+        //    return;
+
+        ////Acelerar con el de RT. 
+        //if (gamepad.rightTrigger.isPressed)
+        //{
+        //    RB.MovePosition(RB.position + transform.forward * moveSpeed * Time.fixedDeltaTime);
+        //}
+
+        //Vector2 gp = gamepad.leftStick.ReadValue();
+
+        //if(gp.x > 0.0f)
+        //{
+        //    RB.MoveRotation(RB.rotation * Quaternion.Euler(0.0f , 100.0f * Time.fixedDeltaTime, 0.0f));
+        //}
+        //if (gp.x < 0.0f)
+        //{
+        //    RB.MoveRotation(RB.rotation * Quaternion.Euler(0.0f, -100.0f * Time.fixedDeltaTime, 0.0f));
+        //}
+        ////////////////////
+    }
+    private void FixedUpdate()
+    {
+        float h = movementInput.x;
+        float v = movementInput.y;
+
+        Vector3 Mov = new Vector3(h, v, RB.position.z);
+        Debug.Log(Mov);
+       
+        RB.MovePosition(RB.position + Mov * moveSpeed * Time.fixedDeltaTime); // Movimiento en XY.       
+
+    }
+    public void Stun(int segundos)
+    {
+    }
+    public void DMG (float dmg)
+    {
+    }
+    //NO TOCAR ESTAS FUNCIONES, O NO IRA EL INPUT.
+    private void OnEnable()
+    {
+        inputAction.Enable();
+    }
+
+    private void OnDisable()
+    {
+        inputAction.Disable();
+    }
+    //////////////
 }
+*/

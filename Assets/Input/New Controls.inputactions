@@ -1,0 +1,66 @@
+{
+    "name": "New Controls",
+    "maps": [
+        {
+            "name": "Gameplay",
+            "id": "447727aa-5381-463b-994a-20e0d9f432fd",
+            "actions": [
+                {
+                    "name": "Move",
+                    "type": "Value",
+                    "id": "7904cd7a-7a7d-41f7-a6a5-818e839c41ee",
+                    "expectedControlType": "Axis",
+                    "processors": "AxisDeadzone",
+                    "interactions": "Hold"
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "997db4eb-5481-412b-b281-ab7a2bc0f3c3",
+                    "path": "<Keyboard>/w",
+                    "interactions": "Hold",
+                    "processors": "AxisDeadzone",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "330c68e9-866f-45df-9800-b5deb7d2fba8",
+                    "path": "<Keyboard>/s",
+                    "interactions": "Hold",
+                    "processors": "AxisDeadzone",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e85aff61-4aa9-4633-9cd5-a9af816c6fa7",
+                    "path": "<Keyboard>/a",
+                    "interactions": "Hold",
+                    "processors": "AxisDeadzone",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3a7c80ea-ed85-4e04-874d-301854739896",
+                    "path": "<Keyboard>/d",
+                    "interactions": "Hold",
+                    "processors": "AxisDeadzone",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

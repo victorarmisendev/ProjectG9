@@ -22,7 +22,7 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject.GetComponent<PlayerControler>() != null)
         {
 
-            collision.gameObject.GetComponent<Movement>().DMG(dmg);
+            //collision.gameObject.GetComponent<Movement>().DMG(dmg);
         }
         Destroy(gameObject);
     }

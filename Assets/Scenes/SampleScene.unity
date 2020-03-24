@@ -378,6 +378,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 4.3233953
       objectReference: {fileID: 0}
+    - target: {fileID: 1606140611862874475, guid: b84b7d87941a8a54ead6d21cd506e0b6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1606140612007419583, guid: b84b7d87941a8a54ead6d21cd506e0b6,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -388,6 +393,21 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.269
       objectReference: {fileID: 0}
+    - target: {fileID: 2489238619733665490, guid: b84b7d87941a8a54ead6d21cd506e0b6,
+        type: 3}
+      propertyPath: RB
+      value: 
+      objectReference: {fileID: 1926835461}
+    - target: {fileID: 2489238619733665490, guid: b84b7d87941a8a54ead6d21cd506e0b6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2489238619733665490, guid: b84b7d87941a8a54ead6d21cd506e0b6,
+        type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 963194227}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b84b7d87941a8a54ead6d21cd506e0b6, type: 3}
 --- !u!1 &963194225
@@ -473,3 +493,9 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
+--- !u!54 &1926835461 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 1606140610623738125, guid: b84b7d87941a8a54ead6d21cd506e0b6,
+    type: 3}
+  m_PrefabInstance: {fileID: 849431623}
+  m_PrefabAsset: {fileID: 0}
