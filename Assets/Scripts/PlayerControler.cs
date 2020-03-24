@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class PlayerControler : MonoBehaviour
 {
-    [Header("Camera")]
-    public Camera mainCamera;
+    //[Header("Camera")]
+    //public Camera mainCamera;
     [Header("Movement")]
     public Rigidbody RB;
     public float moveSpeed = 4.5f;
@@ -17,6 +17,9 @@ public class PlayerControler : MonoBehaviour
     PlayerInputActions inputAction;
     // Move
     Vector2 movementInput;
+
+    public Gamepad gamepad_current;
+    public int PlayerNum;
 
     public bool canmove = true;
     GameObject a = null;
@@ -31,45 +34,56 @@ public class PlayerControler : MonoBehaviour
     void Start()
     {
         RB = gameObject.GetComponent<Rigidbody>();
+        if (gamepad_current == null)
+        {
+            Debug.LogError("Gamepad not initialize");
+            return;
+        }
+        Debug.Log("I am player number " + PlayerNum.ToString() + "with Gamepad name: " + gamepad_current.name);
     }
     void Update()
     {
     }
-    void Gamepad()
+    void GamePadController()
     {
-        ///GAMEPA//////////////
+        //GAMEPAD//////////////
         //var gamepad = Gamepad.current;
-        //if (gamepad == null)
-        //    return;
+        if (gamepad_current == null)
+        {
+            Debug.LogError("Gamepad not detected");
+            return;
+        } 
+       
+        //Acelerar con el de RT. 
+        if (gamepad_current.rightTrigger.isPressed)
+        {
+            RB.MovePosition(RB.position + transform.forward * moveSpeed * Time.fixedDeltaTime);
+        }
 
-        ////Acelerar con el de RT. 
-        //if (gamepad.rightTrigger.isPressed)
-        //{
-        //    RB.MovePosition(RB.position + transform.forward * moveSpeed * Time.fixedDeltaTime);
-        //}
+        Vector2 gp = gamepad_current.leftStick.ReadValue();
 
-        //Vector2 gp = gamepad.leftStick.ReadValue();
-
-        //if(gp.x > 0.0f)
-        //{
-        //    RB.MoveRotation(RB.rotation * Quaternion.Euler(0.0f , 100.0f * Time.fixedDeltaTime, 0.0f));
-        //}
-        //if (gp.x < 0.0f)
-        //{
-        //    RB.MoveRotation(RB.rotation * Quaternion.Euler(0.0f, -100.0f * Time.fixedDeltaTime, 0.0f));
-        //}
+        if (gp.x > 0.0f)
+        {
+            RB.MoveRotation(RB.rotation * Quaternion.Euler(0.0f, 100.0f * Time.fixedDeltaTime, 0.0f));
+        }
+        if (gp.x < 0.0f)
+        {
+            RB.MoveRotation(RB.rotation * Quaternion.Euler(0.0f, -100.0f * Time.fixedDeltaTime, 0.0f));
+        }
         ////////////////////
     }
 
     private void FixedUpdate()
     {
+        //Input: Keyboard.
+        /*
         float h = movementInput.x;
         float v = movementInput.y;
-
         Vector3 Mov = new Vector3(h, v, 0.0f);
         Debug.Log(Mov);
-
-        RB.MovePosition(RB.position + new Vector3(Mov.x, 0.0f, Mov.y) * moveSpeed * Time.fixedDeltaTime); // Movimiento en XY.       
+        RB.MovePosition(RB.position + new Vector3(Mov.x, 0.0f, Mov.y) * moveSpeed * Time.fixedDeltaTime); // Movimiento en XY. 
+        */
+        GamePadController();
     }
 
     public void Stun(int segundos)

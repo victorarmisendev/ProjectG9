@@ -79,7 +79,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!114 &2489238619733665490
 MonoBehaviour:
@@ -93,8 +93,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a17cd86f913ac341838b5ee47a580f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RB: {fileID: 1606140610623738125}
   moveSpeed: 5
-  RB: {fileID: 0}
+  canmove: 1
 --- !u!1 &1606140610833872300
 GameObject:
   m_ObjectHideFlags: 0
@@ -123,7 +124,7 @@ Transform:
   m_GameObject: {fileID: 1606140610833872300}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.3672309, y: -0.6479945, z: -1.0503235}
-  m_LocalScale: {x: 2.3189, y: 1, z: 5.2179}
+  m_LocalScale: {x: 2.3189, y: 1, z: 4.3233953}
   m_Children: []
   m_Father: {fileID: 1606140610623738131}
   m_RootOrder: 0
@@ -478,7 +479,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1606140611862874478}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 35a38d6d3a17cf347ab64415bbe58147, type: 3}
   m_Name: 
@@ -513,7 +514,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1606140612007419582}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.54810524, y: -0.050994635, z: 1.6006765}
+  m_LocalPosition: {x: 0.54810524, y: -0.269, z: 1.108}
   m_LocalScale: {x: 1, y: 0.46373, z: 0.46862}
   m_Children: []
   m_Father: {fileID: 1606140610623738131}
