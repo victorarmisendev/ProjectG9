@@ -17,7 +17,6 @@ public class GManager : MonoBehaviour
 
     void Start()
     {
-
         NumPlayers = Gamepad.all.Count;
         pads = Gamepad.all.ToArray();
 

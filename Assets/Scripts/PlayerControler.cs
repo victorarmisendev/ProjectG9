@@ -17,6 +17,7 @@ public class PlayerControler : MonoBehaviour
     PlayerInputActions inputAction;
     // Move
     Vector2 movementInput;
+    public bool KeyboardPruebas = false;
 
     public Gamepad gamepad_current;
     public int PlayerNum;
@@ -76,6 +77,18 @@ public class PlayerControler : MonoBehaviour
     private void FixedUpdate()
     {
         //Input: Keyboard.
+        if(KeyboardPruebas)
+        {
+            float h = movementInput.x;
+            float v = movementInput.y;
+            Vector3 Mov = new Vector3(h, v, 0.0f);
+            Debug.Log(Mov);
+            RB.MovePosition(RB.position + new Vector3(Mov.x, 0.0f, Mov.y) * moveSpeed * Time.fixedDeltaTime); // Movimiento en XY. 
+        } 
+        else
+        {
+            GamePadController();
+        }
         /*
         float h = movementInput.x;
         float v = movementInput.y;
@@ -83,7 +96,7 @@ public class PlayerControler : MonoBehaviour
         Debug.Log(Mov);
         RB.MovePosition(RB.position + new Vector3(Mov.x, 0.0f, Mov.y) * moveSpeed * Time.fixedDeltaTime); // Movimiento en XY. 
         */
-        GamePadController();
+        
     }
 
     public void Stun(int segundos)
