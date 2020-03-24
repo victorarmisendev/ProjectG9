@@ -158,7 +158,7 @@ PrefabInstance:
     - target: {fileID: 709898327615365548, guid: 878277411cdb8044a8cc55ec39e11e6f,
         type: 3}
       propertyPath: m_Name
-      value: Chunk1 Variant
+      value: Chunk2
       objectReference: {fileID: 0}
     - target: {fileID: 4635262145727065893, guid: 878277411cdb8044a8cc55ec39e11e6f,
         type: 3}

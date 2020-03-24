@@ -72,8 +72,10 @@ GameObject:
   - component: {fileID: 8114536080990014113}
   - component: {fileID: 1097286638142831957}
   - component: {fileID: 3439999840893310965}
+  - component: {fileID: 7619741610351111717}
+  - component: {fileID: 3904263653831522831}
   m_Layer: 0
-  m_Name: Forward
+  m_Name: BaseChunk
   m_TagString: ForwardRoad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -157,3 +159,29 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300002, guid: 89235a08fcef74a51b519966bc8ad097, type: 3}
+--- !u!65 &7619741610351111717
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6818440893635723111}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 13, y: 11.142641, z: 2.835205}
+  m_Center: {x: 0, y: 5.5713205, z: -28.582397}
+--- !u!114 &3904263653831522831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6818440893635723111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dac28ed267c02d24f839981127d9623b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawner: {fileID: 0}

@@ -19,13 +19,12 @@ public class MyProceduralMap : MonoBehaviour
 
     Queue<GameObject> myQueue = new Queue<GameObject>();
 
-    List<GameObject> chunkList = new List<GameObject>();
-
     private void Start()
     {
-        InvokeRepeating("spawnChunk", 2.0f, 2.0f);
-        spawnedChunks[0] = currentChunk;
-        chunkList.Add(currentChunk);
+        //InvokeRepeating("spawnChunk", 2.0f, 2.0f);
+        spawnChunk();
+        spawnChunk();
+        spawnChunk();
     }
 
 
@@ -38,7 +37,7 @@ public class MyProceduralMap : MonoBehaviour
 
 
 
-    void spawnChunk()
+    public void spawnChunk()
     {
         spawnPos = currentChunk.transform.position;
         spawnRot = currentChunk.transform.rotation;
@@ -50,7 +49,7 @@ public class MyProceduralMap : MonoBehaviour
         counter++;
 
         myQueue.Enqueue(newChunk);
-        if(counter > 5)
+        if(counter > 7)
         {
             removeChunk();
         }
@@ -72,11 +71,5 @@ public class MyProceduralMap : MonoBehaviour
             spawnChunk();
         }
     }
-
-    //void renewChunks()
-    //{
-    //    Destroy(spawnedChunks[counterRemove]);
-    //    counterRemove++;
-    //}
 
 }

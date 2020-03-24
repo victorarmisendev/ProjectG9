@@ -105,6 +105,8 @@ GameObject:
   - component: {fileID: 2871458779169231978}
   - component: {fileID: 6377026133661459358}
   - component: {fileID: 8716913583878277438}
+  - component: {fileID: 3578041430104454501}
+  - component: {fileID: -6727585863667540416}
   m_Layer: 0
   m_Name: Chunk1
   m_TagString: ForwardRoad
@@ -193,6 +195,32 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300002, guid: 89235a08fcef74a51b519966bc8ad097, type: 3}
+--- !u!65 &3578041430104454501
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 709898327615365548}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 13, y: 13.5384445, z: 1.9547195}
+  m_Center: {x: 0, y: 6.7692223, z: -29.02264}
+--- !u!114 &-6727585863667540416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 709898327615365548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dac28ed267c02d24f839981127d9623b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawner: {fileID: 0}
 --- !u!1 &988779091583909166
 GameObject:
   m_ObjectHideFlags: 0
