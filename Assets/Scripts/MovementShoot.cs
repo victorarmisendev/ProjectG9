@@ -42,7 +42,10 @@ public class MovementShoot : MonoBehaviour
             
         }
     }
- 
+   public void ChangeBar(GunBar a)
+    {
+        bar = a;
+    }
     void Shoot()
     {
         Instantiate(Bullet.transform, BulletSP.transform.position, BulletSP.transform.rotation);

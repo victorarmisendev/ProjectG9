@@ -29,7 +29,7 @@ public class PlayerControler : MonoBehaviour
     //Vidas y respawn
     public int Lives = 3;
     private bool invul = false;
-
+    public Text canvas;
     void Awake()
     {
         inputAction = new PlayerInputActions();
@@ -44,7 +44,7 @@ public class PlayerControler : MonoBehaviour
             Debug.LogError("Gamepad not initialize");
             return;
         }
-        Debug.Log("I am player number " + PlayerNum.ToString() + "with Gamepad name: " + gamepad_current.name);
+        //Debug.Log("I am player number " + PlayerNum.ToString() + "with Gamepad name: " + gamepad_current.name);
     }
     void Update()
     {
@@ -161,6 +161,7 @@ public class PlayerControler : MonoBehaviour
     public void Death()
     {
         Lives--;
+        canvas.text = "Lives " + Lives;
     }
 
     //NO TOCAR ESTAS FUNCIONES, O NO IRA EL INPUT.

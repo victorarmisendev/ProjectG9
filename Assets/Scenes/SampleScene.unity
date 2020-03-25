@@ -456,5 +456,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 798079977694854791, guid: 8737800c8bc5aea40a86ea54d5babe8c,
+        type: 3}
+      propertyPath: Canvas
+      value: 
+      objectReference: {fileID: 4069771663154491884, guid: 95bdd2fe7a805ba4996acac64adb5558,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8737800c8bc5aea40a86ea54d5babe8c, type: 3}
