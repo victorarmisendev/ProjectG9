@@ -95,7 +95,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RB: {fileID: 1606140610623738125}
   moveSpeed: 5
-  KeyboardPruebas: 1
+  KeyboardPruebas: 0
   PlayerNum: 0
   canmove: 1
   Lives: 3
