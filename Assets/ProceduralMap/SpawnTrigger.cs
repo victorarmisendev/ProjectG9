@@ -6,6 +6,7 @@ public class SpawnTrigger : MonoBehaviour
 {
 
     public GameObject spawner;
+    private bool can = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,11 +21,11 @@ public class SpawnTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Base")
+        if(other.gameObject.tag == "Base"&&can)
         {
             spawner.GetComponent<MyProceduralMap>().spawnChunk();
             Destroy(gameObject.GetComponent<BoxCollider>());
-
+            can = false;
             
         }
     }

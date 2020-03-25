@@ -25,6 +25,8 @@ public class MyProceduralMap : MonoBehaviour
         spawnChunk();
         spawnChunk();
         spawnChunk();
+        spawnChunk();
+        spawnChunk();
     }
 
 
@@ -49,7 +51,7 @@ public class MyProceduralMap : MonoBehaviour
         counter++;
 
         myQueue.Enqueue(newChunk);
-        if(counter > 7)
+        if(counter > 14)
         {
             removeChunk();
         }
