@@ -9,6 +9,10 @@ public class MovementShoot : MonoBehaviour
     public GameObject Bullet;
     public GameObject BulletSP;
     public Vector3 g;
+    public bool Canshoot = true;
+    private float CD = 4.0f;
+    private float timeinCD = 0;
+    public GunBar bar;
 
     // Start is called before the first frame update
     void Start()
@@ -31,14 +35,36 @@ public class MovementShoot : MonoBehaviour
             targetRotation.z = 0;
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 7f * Time.deltaTime);
         }
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0)&&Canshoot)
         {
+            bar.setValue(0);
             Shoot();
+            
         }
     }
  
     void Shoot()
     {
         Instantiate(Bullet.transform, BulletSP.transform.position, BulletSP.transform.rotation);
+        Canshoot = false;
+        StartCoroutine(Cooldown());
+    }
+    IEnumerator Cooldown()
+    {
+        yield return new WaitForSeconds(1);
+        timeinCD++;
+        if(timeinCD<4)
+        {
+            bar.setValue(timeinCD);
+            StartCoroutine(Cooldown());
+           
+        }
+        else
+        {
+            bar.setValue(timeinCD);
+            Canshoot = true;
+            timeinCD = 0;
+        }
+        
     }
 }
