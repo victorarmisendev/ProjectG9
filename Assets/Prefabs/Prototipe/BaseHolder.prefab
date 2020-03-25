@@ -99,6 +99,9 @@ MonoBehaviour:
   PlayerNum: 0
   canmove: 1
   Lives: 3
+  CameraKill: {fileID: 0}
+  respawnX: 0
+  invulnerable: 0
   canvas: {fileID: 0}
 --- !u!1 &1606140610833872300
 GameObject:
@@ -396,7 +399,7 @@ GameObject:
   - component: {fileID: 1606140611862874475}
   - component: {fileID: 171109434}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: "BaseCa\xF1on"
   m_TagString: Base
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -599,7 +602,7 @@ BoxCollider:
   m_GameObject: {fileID: 1606140612007419582}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}

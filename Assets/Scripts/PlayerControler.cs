@@ -30,8 +30,10 @@ public class PlayerControler : MonoBehaviour
     //Vidas y respawn
     public int Lives = 3;
     private bool invul = false;
-
+    public GameObject CameraKill;
+    public float respawnX;
     GameObject[] otherCars;
+    public bool invulnerable = false;
 
     public Text canvas;
     void Awake()
@@ -69,7 +71,7 @@ public class PlayerControler : MonoBehaviour
             }
 
             //Acelerar con el de RT. 
-            if (gamepad_current.rightTrigger.isPressed)
+            if (gamepad_current.leftTrigger.isPressed)
             {
                 RB.MovePosition(RB.position + transform.forward * moveSpeed * Time.fixedDeltaTime);
             }
@@ -141,6 +143,7 @@ public class PlayerControler : MonoBehaviour
     public void Stun(float segundos)
     {
         canmove = false;
+        Debug.Log("hey");
         StartCoroutine(stun(segundos));
     }
     IEnumerator stun(float s)
@@ -156,14 +159,16 @@ public class PlayerControler : MonoBehaviour
 
             moveSpeed = other.gameObject.GetComponent<Alquitran>().slow;
         }
+        else if (other.tag == "End")
+        {
+            Death();
+        }
         else if(other.gameObject.GetComponent<PEM>() != null)
         {
             Stun(other.gameObject.GetComponent<PEM>().stundur);
         }
-        else if(other.tag=="End")
-        {
-            Death();
-        }
+       
+
     }
     private void OnTriggerExit(Collider other)
     {
@@ -188,7 +193,7 @@ public class PlayerControler : MonoBehaviour
     IEnumerator SlowExtraTime(float duration)
     {
         yield return new WaitForSeconds(duration);
-        moveSpeed = 5.0f;
+        moveSpeed = 15.0f;
     }
     public void ChangeSpeed(float _newSpeed)
     {
@@ -196,10 +201,43 @@ public class PlayerControler : MonoBehaviour
     }
     public void Death()
     {
-        Lives--;
-        Debug.Log(Lives);
-        canvas.text = "Lives " + Lives;
-        gameObject.transform.position = new Vector3(0, 9.33f, 0);
+        if (!invulnerable)
+        {
+            Lives--;
+            Debug.Log(Lives);
+            canvas.text = "Lives " + Lives;
+            float x = 0;
+            ChangeSpeed(15);
+            switch (respawnX)
+            {
+                case 0:
+                    x = -12;
+                    break;
+                case 1:
+                    x = -2;
+                    break;
+                case 2:
+                    x = 2;
+                    break;
+                case 3:
+                    x = 12;
+                    break;
+                default:
+                    break;
+            }
+            gameObject.transform.position = new Vector3(x, 1, CameraKill.transform.position.z + 15);
+            invul = true;
+            /*if(Lives<=0)
+            {
+                Destroy(gameObject);
+            }*/
+            StartCoroutine(InvulCD());
+        }
+    }
+    IEnumerator InvulCD()
+    {
+        yield return new WaitForSeconds(3);
+        invul = false;
     }
 
     //NO TOCAR ESTAS FUNCIONES, O NO IRA EL INPUT.

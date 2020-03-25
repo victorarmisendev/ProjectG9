@@ -11,13 +11,35 @@ public class GManager : MonoBehaviour
     public Gamepad[] pads;
     public List<GameObject> players = new List<GameObject>();
     public GameObject Canvas;
-       
+    public GameObject CameraKill;
     Vector3 RandomPosCar()
     {
         //Cambiar valores segun la pista. 
         return new Vector3(1, 10.0f, Random.Range(-15, 15));
     }
+    Vector3 PosCar(int i)
+    {
+        float x=0;
+        switch(i)
+        {
+            case 0:
+                x = -12;
+                break;
+            case 1:
+                x = -2;
+                break;
+            case 2:
+                x = 2;
+                break;
+            case 3:
+                x = 12;
+                break;
+            default:
+                break;
+        }
+        return new Vector3(x,1, CameraKill.transform.position.z + 15);
 
+    }
     void Start()
     {       
         NumPlayers = Gamepad.all.Count;
@@ -30,9 +52,12 @@ public class GManager : MonoBehaviour
         //Create and Spawn players in random position and assign pads. 
         for (int i = 0; i < NumPlayers; i++)
         {
-            GameObject player = (GameObject)Instantiate(playerTypes[Random.Range(0, playerTypes.Length)], RandomPosCar(), Quaternion.identity);
+            GameObject player = (GameObject)Instantiate(playerTypes[Random.Range(0, playerTypes.Length)], PosCar(i), Quaternion.identity);
+     
             player.GetComponent<PlayerControler>().gamepad_current = pads[i];
             player.GetComponent<PlayerControler>().PlayerNum = i + 1;
+            player.GetComponent<PlayerControler>().CameraKill = CameraKill;
+            player.GetComponent<PlayerControler>().respawnX = i;
             switch (i)
             {
                 case 0:
@@ -130,5 +155,9 @@ public class GManager : MonoBehaviour
 
     void Update()
     {
+        /*if(players.Count==1)
+        {
+            Application.Quit();
+        }*/
     }
 }

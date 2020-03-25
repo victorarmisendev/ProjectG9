@@ -39,9 +39,10 @@ public class MovementShoot : MonoBehaviour
         }
     
         //Acelerar con el de RT. 
-        if (transform.parent.gameObject.GetComponent<PlayerControler>().gamepad_current.leftTrigger.isPressed)
+        if (transform.parent.gameObject.GetComponent<PlayerControler>().gamepad_current.rightTrigger.isPressed && Canshoot)
         {
-            //Shoot
+            bar.setValue(0);
+            Shoot();
         }
 
         //RB.rotation = new Quaternion(0.0f, RB.rotation.y, 0.0f, 1.0f);

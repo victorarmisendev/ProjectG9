@@ -22,7 +22,7 @@ public class PEM : MonoBehaviour
     {
         if (CanMove)
         {
-            transform.Translate(Vector3.forward * Time.deltaTime * 7.0f);
+            transform.Translate(Vector3.forward * Time.deltaTime * 20.0f);
         }
     }
     private void OnCollisionEnter(Collision collision)
@@ -32,6 +32,14 @@ public class PEM : MonoBehaviour
 
             collision.gameObject.GetComponent<PlayerControler>().Stun(stundur);
 
+        }
+        else if(collision.gameObject.GetComponentInParent<PlayerControler>() != null)
+        {
+            collision.gameObject.GetComponentInParent<PlayerControler>().Stun(stundur);
+        }
+        else
+        {
+            Debug.Log(collision.gameObject.name);
         }
         Destroy(gameObject);
     }
