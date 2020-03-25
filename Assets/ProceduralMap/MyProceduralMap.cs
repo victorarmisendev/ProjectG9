@@ -31,7 +31,7 @@ public class MyProceduralMap : MonoBehaviour
 
     GameObject pickChunk()
     {
-            int rand = Random.Range(0, 4);
+            int rand = Random.Range(0, 5);
             return chunks[rand];
     }
 
