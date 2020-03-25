@@ -5,7 +5,6 @@ using UnityEngine;
 public class MovementShoot : MonoBehaviour
 {
 
-
     public GameObject Bullet;
     public GameObject BulletSP;
     public Vector3 g;
@@ -13,34 +12,55 @@ public class MovementShoot : MonoBehaviour
     private float CD = 4.0f;
     private float timeinCD = 0;
     public GunBar bar;
+    private Rigidbody RB;
 
-    // Start is called before the first frame update
     void Start()
     {
-        
+        RB = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         Plane PlayerPlane = new Plane(Vector3.up, transform.position);
         Ray ray = UnityEngine.Camera.main.ScreenPointToRay(Input.mousePosition);
         float hitdist = 0.0f;
         g = BulletSP.transform.position;
-        if(PlayerPlane.Raycast(ray, out hitdist))
+
+        //Calculate Rotation. 
+        Vector2 gp = transform.parent.gameObject.GetComponent<PlayerControler>().gamepad_current.rightStick.ReadValue();
+
+        if (gp.x > 0.0f)
         {
-            Vector3 TargetPoint = ray.GetPoint(hitdist);
-            Quaternion targetRotation = Quaternion.LookRotation(TargetPoint - transform.position);
-            targetRotation.x = 0;
-            targetRotation.z = 0;
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 7f * Time.deltaTime);
+            RB.MoveRotation(RB.rotation * Quaternion.Euler(0.0f, 100.0f * Time.fixedDeltaTime, 0.0f));
         }
-        if(Input.GetMouseButtonDown(0)&&Canshoot)
+        if (gp.x < 0.0f)
         {
-            bar.setValue(0);
-            Shoot();
-            
+            RB.MoveRotation(RB.rotation * Quaternion.Euler(0.0f, -100.0f * Time.fixedDeltaTime, 0.0f));       
         }
+    
+        //Acelerar con el de RT. 
+        if (transform.parent.gameObject.GetComponent<PlayerControler>().gamepad_current.leftTrigger.isPressed)
+        {
+            //Shoot
+        }
+
+        //RB.rotation = new Quaternion(0.0f, RB.rotation.y, 0.0f, 1.0f);
+
+        //if(PlayerPlane.Raycast(ray, out hitdist))
+        //{
+        //    Vector3 TargetPoint = ray.GetPoint(hitdist);
+        //    Quaternion targetRotation = Quaternion.LookRotation(TargetPoint - transform.position);
+        //    targetRotation.x = 0;
+        //    targetRotation.z = 0;
+
+
+        //    transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 7f * Time.deltaTime);
+        //}
+        //if(Input.GetMouseButtonDown(0)&&Canshoot)
+        //{
+        //    bar.setValue(0);
+        //    Shoot();           
+        //}
     }
    public void ChangeBar(GunBar a)
     {
