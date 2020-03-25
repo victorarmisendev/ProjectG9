@@ -39,6 +39,9 @@ public class GManager : MonoBehaviour
 
     void Update()
     {
-        
+        for (int i = 0; i < NumPlayers; i++)
+        {
+            Debug.Log(players[i].transform.position);
+        }
     }
 }

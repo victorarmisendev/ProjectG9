@@ -203,6 +203,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 300713949257700253, guid: 6cccef5e649e42f409a361279c66ed59,
         type: 3}
+    - target: {fileID: 3904263653831522831, guid: 0ddbdb02a38f315438f5a94475774633,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6128643807041596259, guid: 0ddbdb02a38f315438f5a94475774633,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -262,6 +267,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BaseChunk
+      objectReference: {fileID: 0}
+    - target: {fileID: 6818440893635723111, guid: 0ddbdb02a38f315438f5a94475774633,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ddbdb02a38f315438f5a94475774633, type: 3}
@@ -348,6 +358,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 60, y: 90, z: 0}
+--- !u!1 &1496897244 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6818440893635723111, guid: 0ddbdb02a38f315438f5a94475774633,
+    type: 3}
+  m_PrefabInstance: {fileID: 945348687}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1515235876
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -355,6 +371,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 300713949257700252, guid: 6cccef5e649e42f409a361279c66ed59,
+        type: 3}
+      propertyPath: currentChunk
+      value: 
+      objectReference: {fileID: 1496897244}
     - target: {fileID: 300713949257700253, guid: 6cccef5e649e42f409a361279c66ed59,
         type: 3}
       propertyPath: m_Name
