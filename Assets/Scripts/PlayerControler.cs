@@ -30,6 +30,8 @@ public class PlayerControler : MonoBehaviour
     public int Lives = 3;
     private bool invul = false;
 
+    GameObject[] otherCars;
+
     void Awake()
     {
         inputAction = new PlayerInputActions();
@@ -107,8 +109,30 @@ public class PlayerControler : MonoBehaviour
         Debug.Log(Mov);
         RB.MovePosition(RB.position + new Vector3(Mov.x, 0.0f, Mov.y) * moveSpeed * Time.fixedDeltaTime); // Movimiento en XY. 
         */
+
         
     }
+
+    //public void forceField()
+    //{
+    //    otherCars = GameObject.FindGameObjectsWithTag("Base");
+    //    foreach(GameObject obj in otherCars)
+    //    {
+            
+    //        float dist = Vector3.Distance(obj.transform.position, transform.position);
+    //        if (dist != 0 && dist <= 10)
+    //        {
+                
+    //            obj.GetComponent<PlayerControler>().forceFieldReaction(transform.position);
+    //        }
+    //    }
+    //}
+
+    //public void forceFieldReaction(Vector3 otherPosition)
+    //{
+    //    Vector3 forceDirection = transform.position - otherPosition;
+    //    RB.AddForce(forceDirection * 20);
+    //}
 
     public void Stun(float segundos)
     {
