@@ -26,13 +26,14 @@ public class PlayerControler : MonoBehaviour
     public bool canmove = true;
     GameObject a = null;
     private int StunDuration = 0;
-
+    
     //Vidas y respawn
     public int Lives = 3;
     private bool invul = false;
-
+    public float respawnX;
+    public GameObject CameraKill;
     GameObject[] otherCars;
-
+    private bool invulnerable = false;
     public Text canvas;
     void Awake()
     {
@@ -192,16 +193,47 @@ public class PlayerControler : MonoBehaviour
     }
     public void ChangeSpeed(float _newSpeed)
     {
-        moveSpeed = _newSpeed;
+        if (!invulnerable)
+        {
+            moveSpeed = _newSpeed;
+        }
     }
     public void Death()
     {
-        Lives--;
-        Debug.Log(Lives);
-        canvas.text = "Lives " + Lives;
-        gameObject.transform.position = new Vector3(0, 9.33f, 0);
+        if (!invulnerable)
+        {
+            Lives--;
+            Debug.Log(Lives);
+            canvas.text = "Lives " + Lives;
+            float x = 0;
+            ChangeSpeed(5);
+            switch (respawnX)
+            {
+                case 0:
+                    x = -15;
+                    break;
+                case 1:
+                    x = -5;
+                    break;
+                case 2:
+                    x = 5;
+                    break;
+                case 3:
+                    x = 15;
+                    break;
+                default:
+                    break;
+            }
+            gameObject.transform.position = new Vector3(x, 1, CameraKill.transform.position.z + 15);
+            invul = true;
+            StartCoroutine(InvulCD());
+        }
     }
-
+    IEnumerator InvulCD()
+    {
+        yield return new WaitForSeconds(2);
+        invul = false;
+    }
     //NO TOCAR ESTAS FUNCIONES, O NO IRA EL INPUT.
     private void OnEnable()
     {
