@@ -9,6 +9,7 @@ TagManager:
   - RightTurn
   - Spawner
   - Base
+  - End
   layers:
   - Default
   - TransparentFX

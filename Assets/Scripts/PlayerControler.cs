@@ -13,6 +13,7 @@ public class PlayerControler : MonoBehaviour
     public float moveSpeed = 4.5f;
     private Vector3 inputDirection;
     private Vector3 movement;
+  
     // InputActions
     PlayerInputActions inputAction;
     // Move
@@ -52,6 +53,8 @@ public class PlayerControler : MonoBehaviour
     void Update()
     {
         //transform.position += new Vector3(0, 0, 0.1f);
+ 
+
     }
     void GamePadController()
     {
@@ -157,6 +160,10 @@ public class PlayerControler : MonoBehaviour
         {
             Stun(other.gameObject.GetComponent<PEM>().stundur);
         }
+        else if(other.tag=="End")
+        {
+            Death();
+        }
     }
     private void OnTriggerExit(Collider other)
     {
@@ -174,6 +181,10 @@ public class PlayerControler : MonoBehaviour
             }
         }
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        
+    }
     IEnumerator SlowExtraTime(float duration)
     {
         yield return new WaitForSeconds(duration);
@@ -186,7 +197,9 @@ public class PlayerControler : MonoBehaviour
     public void Death()
     {
         Lives--;
+        Debug.Log(Lives);
         canvas.text = "Lives " + Lives;
+        gameObject.transform.position = new Vector3(0, 9.33f, 0);
     }
 
     //NO TOCAR ESTAS FUNCIONES, O NO IRA EL INPUT.

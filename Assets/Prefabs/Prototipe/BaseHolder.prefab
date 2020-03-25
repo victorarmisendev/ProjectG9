@@ -95,10 +95,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RB: {fileID: 1606140610623738125}
   moveSpeed: 5
+  myRend: {fileID: 1606140610833872303}
   KeyboardPruebas: 0
   PlayerNum: 0
   canmove: 1
   Lives: 3
+  canvas: {fileID: 0}
 --- !u!1 &1606140610833872300
 GameObject:
   m_ObjectHideFlags: 0
@@ -490,6 +492,8 @@ MonoBehaviour:
   Bullet: {fileID: 8933236516399352429, guid: 9a1a817844852ec478497dc26af1687e, type: 3}
   BulletSP: {fileID: 44719161212837977}
   g: {x: 0, y: 0, z: 0}
+  Canshoot: 1
+  bar: {fileID: 0}
 --- !u!1 &1606140612007419582
 GameObject:
   m_ObjectHideFlags: 0
