@@ -39,12 +39,15 @@ public class PlayerControler : MonoBehaviour
     void Start()
     {
         RB = gameObject.GetComponent<Rigidbody>();
-        if (gamepad_current == null)
+        if (gamepad_current == null && KeyboardPruebas == false)
         {
             Debug.LogError("Gamepad not initialize");
             return;
+        } 
+        else if(gamepad_current != null && KeyboardPruebas == true)
+        {
+            Debug.Log("I am player number " + PlayerNum.ToString() + "with Gamepad name: " + gamepad_current.name);
         }
-        Debug.Log("I am player number " + PlayerNum.ToString() + "with Gamepad name: " + gamepad_current.name);
     }
     void Update()
     {
