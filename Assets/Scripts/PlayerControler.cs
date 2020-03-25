@@ -26,6 +26,10 @@ public class PlayerControler : MonoBehaviour
     GameObject a = null;
     private int StunDuration = 0;
 
+    //Vidas y respawn
+    public int Lives = 3;
+    private bool invul = false;
+
     void Awake()
     {
         inputAction = new PlayerInputActions();
@@ -44,33 +48,36 @@ public class PlayerControler : MonoBehaviour
     }
     void Update()
     {
-        transform.position += new Vector3(0, 0, 0.1f);
+        //transform.position += new Vector3(0, 0, 0.1f);
     }
     void GamePadController()
     {
         //GAMEPAD//////////////
         //var gamepad = Gamepad.current;
-        if (gamepad_current == null)
+        if (canmove)
         {
-            Debug.LogError("Gamepad not detected");
-            return;
-        } 
-       
-        //Acelerar con el de RT. 
-        if (gamepad_current.rightTrigger.isPressed)
-        {
-            RB.MovePosition(RB.position + transform.forward * moveSpeed * Time.fixedDeltaTime);
-        }
+            if (gamepad_current == null)
+            {
+                Debug.LogError("Gamepad not detected");
+                return;
+            }
 
-        Vector2 gp = gamepad_current.leftStick.ReadValue();
+            //Acelerar con el de RT. 
+            if (gamepad_current.rightTrigger.isPressed)
+            {
+                RB.MovePosition(RB.position + transform.forward * moveSpeed * Time.fixedDeltaTime);
+            }
 
-        if (gp.x > 0.0f)
-        {
-            RB.MoveRotation(RB.rotation * Quaternion.Euler(0.0f, 100.0f * Time.fixedDeltaTime, 0.0f));
-        }
-        if (gp.x < 0.0f)
-        {
-            RB.MoveRotation(RB.rotation * Quaternion.Euler(0.0f, -100.0f * Time.fixedDeltaTime, 0.0f));
+            Vector2 gp = gamepad_current.leftStick.ReadValue();
+
+            if (gp.x > 0.0f)
+            {
+                RB.MoveRotation(RB.rotation * Quaternion.Euler(0.0f, 100.0f * Time.fixedDeltaTime, 0.0f));
+            }
+            if (gp.x < 0.0f)
+            {
+                RB.MoveRotation(RB.rotation * Quaternion.Euler(0.0f, -100.0f * Time.fixedDeltaTime, 0.0f));
+            }
         }
         ////////////////////
     }
@@ -78,17 +85,20 @@ public class PlayerControler : MonoBehaviour
     private void FixedUpdate()
     {
         //Input: Keyboard.
-        if(KeyboardPruebas)
+        if (canmove)
         {
-            float h = movementInput.x;
-            float v = movementInput.y;
-            Vector3 Mov = new Vector3(h, v, 0.0f);
-            Debug.Log(Mov);
-            RB.MovePosition(RB.position + new Vector3(Mov.x, 0.0f, Mov.y) * moveSpeed * Time.fixedDeltaTime); // Movimiento en XY. 
-        } 
-        else
-        {
-            GamePadController();
+            if (KeyboardPruebas)
+            {
+                float h = movementInput.x;
+                float v = movementInput.y;
+                Vector3 Mov = new Vector3(h, v, 0.0f);
+                Debug.Log(Mov);
+                RB.MovePosition(RB.position + new Vector3(Mov.x, 0.0f, Mov.y) * moveSpeed * Time.fixedDeltaTime); // Movimiento en XY. 
+            }
+            else
+            {
+                GamePadController();
+            }
         }
         /*
         float h = movementInput.x;
@@ -100,27 +110,27 @@ public class PlayerControler : MonoBehaviour
         
     }
 
-    public void Stun(int segundos)
+    public void Stun(float segundos)
     {
         canmove = false;
         StartCoroutine(stun(segundos));
     }
     IEnumerator stun(float s)
     {
-        yield return new WaitForSeconds(3);//VER COMO HACER SIN HARDCODE
+        yield return new WaitForSeconds(s);//VER COMO HACER SIN HARDCODE
         canmove = true;
     }
-    public void DMG(float dmg)
-    {
 
-    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.GetComponent<Alquitran>() != null)
         {
 
-            a = other.gameObject;
             moveSpeed = other.gameObject.GetComponent<Alquitran>().slow;
+        }
+        else if(other.gameObject.GetComponent<PEM>() != null)
+        {
+            Stun(other.gameObject.GetComponent<PEM>().stundur);
         }
     }
     private void OnTriggerExit(Collider other)
@@ -128,12 +138,29 @@ public class PlayerControler : MonoBehaviour
         if (other.gameObject.GetComponent<Alquitran>() != null)
         {
 
-            moveSpeed = 5.0f;
+
+            if (other.gameObject.GetComponent<Alquitran>().IsPinchos)
+            {
+                StartCoroutine(SlowExtraTime(other.gameObject.GetComponent<Alquitran>().slowDuration));
+            }
+            else
+            {
+                moveSpeed = 5.0f;
+            }
         }
+    }
+    IEnumerator SlowExtraTime(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        moveSpeed = 5.0f;
     }
     public void ChangeSpeed(float _newSpeed)
     {
         moveSpeed = _newSpeed;
+    }
+    public void Death()
+    {
+        Lives--;
     }
 
     //NO TOCAR ESTAS FUNCIONES, O NO IRA EL INPUT.

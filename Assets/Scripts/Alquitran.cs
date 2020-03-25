@@ -6,10 +6,15 @@ public class Alquitran : MonoBehaviour
 {
     public float slow;
     GameObject a;
+    public float slowDuration;
+    public bool IsPinchos;
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(gameObject, 7);
+        if (!IsPinchos)
+        {
+            Destroy(gameObject, 7);
+        }
     }
 
 }

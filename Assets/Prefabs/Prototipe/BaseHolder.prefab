@@ -98,6 +98,7 @@ MonoBehaviour:
   KeyboardPruebas: 1
   PlayerNum: 0
   canmove: 1
+  Lives: 3
 --- !u!1 &1606140610833872300
 GameObject:
   m_ObjectHideFlags: 0
@@ -481,12 +482,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1606140611862874478}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 35a38d6d3a17cf347ab64415bbe58147, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bullet: {fileID: 627368519756807136, guid: 8f549c20738c9b1488ded11e52f35cd3, type: 3}
+  Bullet: {fileID: 8933236516399352429, guid: 9a1a817844852ec478497dc26af1687e, type: 3}
   BulletSP: {fileID: 44719161212837977}
   g: {x: 0, y: 0, z: 0}
 --- !u!1 &1606140612007419582

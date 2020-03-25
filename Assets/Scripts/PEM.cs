@@ -6,17 +6,24 @@ public class PEM : MonoBehaviour
 {
     public float Speed;
     public float dmg;
-    public int stundur;
+    public float stundur;
+    public bool CanMove;
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(gameObject, 7);
+        if (CanMove)
+        {
+            Destroy(gameObject, 7);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.forward * Time.deltaTime * 7.0f);
+        if (CanMove)
+        {
+            transform.Translate(Vector3.forward * Time.deltaTime * 7.0f);
+        }
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -24,7 +31,7 @@ public class PEM : MonoBehaviour
         {
 
             collision.gameObject.GetComponent<PlayerControler>().Stun(stundur);
-            collision.gameObject.GetComponent<PlayerControler>().DMG(dmg);
+
         }
         Destroy(gameObject);
     }
