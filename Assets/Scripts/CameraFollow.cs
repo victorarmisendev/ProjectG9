@@ -12,10 +12,13 @@ public class CameraFollow : MonoBehaviour
     {
         //players = GameObject.FindGameObjectsWithTag("Base");
     }
-    void LateUpdate()
+    void FixedUpdate() 
+    //Para evitar la vibración de los objetos mientras la camara se mueve: BUG raro. 
+    //Si utilizamos FixedUpdate para mover los personajes, usar lo mismo para el movimiento de la camara. IDK WHY. 
+    //Almenos reducimos esta vibracion bastante. 
     {
         //SetPos();
-        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + speed * Time.deltaTime);
+        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + speed * Time.fixedDeltaTime);
     }
     void SetPos()
     {
@@ -29,6 +32,4 @@ public class CameraFollow : MonoBehaviour
         //Vector3 newPos = new Vector3(posFrame.x, 31, -24);
         //transform.position = Vector3.SmoothDamp(transform.position, newPos, ref velocity, smoothTime);
     }
-
-
 }

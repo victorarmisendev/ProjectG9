@@ -10,7 +10,7 @@ public class PlayerControler : MonoBehaviour
     //public Camera mainCamera;
     [Header("Movement")]
     public Rigidbody RB;
-    public float moveSpeed = 4.5f;
+    public float moveSpeed = 4.5f , speed = 0.0f, acceleration = 100.5f , mSpeed = 10.0f;
     private Vector3 inputDirection;
     private Vector3 movement;
   
@@ -36,6 +36,9 @@ public class PlayerControler : MonoBehaviour
     public bool invulnerable = false;
 
     public Text canvas;
+
+    private bool forward = false;
+
     void Awake()
     {
         inputAction = new PlayerInputActions();
@@ -69,25 +72,39 @@ public class PlayerControler : MonoBehaviour
                 Debug.LogError("Gamepad not detected");
                 return;
             }
-
-            //Acelerar con el de RT. 
-            if (gamepad_current.leftTrigger.isPressed)
+            if(speed >= 0.0f)
             {
-                RB.MovePosition(RB.position + transform.forward * moveSpeed * Time.fixedDeltaTime);
+                forward = true;
+            } 
+            else 
+            {
+                forward = false;
             }
-
+            //Translation and acceleration. 
+            if (gamepad_current.rightTrigger.isPressed && forward)
+            {
+                speed = speed + acceleration * Time.fixedDeltaTime;
+                
+            }
+            else if (!gamepad_current.rightTrigger.isPressed)
+            {
+                speed = speed - acceleration * Time.fixedDeltaTime;                
+            }
+            speed = Mathf.Clamp(speed, 0.0f, 0.2f);
+            Debug.Log("Speed is: " + speed); //Debug.Log funcionan inestables en fixedUpdate
+            RB.MovePosition(RB.position + transform.forward * speed * Time.fixedDeltaTime * 80.5f);
+            //Rotation car.
             Vector2 gp = gamepad_current.leftStick.ReadValue();
 
             if (gp.x > 0.0f)
             {
-                RB.MoveRotation(RB.rotation * Quaternion.Euler(0.0f, 100.0f * Time.fixedDeltaTime, 0.0f));
+                RB.MoveRotation(RB.rotation * Quaternion.Euler(0.0f, 200.0f * Time.fixedDeltaTime, 0.0f));
             }
             if (gp.x < 0.0f)
             {
-                RB.MoveRotation(RB.rotation * Quaternion.Euler(0.0f, -100.0f * Time.fixedDeltaTime, 0.0f));
+                RB.MoveRotation(RB.rotation * Quaternion.Euler(0.0f, -200.0f * Time.fixedDeltaTime, 0.0f));
             }
         }
-        ////////////////////
     }
 
     private void FixedUpdate()
@@ -116,29 +133,29 @@ public class PlayerControler : MonoBehaviour
         RB.MovePosition(RB.position + new Vector3(Mov.x, 0.0f, Mov.y) * moveSpeed * Time.fixedDeltaTime); // Movimiento en XY. 
         */
 
-        
-    }
 
-    //public void forceField()
-    //{
-    //    otherCars = GameObject.FindGameObjectsWithTag("Base");
-    //    foreach(GameObject obj in otherCars)
-    //    {
-            
-    //        float dist = Vector3.Distance(obj.transform.position, transform.position);
-    //        if (dist != 0 && dist <= 10)
-    //        {
-                
-    //            obj.GetComponent<PlayerControler>().forceFieldReaction(transform.position);
-    //        }
-    //    }
-    //}
+        }
 
-    //public void forceFieldReaction(Vector3 otherPosition)
-    //{
-    //    Vector3 forceDirection = transform.position - otherPosition;
-    //    RB.AddForce(forceDirection * 20);
-    //}
+        //public void forceField()
+        //{
+        //    otherCars = GameObject.FindGameObjectsWithTag("Base");
+        //    foreach(GameObject obj in otherCars)
+        //    {
+
+        //        float dist = Vector3.Distance(obj.transform.position, transform.position);
+        //        if (dist != 0 && dist <= 10)
+        //        {
+
+        //            obj.GetComponent<PlayerControler>().forceFieldReaction(transform.position);
+        //        }
+        //    }
+        //}
+
+        //public void forceFieldReaction(Vector3 otherPosition)
+        //{
+        //    Vector3 forceDirection = transform.position - otherPosition;
+        //    RB.AddForce(forceDirection * 20);
+        //}
 
     public void Stun(float segundos)
     {
@@ -253,147 +270,4 @@ public class PlayerControler : MonoBehaviour
     //////////////
 }
 
-/*
- 
-    using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.InputSystem;
 
-public class PlayerControler : MonoBehaviour
-{
-    public float moveSpeed = 5.0f;
-    public Rigidbody RB;
-    Vector3 Mov;
-    public bool canmove = true;
-    GameObject a = null;
-    private int StunDuration=0;
-
-
-     public void Stun(int segundos)
-    {
-        canmove = false;
-        StartCoroutine(stun(segundos));
-    }
-    IEnumerator stun(float s)
-    {
-        yield return new WaitForSeconds(3);//VER COMO HACER SIN HARDCODE
-        canmove = true;
-    }
-    public void DMG(float dmg)
-    {
-
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.GetComponent<Alquitran>() != null)
-        {
-
-            a = other.gameObject;
-            moveSpeed = other.gameObject.GetComponent<Alquitran>().slow;
-        }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.GetComponent<Alquitran>() != null)
-        {
-
-            moveSpeed =5.0f;
-        }
-    }
-    public void ChangeSpeed(float _newSpeed)
-    {
-        moveSpeed = _newSpeed;
-    }
-    */
-
-
-/*
- using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.InputSystem;
-
-public class Movement : MonoBehaviour
-{
-    [Header("Camera")]
-    public Camera mainCamera;
-    [Header("Movement")]
-    public Rigidbody RB;
-    public float moveSpeed = 4.5f;
-    private Vector3 inputDirection;
-    private Vector3 movement;
-    // InputActions
-    PlayerInputActions inputAction;
-    // Move
-    Vector2 movementInput;
-
-    void Awake()
-    {
-        inputAction = new PlayerInputActions();
-        inputAction.PlayerControls.Move.performed += ctx =>
-        movementInput = ctx.ReadValue<Vector2>();
-    }
-    void Start()
-    {     
-        RB = gameObject.GetComponent<Rigidbody>();
-    }
-    void Update()
-    {
-    }
-    void Gamepad()
-    {
-        ///GAMEPA//////////////
-        //var gamepad = Gamepad.current;
-        //if (gamepad == null)
-        //    return;
-
-        ////Acelerar con el de RT. 
-        //if (gamepad.rightTrigger.isPressed)
-        //{
-        //    RB.MovePosition(RB.position + transform.forward * moveSpeed * Time.fixedDeltaTime);
-        //}
-
-        //Vector2 gp = gamepad.leftStick.ReadValue();
-
-        //if(gp.x > 0.0f)
-        //{
-        //    RB.MoveRotation(RB.rotation * Quaternion.Euler(0.0f , 100.0f * Time.fixedDeltaTime, 0.0f));
-        //}
-        //if (gp.x < 0.0f)
-        //{
-        //    RB.MoveRotation(RB.rotation * Quaternion.Euler(0.0f, -100.0f * Time.fixedDeltaTime, 0.0f));
-        //}
-        ////////////////////
-    }
-    private void FixedUpdate()
-    {
-        float h = movementInput.x;
-        float v = movementInput.y;
-
-        Vector3 Mov = new Vector3(h, v, RB.position.z);
-        Debug.Log(Mov);
-       
-        RB.MovePosition(RB.position + Mov * moveSpeed * Time.fixedDeltaTime); // Movimiento en XY.       
-
-    }
-    public void Stun(int segundos)
-    {
-    }
-    public void DMG (float dmg)
-    {
-    }
-    //NO TOCAR ESTAS FUNCIONES, O NO IRA EL INPUT.
-    private void OnEnable()
-    {
-        inputAction.Enable();
-    }
-
-    private void OnDisable()
-    {
-        inputAction.Disable();
-    }
-    //////////////
-}
-*/
