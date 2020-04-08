@@ -1,20 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class GAMEMANGERPRUEBA : MonoBehaviour
 {
+    //public GameObject[] playerTypes;
+    private int NumPlayers;
+    public Gamepad[] pad;
+    Gamepad mando;
+    //public List<GameObject> players = new List<GameObject>();
+    public GameObject player;
 
+    private void Start()
+    {
+        NumPlayers = Gamepad.all.Count;
+        pad = Gamepad.all.ToArray();
 
-     //Create and Spawn players in random position and assign pads. 
-        for (int i = 0; i<NumPlayers; i++)
-        {
-            GameObject player = (GameObject)Instantiate(playerTypes[Random.Range(0, playerTypes.Length)], PosCar(i), Quaternion.identity);
+        mando = pad[0];
 
-            player.GetComponent<PlayerControler>().gamepad_current = pads[i];
-            player.GetComponent<PlayerControler>().PlayerNum = i + 1;
-            player.GetComponent<PlayerControler>().CameraKill = CameraKill;
-            player.GetComponent<PlayerControler>().respawnX = i;
-        }
+        player.GetComponent<PlayerControler>().PlayerNum = 1;
+        player.GetComponent<PlayerControler>().name = "None";
+        player.GetComponent<PlayerControler>().gamepad_current = mando;
+    }
 
 }

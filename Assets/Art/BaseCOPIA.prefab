@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 1606140610623738125}
   - component: {fileID: 2489238619733665490}
   m_Layer: 0
-  m_Name: BaseHolder
+  m_Name: BaseCOPIA
   m_TagString: Base
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,7 +79,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 84
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!114 &2489238619733665490
 MonoBehaviour:
