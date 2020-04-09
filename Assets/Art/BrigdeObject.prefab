@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Lava
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &3422877684221920613
 Transform:
@@ -38,11 +38,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3422877684221920613}
     m_Modifications:
-    - target: {fileID: 298130019704232312, guid: 070760a86bf04004e98df9097e6bea90,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: a179d9743e301b442a167a3ce1cc832f, type: 2}
     - target: {fileID: 624732714658281482, guid: 070760a86bf04004e98df9097e6bea90,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -67,11 +62,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: brigdge (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 679798129781702389, guid: 070760a86bf04004e98df9097e6bea90,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 1424046789711459464, guid: 070760a86bf04004e98df9097e6bea90,
         type: 3}
@@ -142,26 +132,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: a179d9743e301b442a167a3ce1cc832f, type: 2}
+      objectReference: {fileID: 2100000, guid: 746df4373ce371346a4d9ea962160c44, type: 2}
     - target: {fileID: 6410681209212728773, guid: 070760a86bf04004e98df9097e6bea90,
         type: 3}
       propertyPath: m_TagString
       value: Lava
       objectReference: {fileID: 0}
-    - target: {fileID: 6410681209212728773, guid: 070760a86bf04004e98df9097e6bea90,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
     - target: {fileID: 8082513512375375035, guid: 070760a86bf04004e98df9097e6bea90,
         type: 3}
       propertyPath: m_TagString
       value: Puente
-      objectReference: {fileID: 0}
-    - target: {fileID: 8082513512375375035, guid: 070760a86bf04004e98df9097e6bea90,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 070760a86bf04004e98df9097e6bea90, type: 3}
