@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 1606140610623738131}
   - component: {fileID: 1606140610623738125}
   - component: {fileID: 2489238619733665490}
+  - component: {fileID: 1627469690}
   m_Layer: 0
   m_Name: BaseCOPIA
   m_TagString: Base
@@ -106,6 +107,18 @@ MonoBehaviour:
   respawnX: 0
   invulnerable: 0
   canvas: {fileID: 0}
+--- !u!114 &1627469690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1606140610623738130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56595aadfcd9be54bb4d20569bbec4ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1606140610833872300
 GameObject:
   m_ObjectHideFlags: 0
@@ -407,7 +420,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1606140611862874479
 Transform:
   m_ObjectHideFlags: 0

@@ -21,18 +21,20 @@ public class Dead : MonoBehaviour
 
             List<GameObject> PUENTES = new List<GameObject>();
 
-            foreach(var b in puentes)
+            foreach (var BRID in puentes)
             {
-                if(b.transform.position.z > position_player.z)
+                if (BRID.GetComponent<Renderer>().isVisible)
                 {
-                    PUENTES.Add(b);
+                    PUENTES.Add(BRID);
                 }
             }
 
-            GameObject bridge = PUENTES[Random.Range(0, PUENTES.Capacity)];
-            Transform bTransform = bridge.transform;
+            GameObject[] bridges = PUENTES.ToArray(); //Working wtf!
+            int RAN = Random.Range(0, bridges.Length);
 
-            gameObject.transform.position = new Vector3(bTransform.position.x, 2.0f, bTransform.position.z);
+            Transform bTransform = bridges[RAN].transform;
+
+            gameObject.transform.position = new Vector3(bTransform.position.x, 5.0f, bTransform.position.z);
         }
 
     }
