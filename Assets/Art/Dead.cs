@@ -20,7 +20,7 @@ public class Dead : MonoBehaviour
             //con un rango min and max. 
 
             List<GameObject> PUENTES = new List<GameObject>();
-
+            
             foreach (var BRID in puentes)
             {
                 if (BRID.GetComponent<Renderer>().isVisible)

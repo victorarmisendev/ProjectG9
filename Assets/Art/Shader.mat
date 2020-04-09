@@ -98,6 +98,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_3EAFCC31_Out_0:
+        m_Texture: {fileID: 2800000, guid: 97e35bbe1fe45ee45b610d60d22e115a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _ThicknessMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -107,7 +111,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_E8181C1C: 0.0003
+    - Vector1_E8181C1C: 0.0001
     - _AORemapMax: 1
     - _AORemapMin: 0
     - _ATDistance: 1
