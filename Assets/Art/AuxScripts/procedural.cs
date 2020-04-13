@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class procedural : MonoBehaviour
 {
-
     public GameObject[] chunks;
     float timer = 2.5f, originalTimer = 0.0f;
     Vector3 currentChunkPos = Vector3.zero;
     public Transform firstChunk;
     public Vector3 offsetZ;
     private int first = 0;
-
 
     void Update()
     {
@@ -28,8 +26,6 @@ public class procedural : MonoBehaviour
         //    originalTimer = 2.5f;
         //}
     }
-
-
     private void Start()
     {
         //The first chunk it is already spawnead in scene. 
