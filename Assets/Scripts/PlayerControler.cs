@@ -98,11 +98,11 @@ public class PlayerControler : MonoBehaviour
 
             if (gp.x > 0.0f)
             {
-                RB.MoveRotation(RB.rotation * Quaternion.Euler(0.0f, 200.0f * Time.fixedDeltaTime, 0.0f));
+                RB.MoveRotation(RB.rotation * Quaternion.Euler(0.0f, 100.0f * Time.fixedDeltaTime, 0.0f));
             }
             if (gp.x < 0.0f)
             {
-                RB.MoveRotation(RB.rotation * Quaternion.Euler(0.0f, -200.0f * Time.fixedDeltaTime, 0.0f));
+                RB.MoveRotation(RB.rotation * Quaternion.Euler(0.0f, -100.0f * Time.fixedDeltaTime, 0.0f));
             }
         }
     }
