@@ -11,6 +11,7 @@ public class GAMEMANGERPRUEBA : MonoBehaviour
     Gamepad mando;
     //public List<GameObject> players = new List<GameObject>();
     public GameObject player;
+    public Transform salida;
 
     private void Start()
     {
@@ -19,9 +20,11 @@ public class GAMEMANGERPRUEBA : MonoBehaviour
 
         mando = pad[0];
 
-        player.GetComponent<PlayerControler>().PlayerNum = 1;
-        player.GetComponent<PlayerControler>().name = "None";
-        player.GetComponent<PlayerControler>().gamepad_current = mando;
+        GameObject p = Instantiate(player, salida.position, player.transform.rotation);
+
+        p.GetComponent<PlayerControler>().PlayerNum = 1;
+        p.GetComponent<PlayerControler>().name = "None";
+        p.GetComponent<PlayerControler>().gamepad_current = mando;
     }
 
 }
