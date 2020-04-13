@@ -6,7 +6,7 @@ public class procedural : MonoBehaviour
 {
 
     public GameObject[] chunks;
-    float timer = 0.5f, originalTimer = 0.0f;
+    float timer = 2.5f, originalTimer = 0.0f;
     Vector3 currentChunkPos = Vector3.zero;
     public Transform firstChunk;
     public Vector3 offsetZ;
@@ -23,10 +23,10 @@ public class procedural : MonoBehaviour
             timer = originalTimer;
             first++;
         }
-        if(first >= 3)
-        {
-            originalTimer = 2.5f;
-        }
+        //if(first >= 3)
+        //{
+        //    originalTimer = 2.5f;
+        //}
     }
 
 
@@ -45,7 +45,7 @@ public class procedural : MonoBehaviour
         int ran = Random.Range(0, chunks.Length);
         Vector3 newPos = currentChunkPos + offset;
         GameObject c = Instantiate(chunks[ran], newPos, chunks[ran].transform.rotation);
-        Destroy(c, 12.0f);
+        //Destroy(c, 32.0f); //Los elimina antes idk, DANGER.
         currentChunkPos = newPos;
     }
 
