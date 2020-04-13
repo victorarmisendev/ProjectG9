@@ -10,21 +10,22 @@ public class GAMEMANGERPRUEBA : MonoBehaviour
     public Gamepad[] pad;
     Gamepad mando;
     //public List<GameObject> players = new List<GameObject>();
-    public GameObject player;
-    public Transform salida;
+    public GameObject[] types_player;
+    public Transform[] salidas;
 
     private void Start()
     {
         NumPlayers = Gamepad.all.Count;
         pad = Gamepad.all.ToArray();
 
-        mando = pad[0];
+        for (int i = 0; i < NumPlayers; i++)
+        {
+            GameObject p = Instantiate(types_player[i], salidas[i].position, types_player[i].transform.rotation);
 
-        GameObject p = Instantiate(player, salida.position, player.transform.rotation);
-
-        p.GetComponent<PlayerControler>().PlayerNum = 1;
-        p.GetComponent<PlayerControler>().name = "None";
-        p.GetComponent<PlayerControler>().gamepad_current = mando;
+            p.GetComponent<PlayerControler>().PlayerNum = 1;
+            p.GetComponent<PlayerControler>().name = "Player" + p.GetComponent<PlayerControler>().PlayerNum;
+            p.GetComponent<PlayerControler>().gamepad_current = pad[i];
+        }
     }
 
 }
