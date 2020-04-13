@@ -5,11 +5,12 @@ using UnityEngine;
 public class procedural : MonoBehaviour
 {
     public GameObject[] chunks;
-    float timer = 2.5f, originalTimer = 0.0f;
+    public float timer = 0.1f, originalTimer = 0.0f;
     Vector3 currentChunkPos = Vector3.zero;
     public Transform firstChunk;
     public Vector3 offsetZ;
     private int first = 0;
+    private float normal_spawn = 0.0f;
 
     void Update()
     {
@@ -21,10 +22,10 @@ public class procedural : MonoBehaviour
             timer = originalTimer;
             first++;
         }
-        //if(first >= 3)
-        //{
-        //    originalTimer = 2.5f;
-        //}
+        if (first >= 2)
+        {
+            originalTimer = normal_spawn;
+        }
     }
     private void Start()
     {
@@ -32,8 +33,13 @@ public class procedural : MonoBehaviour
         //Let's spawn the other owns. 
         //OPTIONAL: Depending on the camera velocity. 
         //InvokeRepeating("InvokeChunk",0.1f, 3.0f); //Easy way. 
+        normal_spawn = 40.0f / Camera.main.gameObject.GetComponent<CameraFollow>().speed; 
+        print(timer);
         originalTimer = timer;
         currentChunkPos = firstChunk.position; 
+
+
+
     }
 
     void InvokeChunk(Vector3 offset)

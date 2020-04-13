@@ -18,7 +18,8 @@ public class CameraFollow : MonoBehaviour
     //Almenos reducimos esta vibracion bastante. 
     {
         //SetPos();
-        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + speed * Time.fixedDeltaTime);
+        transform.position = new Vector3(transform.position.x, transform.position.y, 
+            transform.position.z + speed * Time.fixedDeltaTime);
     }
     void SetPos()
     {

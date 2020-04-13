@@ -10,7 +10,7 @@ public class PlayerControler : MonoBehaviour
     //public Camera mainCamera;
     [Header("Movement")]
     public Rigidbody RB;
-    public float moveSpeed = 4.5f , speed = 0.0f, acceleration = 100.5f , mSpeed = 10.0f;
+    public float moveSpeed, speed = 0.0f, acceleration = 100.5f , mSpeed = 10.0f, speedPlayer;
     private Vector3 inputDirection;
     private Vector3 movement;
   
@@ -48,6 +48,8 @@ public class PlayerControler : MonoBehaviour
     void Start()
     {
         RB = gameObject.GetComponent<Rigidbody>();
+        speedPlayer = Camera.main.GetComponent<CameraFollow>().speed + 2;
+        moveSpeed = speedPlayer;
         if (gamepad_current == null)
         {
             Debug.LogError("Gamepad not initialize");
@@ -91,8 +93,8 @@ public class PlayerControler : MonoBehaviour
                 speed = speed - acceleration * Time.fixedDeltaTime;                
             }
             speed = Mathf.Clamp(speed, 0.0f, 0.2f);
-            Debug.Log("Speed is: " + speed); //Debug.Log funcionan inestables en fixedUpdate
-            RB.MovePosition(RB.position + transform.forward * speed * Time.fixedDeltaTime * 80.5f);
+            //Debug.Log("Speed is: " + speed); //Debug.Log funcionan inestables en fixedUpdate
+            RB.MovePosition(RB.position + transform.forward * speed * Time.fixedDeltaTime * (this.speedPlayer*6.5f));
             //Rotation car.
             Vector2 gp = gamepad_current.leftStick.ReadValue();
 
@@ -224,7 +226,7 @@ public class PlayerControler : MonoBehaviour
             Debug.Log(Lives);
             canvas.text = "Lives " + Lives;
             float x = 0;
-            ChangeSpeed(15);
+            ChangeSpeed(speedPlayer);
             switch (respawnX)
             {
                 case 0:

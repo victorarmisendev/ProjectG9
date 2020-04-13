@@ -685,7 +685,7 @@ PrefabInstance:
     - target: {fileID: 4738690670739270338, guid: 9021c512fa8d1124791c8cb24002e910,
         type: 3}
       propertyPath: speed
-      value: 13
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 4738690670739270338, guid: 9021c512fa8d1124791c8cb24002e910,
         type: 3}
@@ -1061,6 +1061,8 @@ MonoBehaviour:
   - {fileID: 5611791492679691551, guid: 965259d608b424147a2a9c8f99c3f4b1, type: 3}
   - {fileID: 982838684740417919, guid: d3afe45a59cbd84489b2d50bc371daeb, type: 3}
   - {fileID: 7599986275179685880, guid: 383976c2f4f8a304795910780ef55295, type: 3}
+  timer: 0.1
+  originalTimer: 0
   firstChunk: {fileID: 7579601352773221753}
   offsetZ: {x: 0, y: 0, z: 84}
 --- !u!4 &1309546801
