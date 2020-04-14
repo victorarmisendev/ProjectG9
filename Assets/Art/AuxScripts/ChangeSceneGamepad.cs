@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class ChangeSceneGamepad : MonoBehaviour
 {
     public Gamepad[] pad;
+    private bool pressedOnce = false;
     void Start()
     {
         pad = Gamepad.all.ToArray();
@@ -14,10 +15,11 @@ public class ChangeSceneGamepad : MonoBehaviour
 
     void Update()
     {
-        if(pad[0].aButton.isPressed)
+        if(pad[0].aButton.isPressed && pressedOnce == false)
         {
             //Change scene.
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            pressedOnce = true;
         }
     }
 }

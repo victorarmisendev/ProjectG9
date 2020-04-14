@@ -12,6 +12,11 @@ public class SelectGameModes : MonoBehaviour
     private bool detect = false;
     private float state = 1;
     public Image[] images_modes;
+    //Inestable AButton: ERROR. Pressed long time 
+    //in scene MenuPrincipal makes pass double scene not in purpose. 
+    //Timer to correct this. Working. 
+    private float timer = 1.0f;
+    private bool ACTIVATE_INPUT = false;
     void Start()
     {
         pad = Gamepad.all.ToArray();
@@ -22,7 +27,11 @@ public class SelectGameModes : MonoBehaviour
         //Change between these 3 states and change color images.. 
         //to give feedback on selection player. 
         //Move the joy left or right to select the game mode and press A to enter. 
-        Vector2 xy = pad[0].leftStick.ReadValue();
+        timer -= Time.deltaTime;
+        if(timer <= 0.0f)
+        {
+            ACTIVATE_INPUT = true;
+        }
         if (pad[0].leftStick.right.isPressed && detect == false)
         {
             Debug.Log("Right");
@@ -61,7 +70,7 @@ public class SelectGameModes : MonoBehaviour
             images_modes[1].GetComponent<Image>().color = Color.grey;
             images_modes[2].GetComponent<Image>().color = Color.green;
         }
-        if(pad[0].aButton.isPressed)
+        if(pad[0].aButton.isPressed && ACTIVATE_INPUT == true)
         {
             switch(state)
             {
