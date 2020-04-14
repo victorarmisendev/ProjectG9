@@ -94,7 +94,7 @@ public class PlayerControler : MonoBehaviour
             }
             speed = Mathf.Clamp(speed, 0.0f, 0.2f);
             //Debug.Log("Speed is: " + speed); //Debug.Log funcionan inestables en fixedUpdate
-            RB.MovePosition(RB.position + transform.forward * speed * Time.fixedDeltaTime * (this.speedPlayer*6.5f));
+            RB.MovePosition(RB.position + transform.forward * speed * Time.fixedDeltaTime * (this.speedPlayer*5.5f));
             //Rotation car.
             Vector2 gp = gamepad_current.leftStick.ReadValue();
 
