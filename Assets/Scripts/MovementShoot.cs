@@ -39,7 +39,7 @@ public class MovementShoot : MonoBehaviour
         }
     
         //Acelerar con el de RT. 
-        if (transform.parent.gameObject.GetComponent<PlayerControler>().gamepad_current.rightTrigger.isPressed && Canshoot)
+        if (transform.parent.gameObject.GetComponent<PlayerControler>().gamepad_current.leftTrigger.isPressed && Canshoot)
         {
             bar.setValue(0);
             Shoot();
@@ -57,11 +57,11 @@ public class MovementShoot : MonoBehaviour
 
         //    transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 7f * Time.deltaTime);
         //}
-        //if(Input.GetMouseButtonDown(0)&&Canshoot)
-        //{
-        //    bar.setValue(0);
-        //    Shoot();           
-        //}
+        /*if(Input.GetMouseButtonDown(0)&&Canshoot)
+        {
+           bar.setValue(0);
+           Shoot();           
+        }*/
     }
    public void ChangeBar(GunBar a)
     {
@@ -70,6 +70,7 @@ public class MovementShoot : MonoBehaviour
     void Shoot()
     {
         Instantiate(Bullet.transform, BulletSP.transform.position, BulletSP.transform.rotation);
+        Debug.Log("Hey");
         Canshoot = false;
         StartCoroutine(Cooldown());
     }
