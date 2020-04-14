@@ -667,6 +667,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8413137225243815540, guid: 9021c512fa8d1124791c8cb24002e910,
+        type: 3}
+      propertyPath: m_Version
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -8413137225243815540, guid: 9021c512fa8d1124791c8cb24002e910,
+        type: 3}
+      propertyPath: m_RenderingPathCustomFrameSettings.bitDatas.data1
+      value: 1009318297664
+      objectReference: {fileID: 0}
+    - target: {fileID: -8413137225243815540, guid: 9021c512fa8d1124791c8cb24002e910,
+        type: 3}
+      propertyPath: m_RenderingPathCustomFrameSettings.bitDatas.data2
+      value: 536805376
+      objectReference: {fileID: 0}
     - target: {fileID: 4738690669472891016, guid: 9021c512fa8d1124791c8cb24002e910,
         type: 3}
       propertyPath: m_IsTrigger
@@ -705,7 +720,7 @@ PrefabInstance:
     - target: {fileID: 4738690670739270339, guid: 9021c512fa8d1124791c8cb24002e910,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 14.28
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4738690670739270339, guid: 9021c512fa8d1124791c8cb24002e910,
         type: 3}
