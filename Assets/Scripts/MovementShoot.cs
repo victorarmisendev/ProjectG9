@@ -7,42 +7,49 @@ public class MovementShoot : MonoBehaviour
 
     public GameObject Bullet;
     public GameObject BulletSP;
+    public GameObject Trap;
+    public GameObject TrampSP;
     public Vector3 g;
     public bool Canshoot = true;
     private float CD = 4.0f;
     private float timeinCD = 0;
     public GunBar bar;
     private Rigidbody RB;
-
+    private PlayerControler PC;
     void Start()
     {
         RB = GetComponent<Rigidbody>();
+        PC = GetComponent<PlayerControler>();
     }
 
     void FixedUpdate()
     {
         Plane PlayerPlane = new Plane(Vector3.up, transform.position);
         Ray ray = UnityEngine.Camera.main.ScreenPointToRay(Input.mousePosition);
-        float hitdist = 0.0f;
-        g = BulletSP.transform.position;
+
+        Trap = PC.currentTrap;
+        //g = BulletSP.transform.position;
 
         //Calculate Rotation. 
-        Vector2 gp = transform.parent.gameObject.GetComponent<PlayerControler>().gamepad_current.rightStick.ReadValue();
+       //Vector2 gp = transform.parent.gameObject.GetComponent<PlayerControler>().gamepad_current.rightStick.ReadValue();
 
-        if (gp.x > 0.0f)
+       /* if (gp.x > 0.0f)
         {
             RB.MoveRotation(RB.rotation * Quaternion.Euler(0.0f, 100.0f * Time.fixedDeltaTime, 0.0f));
         }
         if (gp.x < 0.0f)
         {
             RB.MoveRotation(RB.rotation * Quaternion.Euler(0.0f, -100.0f * Time.fixedDeltaTime, 0.0f));       
-        }
+        }*/
     
         //Acelerar con el de RT. 
-        if (transform.parent.gameObject.GetComponent<PlayerControler>().gamepad_current.leftTrigger.isPressed && Canshoot)
+        if (PC.gamepad_current.leftTrigger.isPressed && Canshoot)
         {
-            bar.setValue(0);
-            Shoot();
+            /*bar.setValue(0);
+            Shoot();*/
+            Debug.Log("aqui");
+            SPTrap();
+            
         }
 
         //RB.rotation = new Quaternion(0.0f, RB.rotation.y, 0.0f, 1.0f);
@@ -67,10 +74,18 @@ public class MovementShoot : MonoBehaviour
     {
         bar = a;
     }
+    void SPTrap()
+    {
+        if (Trap != null)
+        {
+            Instantiate(Bullet.transform, TrampSP.transform.position, TrampSP.transform.rotation);
+            PC.currentTrap = null;
+        }
+
+    }
     void Shoot()
     {
         Instantiate(Bullet.transform, BulletSP.transform.position, BulletSP.transform.rotation);
-        Debug.Log("Hey");
         Canshoot = false;
         StartCoroutine(Cooldown());
     }

@@ -39,6 +39,10 @@ public class PlayerControler : MonoBehaviour
 
     private bool forward = false;
 
+    //Arma y trampa
+    public GameObject currentWeapon;
+    public GameObject currentTrap;
+
     void Awake()
     {
         inputAction = new PlayerInputActions();
@@ -258,7 +262,6 @@ public class PlayerControler : MonoBehaviour
         yield return new WaitForSeconds(3);
         invul = false;
     }
-
     //NO TOCAR ESTAS FUNCIONES, O NO IRA EL INPUT.
     private void OnEnable()
     {
