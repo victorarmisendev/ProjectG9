@@ -7,9 +7,9 @@ using UnityEngine.UI;
 public class MenuVertical : MonoBehaviour
 {
     public Gamepad[] pad;
-    //Basic states: 1 Settings 2 Controls 3 Credits. 
+    //Basic states: 0 Play 1 Settings 2 Controls 3 Credits. 
     private bool detect = false;
-    private float state = 1;
+    public static int state = 0;
     public Text[] text_modes;
     void Start()
     {
@@ -34,26 +34,37 @@ public class MenuVertical : MonoBehaviour
             detect = false;
             Debug.Log("Released");
         }
-        state = Mathf.Clamp(state, 1, 3);
+        state = Mathf.Clamp(state, 0, 3);
         Debug.Log("The value is: " + state);
+
         //Feedback:
-        if (state == 1)
+        if (state == 0)
         {
             text_modes[0].GetComponent<Text>().color = Color.green;
             text_modes[1].GetComponent<Text>().color = Color.grey;
             text_modes[2].GetComponent<Text>().color = Color.grey;
+            text_modes[3].GetComponent<Text>().color = Color.grey;
         }
-        else if (state == 2)
+        if (state == 1)
         {
             text_modes[0].GetComponent<Text>().color = Color.grey;
             text_modes[1].GetComponent<Text>().color = Color.green;
             text_modes[2].GetComponent<Text>().color = Color.grey;
+            text_modes[3].GetComponent<Text>().color = Color.grey;
+        }
+        else if (state == 2)
+        {
+            text_modes[0].GetComponent<Text>().color = Color.grey;
+            text_modes[1].GetComponent<Text>().color = Color.grey;
+            text_modes[2].GetComponent<Text>().color = Color.green;
+            text_modes[3].GetComponent<Text>().color = Color.grey;
         }
         else if (state == 3)
         {
             text_modes[0].GetComponent<Text>().color = Color.grey;
             text_modes[1].GetComponent<Text>().color = Color.grey;
-            text_modes[2].GetComponent<Text>().color = Color.green;
+            text_modes[2].GetComponent<Text>().color = Color.grey;
+            text_modes[3].GetComponent<Text>().color = Color.green;
         }
     }
 }

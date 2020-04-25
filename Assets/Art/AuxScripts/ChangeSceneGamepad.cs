@@ -12,10 +12,9 @@ public class ChangeSceneGamepad : MonoBehaviour
     {
         pad = Gamepad.all.ToArray();
     }
-
     void Update()
     {
-        if(pad[0].aButton.isPressed && pressedOnce == false)
+        if(pad[0].aButton.isPressed && pressedOnce == false && MenuVertical.state == 0)
         {
             //Change scene.
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
