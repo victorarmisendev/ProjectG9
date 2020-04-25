@@ -25,12 +25,15 @@ public class Tutorial : MonoBehaviour
     private void Start()
     {
         //Camera speed and timer. 
-        normal_spawn = 40.0f / Camera.main.gameObject.GetComponent<CameraFollow>().speed; //SPAWNER
+        normal_spawn = 90.0f / Camera.main.gameObject.GetComponent<CameraFollow>().speed; //SPAWNER
         //print(timer);
-        originalTimer = timer;
+        originalTimer = normal_spawn;
 
         //TUTORIAL:
         currentChunkPos = firstChunk.position;
+        Vector3 newPosAux = currentChunkPos + Vector3.forward * 84;
+        Instantiate(chunks[0], newPosAux, chunks[fase].transform.rotation);
+        currentChunkPos = newPosAux;
     }
 
     void Update()
@@ -43,7 +46,7 @@ public class Tutorial : MonoBehaviour
             timer = originalTimer;
             first++;
         }
-        if (first >= 2)
+        if (first >= 1)
         {
             originalTimer = normal_spawn;
         }
@@ -57,8 +60,15 @@ public class Tutorial : MonoBehaviour
         }
         //FEEDBACK TUTORIAL IN THESE MINUTES: 
         //TEXT! 
-        helper.text = helperTexts[fase];
+        if(fase > 3)
+            helper.text = helperTexts[fase];
         Debug.Log(fase);
+        if (fase > 3)
+        {
+            Destroy(this);
+            //Instanciar meta y finalizar tutorial. 
+        }
+            
     }
 
 
