@@ -110,11 +110,13 @@ public class PlayerControler : MonoBehaviour
             if(slowed)
             {
                 float n_speed = speed * slow;
-                speed = speed - n_speed;
-                Debug.Log("Speed is: " + n_speed); //Debug.Log funcionan inestables en fixedUpdate
+                RB.MovePosition(RB.position + transform.forward * n_speed * Time.fixedDeltaTime * (this.speedPlayer * 5.5f));
             }
-
-            RB.MovePosition(RB.position + transform.forward * speed * Time.fixedDeltaTime * (this.speedPlayer*5.5f));
+            else
+            {
+                RB.MovePosition(RB.position + transform.forward * speed * Time.fixedDeltaTime * (this.speedPlayer * 5.5f));
+            }
+           
             //Rotation car.
             Vector2 gp = gamepad_current.leftStick.ReadValue();
 
