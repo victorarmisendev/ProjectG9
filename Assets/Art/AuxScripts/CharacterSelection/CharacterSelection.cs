@@ -14,7 +14,6 @@ public class CharacterSelection : MonoBehaviour
 
     void Start()
     {
-
         //conseguir players. NUM de jugadores. 
         pads = Gamepad.all.ToArray();
 
@@ -23,9 +22,12 @@ public class CharacterSelection : MonoBehaviour
         for (int i = 0; i < numberOfPlayers; i++)
         {
             //Instance the Selectors: 
-            Instantiate(SelectorPrefab, positions[i].position, Quaternion.identity);
+            GameObject selector = Instantiate(SelectorPrefab, positions[i].position, Quaternion.identity);
+            selector.GetComponent<Selector>().currentPad = pads[i];
         }
 
     }
+
+    
 
 }

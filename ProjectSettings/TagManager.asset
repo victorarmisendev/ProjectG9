@@ -12,6 +12,7 @@ TagManager:
   - End
   - Lava
   - Puente
+  - Selector
   layers:
   - Default
   - TransparentFX
