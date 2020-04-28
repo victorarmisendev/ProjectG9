@@ -12,6 +12,7 @@ public class GManager : MonoBehaviour
     public List<GameObject> players = new List<GameObject>();
     public GameObject Canvas;
     public GameObject CameraKill;
+    public PasueMenu PMenu;
     Vector3 RandomPosCar()
     {
         //Cambiar valores segun la pista. 
@@ -58,6 +59,7 @@ public class GManager : MonoBehaviour
             player.GetComponent<PlayerControler>().PlayerNum = i + 1;
             player.GetComponent<PlayerControler>().CameraKill = CameraKill;
             player.GetComponent<PlayerControler>().respawnX = i;
+            player.GetComponent<PlayerControler>().pause = PMenu;
             switch (i)
             {
                 case 0:
