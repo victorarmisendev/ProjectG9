@@ -7,12 +7,19 @@ public class PEMBullet : MonoBehaviour
     public float Speed;
     public float stundur;
     public GameObject areaEfec;
-    public bool rear;
+    public bool rear = false;
     // Start is called before the first frame update
     void Start()
     {
         if (Speed != 0)
         {
+            
+            if (rear)
+            {
+               Quaternion targetRotation = Quaternion.LookRotation(-transform.forward, Vector3.up);
+               transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 1f * Time.deltaTime);
+                Debug.Log("HEY");
+            }
             Destroy(gameObject, 3);
         }
         else
@@ -28,7 +35,7 @@ public class PEMBullet : MonoBehaviour
         {
             if(rear)
             {
-                transform.Translate(-Vector3.forward * Time.deltaTime * 20.0f);
+                transform.Translate(Vector3.back * Time.deltaTime * 30.0f,Space.World);
             }
             else
             {

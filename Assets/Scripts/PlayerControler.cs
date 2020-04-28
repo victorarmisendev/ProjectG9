@@ -45,6 +45,10 @@ public class PlayerControler : MonoBehaviour
     public bool Right;
     public bool Left;
     public bool Rear;
+
+    // Slow
+    bool slowed = false;
+    float slow;
     void Awake()
     {
         inputAction = new PlayerInputActions();
@@ -101,8 +105,15 @@ public class PlayerControler : MonoBehaviour
             {
                 speed = speed - acceleration * Time.fixedDeltaTime;                
             }
+           
             speed = Mathf.Clamp(speed, 0.0f, 0.2f);
-            //Debug.Log("Speed is: " + speed); //Debug.Log funcionan inestables en fixedUpdate
+            if(slowed)
+            {
+                float n_speed = speed * slow;
+                speed = speed - n_speed;
+                Debug.Log("Speed is: " + n_speed); //Debug.Log funcionan inestables en fixedUpdate
+            }
+
             RB.MovePosition(RB.position + transform.forward * speed * Time.fixedDeltaTime * (this.speedPlayer*5.5f));
             //Rotation car.
             Vector2 gp = gamepad_current.leftStick.ReadValue();
@@ -197,7 +208,9 @@ public class PlayerControler : MonoBehaviour
         if (other.gameObject.GetComponent<Alquitran>() != null)
         {
 
-            moveSpeed = other.gameObject.GetComponent<Alquitran>().slow;
+            slow = other.gameObject.GetComponent<Alquitran>().slow;
+            slowed = true;
+            Debug.Log("slowed");
         }
         else if (other.tag == "End")
         {
@@ -206,6 +219,7 @@ public class PlayerControler : MonoBehaviour
         else if(other.gameObject.GetComponent<PEM>() != null)
         {
             Stun(other.gameObject.GetComponent<PEM>().stundur);
+            
         }
        
 
@@ -223,6 +237,7 @@ public class PlayerControler : MonoBehaviour
             else
             {
                 moveSpeed = 5.0f;
+                slowed = false;
             }
         }
     }
@@ -234,6 +249,9 @@ public class PlayerControler : MonoBehaviour
     {
         yield return new WaitForSeconds(duration);
         moveSpeed = 15.0f;
+        slowed = false;
+
+        Debug.Log("Normal Speed");
     }
     public void ChangeSpeed(float _newSpeed)
     {
@@ -265,7 +283,7 @@ public class PlayerControler : MonoBehaviour
                 default:
                     break;
             }
-            gameObject.transform.position = new Vector3(x, 1, CameraKill.transform.position.z + 15);
+            gameObject.transform.position = new Vector3(x, 1, CameraKill.transform.position.z + 50);
             invul = true;
             /*if(Lives<=0)
             {

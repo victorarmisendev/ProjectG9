@@ -87,11 +87,28 @@ public class MovementShoot : MonoBehaviour
     }
     void Shoot()
     {
-        Vector3 pos = BulletSP.transform.position;
-        pos.z = pos.z + 3.0f;
-        Instantiate(Bullet.transform, pos, BulletSP.transform.rotation);
-        Canshoot = false;
-        StartCoroutine(Cooldown());
+        if (Bullet.transform.GetComponentInChildren<PEMBullet>())
+        {
+            Vector3 pos = BulletSP.transform.position;
+            if (PC.Rear)
+            {
+                pos.z = pos.z - 3.0f;
+                Bullet.transform.GetComponentInChildren<PEMBullet>().rear = true;
+            }
+            else
+            {
+                pos.z = pos.z + 3.0f;
+                Bullet.transform.GetComponentInChildren<PEMBullet>().rear = false;
+            }
+           
+            Instantiate(Bullet.transform, pos, BulletSP.transform.rotation);
+            Canshoot = false;
+            StartCoroutine(Cooldown());
+        }
+        else if (Bullet.transform.GetComponentInChildren<BalaAlquitran>())
+        {
+
+        }
     }
     IEnumerator Cooldown()
     {
