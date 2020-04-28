@@ -33,8 +33,29 @@ public class MyProceduralMap : MonoBehaviour
 
     GameObject pickChunk()
     {
+        if (counter < 30)
+        {
             int rand = Random.Range(0, 5);
             return chunks[rand];
+        }
+
+        else if (counter < 60 && counter >= 30)
+        {
+            int rand = Random.Range(0, 5);
+            return chunks[rand];
+        }
+
+        else if (counter < 90 && counter >= 60)
+        {
+            int rand = Random.Range(0, 5);
+            return chunks[rand];
+        }
+
+        else
+        {
+            int rand = Random.Range(0, 5);
+            return chunks[rand];
+        }
     }
 
 
