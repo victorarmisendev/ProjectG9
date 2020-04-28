@@ -53,14 +53,14 @@ public class Tutorial : MonoBehaviour
 
         //TIMER FASE CHANGE: EVERY MIN.
         timerPhase -= Time.deltaTime;
-        if(timerPhase <= 0.0f && fase < 4)
+        if(timerPhase <= 0.0f)
         {
             timerPhase = 10.0f;
             fase++;
         }
         //FEEDBACK TUTORIAL IN THESE MINUTES: 
         //TEXT! 
-        if(fase > 3)
+        if(fase < 3)
             helper.text = helperTexts[fase];
         Debug.Log(fase);
         if (fase > 3)
