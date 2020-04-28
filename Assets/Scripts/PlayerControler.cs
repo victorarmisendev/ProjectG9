@@ -42,7 +42,9 @@ public class PlayerControler : MonoBehaviour
     //Arma y trampa
     public GameObject currentWeapon;
     public GameObject currentTrap;
-
+    public bool Right;
+    public bool Left;
+    public bool Rear;
     void Awake()
     {
         inputAction = new PlayerInputActions();
@@ -73,6 +75,9 @@ public class PlayerControler : MonoBehaviour
         //var gamepad = Gamepad.current;
         if (canmove)
         {
+            Right = false;
+            Left = false;
+            Rear = false;
             if (gamepad_current == null)
             {
                 Debug.LogError("Gamepad not detected");
@@ -104,11 +109,23 @@ public class PlayerControler : MonoBehaviour
 
             if (gp.x > 0.0f)
             {
-                RB.MoveRotation(RB.rotation * Quaternion.Euler(0.0f, 100.0f * Time.fixedDeltaTime, 0.0f));
+                if (gameObject.transform.rotation.y < 0.3f)
+                {
+                    RB.MoveRotation(RB.rotation * Quaternion.Euler(0.0f, 100.0f * Time.fixedDeltaTime, 0.0f));
+                }
+                Right = true;
             }
             if (gp.x < 0.0f)
             {
-                RB.MoveRotation(RB.rotation * Quaternion.Euler(0.0f, -100.0f * Time.fixedDeltaTime, 0.0f));
+                if (gameObject.transform.rotation.y > -0.3f)
+                {
+                    RB.MoveRotation(RB.rotation * Quaternion.Euler(0.0f, -100.0f * Time.fixedDeltaTime, 0.0f));
+                }
+                Left = true;
+            }
+            if(gp.y < 0.0f)
+            {
+                 Rear=true;
             }
         }
     }

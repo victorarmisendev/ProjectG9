@@ -41,6 +41,9 @@ public class PEM : MonoBehaviour
         {
             Debug.Log(collision.gameObject.name);
         }
-        Destroy(gameObject);
+        if (CanMove)
+        {
+            Destroy(gameObject);
+        }
     }
 }

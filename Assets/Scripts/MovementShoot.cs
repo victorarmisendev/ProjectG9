@@ -45,30 +45,32 @@ public class MovementShoot : MonoBehaviour
         //Acelerar con el de RT. 
         if (PC.gamepad_current.leftTrigger.isPressed && Canshoot)
         {
-            /*bar.setValue(0);
-            Shoot();*/
-            Debug.Log("aqui");
+            bar.setValue(0);
+            Shoot();
+           
+        }
+        if (PC.gamepad_current.leftShoulder.isPressed && Canshoot)
+        {
             SPTrap();
-            
         }
 
         //RB.rotation = new Quaternion(0.0f, RB.rotation.y, 0.0f, 1.0f);
 
-        //if(PlayerPlane.Raycast(ray, out hitdist))
-        //{
-        //    Vector3 TargetPoint = ray.GetPoint(hitdist);
-        //    Quaternion targetRotation = Quaternion.LookRotation(TargetPoint - transform.position);
-        //    targetRotation.x = 0;
-        //    targetRotation.z = 0;
+            //if(PlayerPlane.Raycast(ray, out hitdist))
+            //{
+            //    Vector3 TargetPoint = ray.GetPoint(hitdist);
+            //    Quaternion targetRotation = Quaternion.LookRotation(TargetPoint - transform.position);
+            //    targetRotation.x = 0;
+            //    targetRotation.z = 0;
 
 
-        //    transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 7f * Time.deltaTime);
-        //}
-        /*if(Input.GetMouseButtonDown(0)&&Canshoot)
-        {
-           bar.setValue(0);
-           Shoot();           
-        }*/
+            //    transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 7f * Time.deltaTime);
+            //}
+            /*if(Input.GetMouseButtonDown(0)&&Canshoot)
+            {
+               bar.setValue(0);
+               Shoot();           
+            }*/
     }
    public void ChangeBar(GunBar a)
     {
@@ -85,7 +87,9 @@ public class MovementShoot : MonoBehaviour
     }
     void Shoot()
     {
-        Instantiate(Bullet.transform, BulletSP.transform.position, BulletSP.transform.rotation);
+        Vector3 pos = BulletSP.transform.position;
+        pos.z = pos.z + 3.0f;
+        Instantiate(Bullet.transform, pos, BulletSP.transform.rotation);
         Canshoot = false;
         StartCoroutine(Cooldown());
     }

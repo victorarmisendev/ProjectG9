@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: 546298791763918322}
   - component: {fileID: 546298791763918323}
   - component: {fileID: 546298791763918324}
+  - component: {fileID: 8559466189325996369}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -187,6 +188,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8559466189325996369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 546298791763918326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19ff3ede2ce1027458e03a738ee7d56d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 0
+  dmg: 0
+  stundur: 1
+  CanMove: 0
 --- !u!1 &546298792560584622
 GameObject:
   m_ObjectHideFlags: 0
@@ -547,6 +564,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &1009362543
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8409692532199723218}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9798071, y: 0.5215953, z: 1.0406803}
+  m_Center: {x: -0.23054314, y: -5.8280276e-22, z: -0.00000007819821}
 --- !u!114 &546298791927106008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -562,19 +592,6 @@ MonoBehaviour:
   Disapear: {fileID: 546298791763918326}
   TimeOn: 0.5
   TimeOf: 1
---- !u!65 &1009362543
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8409692532199723218}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.9798071, y: 0.5215953, z: 1.0406803}
-  m_Center: {x: -0.23054314, y: -5.8280276e-22, z: -0.00000007819821}
 --- !u!65 &546298792130113465
 BoxCollider:
   m_ObjectHideFlags: 0
