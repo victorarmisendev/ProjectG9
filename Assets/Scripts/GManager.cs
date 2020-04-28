@@ -37,7 +37,7 @@ public class GManager : MonoBehaviour
             default:
                 break;
         }
-        return new Vector3(x,1, CameraKill.transform.position.z + 15);
+        return new Vector3(x,1, CameraKill.transform.position.z + 80);
 
     }
     void Start()
@@ -72,7 +72,7 @@ public class GManager : MonoBehaviour
                                 player.GetComponent<PlayerControler>().canvas = HUDplayer.GetChild(j).GetComponent<Text>();
                                 break;
                             case 1:
-                                player.transform.GetChild(2).GetComponent<MovementShoot>().bar=HUDplayer.GetChild(j).GetComponent<GunBar>();
+                                player.transform.GetComponent<MovementShoot>().bar=HUDplayer.GetChild(j).GetComponent<GunBar>();
                                 break;
                             default:
                                 break;

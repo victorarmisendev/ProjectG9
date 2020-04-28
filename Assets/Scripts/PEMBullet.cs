@@ -7,16 +7,35 @@ public class PEMBullet : MonoBehaviour
     public float Speed;
     public float stundur;
     public GameObject areaEfec;
+    public bool rear;
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(gameObject, 3);
+        if (Speed != 0)
+        {
+            Destroy(gameObject, 3);
+        }
+        else
+        {
+            Destroy(gameObject, 1);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.forward * Time.deltaTime * 7.0f);
+        if (Speed != 0)
+        {
+            if(rear)
+            {
+                transform.Translate(-Vector3.forward * Time.deltaTime * 20.0f);
+            }
+            else
+            {
+                transform.Translate(Vector3.forward * Time.deltaTime * 20.0f);
+            }
+            
+        }
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -38,7 +57,11 @@ public class PEMBullet : MonoBehaviour
     }
     private void OnDestroy()
     {
-        areaEfec.SetActive(true);
-        
+        if (Speed != 0)
+        {
+            Instantiate(areaEfec.transform, new Vector3(gameObject.transform.position.x, 7.39f, gameObject.transform.position.z), Quaternion.identity);
+        }
+       
     }
+
 }
