@@ -58,7 +58,7 @@ public class PlayerControler : MonoBehaviour
     void Start()
     {
         RB = gameObject.GetComponent<Rigidbody>();
-        speedPlayer = Camera.main.GetComponent<CameraFollow>().speed + 2;
+        speedPlayer = Camera.main.GetComponent<CameraFollow>().speed;
         moveSpeed = speedPlayer;
         if (gamepad_current == null)
         {
