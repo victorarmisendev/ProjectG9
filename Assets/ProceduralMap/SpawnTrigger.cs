@@ -21,7 +21,7 @@ public class SpawnTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Base"&&can)
+        if(other.gameObject.tag == "Player"&&can)
         {
             spawner.GetComponent<MyProceduralMap>().spawnChunk();
             Destroy(gameObject.GetComponent<BoxCollider>());

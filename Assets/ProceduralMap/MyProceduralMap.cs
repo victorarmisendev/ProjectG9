@@ -17,6 +17,10 @@ public class MyProceduralMap : MonoBehaviour
 
     int counterRemove = 0;
 
+    public float chunkLength;
+
+    Vector3 initialPos;
+
     Queue<GameObject> myQueue = new Queue<GameObject>();
 
     private void Start()
@@ -27,6 +31,9 @@ public class MyProceduralMap : MonoBehaviour
         spawnChunk();
         spawnChunk();
         spawnChunk();
+
+        initialPos = currentChunk.transform.position;
+        spawnRot = currentChunk.transform.rotation;
     }
 
 
@@ -62,11 +69,9 @@ public class MyProceduralMap : MonoBehaviour
 
     public void spawnChunk()
     {
-        spawnPos = currentChunk.transform.position;
-        spawnRot = currentChunk.transform.rotation;
         GameObject chunkToSpawn = pickChunk();
         
-        spawnPos = currentChunk.transform.position + new Vector3(0, 0, 30 * counter);
+        spawnPos = initialPos + new Vector3(0, 0, chunkLength * counter);
             
         GameObject newChunk = Instantiate(chunkToSpawn, spawnPos, spawnRot);
         counter++;

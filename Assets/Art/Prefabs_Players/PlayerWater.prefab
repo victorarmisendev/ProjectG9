@@ -926,6 +926,9 @@ MonoBehaviour:
   canvas: {fileID: 0}
   currentWeapon: {fileID: 0}
   currentTrap: {fileID: 0}
+  Right: 0
+  Left: 0
+  Rear: 0
 --- !u!65 &1147164891
 BoxCollider:
   m_ObjectHideFlags: 0
