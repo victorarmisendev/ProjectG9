@@ -39,6 +39,7 @@ public class PlayerControler : MonoBehaviour
 
     private bool forward = false;
 
+    public PasueMenu pause;
     //Arma y trampa
     public GameObject currentWeapon;
     public GameObject currentTrap;
@@ -94,6 +95,11 @@ public class PlayerControler : MonoBehaviour
             else 
             {
                 forward = false;
+            }
+            //call pause menu
+            if(gamepad_current.startButton.isPressed)
+            {
+                pause.ActivatePause();
             }
             //Translation and acceleration. 
             if (gamepad_current.rightTrigger.isPressed && forward)
