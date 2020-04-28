@@ -80,7 +80,7 @@ public class MovementShoot : MonoBehaviour
     {
         if (Trap != null)
         {
-            Instantiate(Bullet.transform, TrampSP.transform.position, TrampSP.transform.rotation);
+            Instantiate(Trap.transform, TrampSP.transform.position, TrampSP.transform.rotation);
             PC.currentTrap = null;
         }
 

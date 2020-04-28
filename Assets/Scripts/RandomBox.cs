@@ -16,7 +16,7 @@ public class RandomBox : MonoBehaviour
             //
             if (mytipe == Type.TRAP)
             {
-                int randnum = Random.Range(0, 0);
+                int randnum = Random.Range(0, 1);
                 other.GetComponent<PlayerControler>().currentTrap = possibleTrap[randnum];
             }
             else if (mytipe == Type.WEAPON)
