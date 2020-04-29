@@ -23,7 +23,7 @@ public class PlayerControler : MonoBehaviour
     public Gamepad gamepad_current;
     public int PlayerNum;
 
-    public bool canmove = true;
+    private bool canmove = false;
     GameObject a = null;
     private int StunDuration = 0;
 
@@ -50,6 +50,14 @@ public class PlayerControler : MonoBehaviour
     // Slow
     bool slowed = false;
     float slow;
+
+
+
+    private IEnumerator coroutine;
+
+
+
+
     void Awake()
     {
         inputAction = new PlayerInputActions();
@@ -58,6 +66,10 @@ public class PlayerControler : MonoBehaviour
     }
     void Start()
     {
+
+        coroutine = ExecuteAfterTime();
+        StartCoroutine(coroutine);
+
         RB = gameObject.GetComponent<Rigidbody>();
         speedPlayer = Camera.main.GetComponent<CameraFollow>().speed;
         moveSpeed = speedPlayer;
@@ -317,6 +329,14 @@ public class PlayerControler : MonoBehaviour
         inputAction.Disable();
     }
     //////////////
+    ///
+
+    IEnumerator ExecuteAfterTime()
+    {
+        yield return new WaitForSeconds(3);
+        canmove = true;
+        // Code to execute after the delay
+    }
 }
 
 
