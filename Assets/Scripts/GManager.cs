@@ -50,11 +50,13 @@ public class GManager : MonoBehaviour
         Vector3 my = new Vector3(0, 0, 0);
         GameObject afg = (GameObject)Instantiate(Canvas, my , Quaternion.identity);
         Debug.Log("Number of gamepads: " + NumPlayers);
-
+        CharacterSelection a = FindObjectOfType<CharacterSelection>();
+        List<int> Personajes = a.Lista;
         //Create and Spawn players in random position and assign pads. 
         for (int i = 0; i < NumPlayers; i++)
         {
-            GameObject player = (GameObject)Instantiate(playerTypes[Random.Range(0, playerTypes.Length)], PosCar(i), Quaternion.identity);
+            Debug.Log("YOUR NUMBER IS" +Personajes[i]);
+            GameObject player = (GameObject)Instantiate(playerTypes[Personajes[i]], PosCar(i), Quaternion.identity);
      
             player.GetComponent<PlayerControler>().gamepad_current = pads[i];
             player.GetComponent<PlayerControler>().PlayerNum = i + 1;
@@ -81,7 +83,6 @@ public class GManager : MonoBehaviour
                                 break;
                         }
                     }
-                    
                     break;
                 case 1:
                     Transform HUDplayer2 = afg.transform.GetChild(i);

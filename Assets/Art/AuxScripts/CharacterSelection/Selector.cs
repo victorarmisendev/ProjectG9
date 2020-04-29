@@ -9,7 +9,7 @@ public class Selector : MonoBehaviour
 {
 
     public Gamepad currentPad;
-    private float state = 1;
+    public int state = 1;
     private bool detect = false;
     public GameObject[] selector_types;
     public TextMeshPro ready;
@@ -30,7 +30,6 @@ public class Selector : MonoBehaviour
             return;
         }
     }
-
     void Update()
     {
         //Handle the controls for selection. 

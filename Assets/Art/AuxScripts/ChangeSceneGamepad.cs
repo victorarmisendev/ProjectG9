@@ -23,7 +23,7 @@ public class ChangeSceneGamepad : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             pressedOnce = true;
         }
-        if (pad[0].aButton.isPressed && pressedOnce == false && MenuVertical.state == 2)
+        if (pad[0].aButton.isPressed && pressedOnce == false && MenuVertical.state == 3)
         {
             //Change scene.
             options.SetActive(true);
