@@ -49,26 +49,23 @@ public class SelectGameModes : MonoBehaviour
             detect = false;
             Debug.Log("Released");
         }
-        state = Mathf.Clamp(state, 1, 3);
+        state = Mathf.Clamp(state, 1, 2);
         Debug.Log("The value is: " + state);
         //Feedback:
         if(state == 1)
         {
             images_modes[0].GetComponent<Image>().color = Color.green;
             images_modes[1].GetComponent<Image>().color = Color.grey;
-            images_modes[2].GetComponent<Image>().color = Color.grey;
         }     
         else if(state == 2)
         {
             images_modes[0].GetComponent<Image>().color = Color.grey;
-            images_modes[1].GetComponent<Image>().color = Color.green;
-            images_modes[2].GetComponent<Image>().color = Color.grey;         
+            images_modes[1].GetComponent<Image>().color = Color.green;      
         }
         else if (state == 3)
         {
             images_modes[0].GetComponent<Image>().color = Color.grey;
             images_modes[1].GetComponent<Image>().color = Color.grey;
-            images_modes[2].GetComponent<Image>().color = Color.green;
         }
         if(pad[0].aButton.isPressed && ACTIVATE_INPUT == true)
         {
@@ -79,9 +76,6 @@ public class SelectGameModes : MonoBehaviour
                     break;
                 case 2:
                     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
-                    break;
-                case 3:
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 3);
                     break;
             }
         }
