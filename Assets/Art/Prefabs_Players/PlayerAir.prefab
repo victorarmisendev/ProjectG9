@@ -887,6 +887,8 @@ MonoBehaviour:
   CameraKill: {fileID: 0}
   respawnX: 0
   invulnerable: 0
+  Deathparticles: {fileID: 6329595768316496053, guid: 61d8ba77d79d1874ab21b04c04347147,
+    type: 3}
   canvas: {fileID: 0}
   pause: {fileID: 0}
   currentWeapon: {fileID: 0}
@@ -1024,11 +1026,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 9fdbda533b9619d4189e7896f03d56bd, type: 2}
-    - target: {fileID: -1504981713932161579, guid: f575b2250c9f35e4499d58ed34b3fb01,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: f575b2250c9f35e4499d58ed34b3fb01,
         type: 3}
       propertyPath: m_Name

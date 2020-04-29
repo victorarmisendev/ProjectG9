@@ -35,6 +35,7 @@ public class PlayerControler : MonoBehaviour
     GameObject[] otherCars;
     public bool invulnerable = false;
 
+    public GameObject Deathparticles;
     public Text canvas;
 
     private bool forward = false;
@@ -299,11 +300,12 @@ public class PlayerControler : MonoBehaviour
             Debug.Log(Lives);
             canvas.text = "Lives " + Lives;
             float x = 0;
+            Instantiate(Deathparticles.transform, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity);
             ChangeSpeed(speedPlayer);
             switch (respawnX)
             {
                 case 0:
-                    x = -12;
+                    x = -15;
                     break;
                 case 1:
                     x = -2;
@@ -312,7 +314,7 @@ public class PlayerControler : MonoBehaviour
                     x = 2;
                     break;
                 case 3:
-                    x = 12;
+                    x = 15;
                     break;
                 default:
                     break;
@@ -320,16 +322,16 @@ public class PlayerControler : MonoBehaviour
             gameObject.transform.position = new Vector3(x, 3, CameraKill.transform.position.z + 50);
             invul = true;
             gameObject.transform.rotation = new Quaternion(0.0f, 0.0f, 0.0f, 0.0f);
-            /*if(Lives<=0)
+            if(Lives<=0)
             {
                 Destroy(gameObject);
-            }*/
+            }
             StartCoroutine(InvulCD());
         }
     }
     IEnumerator InvulCD()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(5);
         invul = false;
     }
     //NO TOCAR ESTAS FUNCIONES, O NO IRA EL INPUT.

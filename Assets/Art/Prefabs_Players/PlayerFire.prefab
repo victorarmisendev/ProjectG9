@@ -1079,12 +1079,14 @@ MonoBehaviour:
   speedPlayer: 0
   KeyboardPruebas: 0
   PlayerNum: 0
-  canmove: 1
   Lives: 3
   CameraKill: {fileID: 0}
   respawnX: 0
   invulnerable: 0
+  Deathparticles: {fileID: 6329595768316496053, guid: 61d8ba77d79d1874ab21b04c04347147,
+    type: 3}
   canvas: {fileID: 0}
+  pause: {fileID: 0}
   currentWeapon: {fileID: 0}
   currentTrap: {fileID: 0}
   Right: 0

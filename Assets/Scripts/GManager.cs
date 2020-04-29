@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GManager : MonoBehaviour
 {
@@ -94,7 +95,7 @@ public class GManager : MonoBehaviour
                                 player.GetComponent<PlayerControler>().canvas = HUDplayer2.GetChild(j).GetComponent<Text>();
                                 break;
                             case 1:
-                                player.transform.GetChild(2).GetComponent<MovementShoot>().bar = HUDplayer2.GetChild(j).GetComponent<GunBar>();
+                                player.transform.GetComponent<MovementShoot>().bar = HUDplayer2.GetChild(j).GetComponent<GunBar>();
                                 break;
                             default:
                                 break;
@@ -113,7 +114,7 @@ public class GManager : MonoBehaviour
                                 player.GetComponent<PlayerControler>().canvas = HUDplayer3.GetChild(j).GetComponent<Text>();
                                 break;
                             case 1:
-                                player.transform.GetChild(2).GetComponent<MovementShoot>().bar = HUDplayer3.GetChild(j).GetComponent<GunBar>();
+                                player.transform.GetComponent<MovementShoot>().bar = HUDplayer3.GetChild(j).GetComponent<GunBar>();
                                 break;
                             default:
                                 break;
@@ -132,7 +133,7 @@ public class GManager : MonoBehaviour
                                 player.GetComponent<PlayerControler>().canvas = HUDplayer4.GetChild(j).GetComponent<Text>();
                                 break;
                             case 1:
-                                player.transform.GetChild(2).GetComponent<MovementShoot>().bar = HUDplayer4.GetChild(j).GetComponent<GunBar>();
+                                player.transform.GetComponent<MovementShoot>().bar = HUDplayer4.GetChild(j).GetComponent<GunBar>();
                                 break;
                             default:
                                 break;
@@ -147,7 +148,6 @@ public class GManager : MonoBehaviour
             {
                 
             }
-            //
             players.Add(player); //Usamos esta lista para dibujar el nombre, imagen y vidas de los jugadores. 
         }
 
@@ -157,9 +157,9 @@ public class GManager : MonoBehaviour
 
     void Update()
     {
-        /*if(players.Count==1)
+        if(GameObject.FindGameObjectsWithTag("Player").Length == 1)
         {
-            Application.Quit();
-        }*/
+            //SceneManager.LoadScene("MenuPrincipal");
+        }
     }
 }
