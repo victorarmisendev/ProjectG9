@@ -158,8 +158,7 @@ public class GManager : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("Number of players is: " + players.Count);
-        if(players.Count==1)
+        if(GameObject.FindGameObjectsWithTag("Player").Length == 1)
         {
             SceneManager.LoadScene("MenuPrincipal");
         }
