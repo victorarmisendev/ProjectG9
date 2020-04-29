@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 143193004270753219}
   - component: {fileID: 3129122525692758681}
   - component: {fileID: 7612587579357546300}
+  - component: {fileID: 7193282912759311693}
   m_Layer: 0
   m_Name: PlayerTierra
   m_TagString: Player
@@ -58,7 +59,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!114 &3129122525692758681
 MonoBehaviour:
@@ -112,6 +113,19 @@ MonoBehaviour:
   Right: 0
   Left: 0
   Rear: 0
+--- !u!65 &7193282912759311693
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656484327083679069}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.2617145, y: 5.5653644, z: 5.7133355}
+  m_Center: {x: -0.11373067, y: -0.7358949, z: 0.30665898}
 --- !u!1 &1656665461046076930
 GameObject:
   m_ObjectHideFlags: 0
