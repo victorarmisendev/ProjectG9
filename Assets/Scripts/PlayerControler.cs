@@ -317,7 +317,7 @@ public class PlayerControler : MonoBehaviour
                 default:
                     break;
             }
-            gameObject.transform.position = new Vector3(x, 1, CameraKill.transform.position.z + 50);
+            gameObject.transform.position = new Vector3(x, 3, CameraKill.transform.position.z + 50);
             invul = true;
             gameObject.transform.rotation = new Quaternion(0.0f, 0.0f, 0.0f, 0.0f);
             /*if(Lives<=0)
