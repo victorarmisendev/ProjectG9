@@ -148,7 +148,6 @@ public class GManager : MonoBehaviour
             {
                 
             }
-            //
             players.Add(player); //Usamos esta lista para dibujar el nombre, imagen y vidas de los jugadores. 
         }
 
@@ -160,7 +159,7 @@ public class GManager : MonoBehaviour
     {
         if(GameObject.FindGameObjectsWithTag("Player").Length == 1)
         {
-            SceneManager.LoadScene("MenuPrincipal");
+            //SceneManager.LoadScene("MenuPrincipal");
         }
     }
 }
