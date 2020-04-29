@@ -201,9 +201,12 @@ public class PlayerControler : MonoBehaviour
 
     public void Stun(float segundos)
     {
-        canmove = false;
-        Debug.Log("hey");
-        StartCoroutine(stun(segundos));
+        if (!invul)
+        {
+            canmove = false;
+            Debug.Log("hey");
+            StartCoroutine(stun(segundos));
+        }
     }
     IEnumerator stun(float s)
     {
@@ -215,18 +218,29 @@ public class PlayerControler : MonoBehaviour
     {
         if (other.gameObject.GetComponent<Alquitran>() != null)
         {
-
-            slow = other.gameObject.GetComponent<Alquitran>().slow;
-            slowed = true;
-            Debug.Log("slowed");
+            if (!invul)
+            {
+                slow = other.gameObject.GetComponent<Alquitran>().slow;
+                slowed = true;
+                Debug.Log("slowed");
+            }
         }
         else if (other.tag == "End")
         {
             Death();
         }
+        else if (other.tag == "Lava")
+        {
+            if (!invul)
+            {
+                Death();
+            }
+        }
         else if(other.gameObject.GetComponent<PEM>() != null)
         {
-            Stun(other.gameObject.GetComponent<PEM>().stundur);
+            
+                Stun(other.gameObject.GetComponent<PEM>().stundur);
+            
             
         }
        
