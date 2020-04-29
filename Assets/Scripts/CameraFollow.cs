@@ -2,14 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class CameraFollow : MonoBehaviour
 {
     private GameObject[] players;
     private Vector3 velocity;
     private float smoothTime = .5f;
     public float speed;
+    private bool start = false;
+
+    private IEnumerator coroutine;
+
+
     private void Start()
     {
+        coroutine = ExecuteAfterTime();
+        StartCoroutine(coroutine);
         //players = GameObject.FindGameObjectsWithTag("Base");
     }
     void FixedUpdate() 
@@ -18,8 +26,12 @@ public class CameraFollow : MonoBehaviour
     //Almenos reducimos esta vibracion bastante. 
     {
         //SetPos();
-        transform.position = new Vector3(transform.position.x, transform.position.y, 
+        if(start == true)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y,
             transform.position.z + speed * Time.fixedDeltaTime);
+        }
+
     }
     void SetPos()
     {
@@ -32,5 +44,12 @@ public class CameraFollow : MonoBehaviour
         //posFrame /= players.Length;
         //Vector3 newPos = new Vector3(posFrame.x, 31, -24);
         //transform.position = Vector3.SmoothDamp(transform.position, newPos, ref velocity, smoothTime);
+    }
+
+    IEnumerator ExecuteAfterTime()
+    {
+        yield return new WaitForSeconds(3);
+        start = true;
+        // Code to execute after the delay
     }
 }

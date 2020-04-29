@@ -20,7 +20,7 @@ public class PEMBullet : MonoBehaviour
                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 1f * Time.deltaTime);
                 Debug.Log("HEY");
             }
-            Destroy(gameObject, 3);
+            Destroy(gameObject, 1.5f);
         }
         else
         {

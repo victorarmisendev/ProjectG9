@@ -23,7 +23,7 @@ public class PlayerControler : MonoBehaviour
     public Gamepad gamepad_current;
     public int PlayerNum;
 
-    public bool canmove = true;
+    private bool canmove = false;
     GameObject a = null;
     private int StunDuration = 0;
 
@@ -50,6 +50,14 @@ public class PlayerControler : MonoBehaviour
     // Slow
     bool slowed = false;
     float slow;
+
+
+
+    private IEnumerator coroutine;
+
+
+
+
     void Awake()
     {
         inputAction = new PlayerInputActions();
@@ -58,6 +66,10 @@ public class PlayerControler : MonoBehaviour
     }
     void Start()
     {
+
+        coroutine = ExecuteAfterTime();
+        StartCoroutine(coroutine);
+
         RB = gameObject.GetComponent<Rigidbody>();
         speedPlayer = Camera.main.GetComponent<CameraFollow>().speed;
         moveSpeed = speedPlayer;
@@ -201,9 +213,12 @@ public class PlayerControler : MonoBehaviour
 
     public void Stun(float segundos)
     {
-        canmove = false;
-        Debug.Log("hey");
-        StartCoroutine(stun(segundos));
+        if (!invul)
+        {
+            canmove = false;
+            Debug.Log("hey");
+            StartCoroutine(stun(segundos));
+        }
     }
     IEnumerator stun(float s)
     {
@@ -215,18 +230,29 @@ public class PlayerControler : MonoBehaviour
     {
         if (other.gameObject.GetComponent<Alquitran>() != null)
         {
-
-            slow = other.gameObject.GetComponent<Alquitran>().slow;
-            slowed = true;
-            Debug.Log("slowed");
+            if (!invul)
+            {
+                slow = other.gameObject.GetComponent<Alquitran>().slow;
+                slowed = true;
+                Debug.Log("slowed");
+            }
         }
         else if (other.tag == "End")
         {
             Death();
         }
+        else if (other.tag == "Lava")
+        {
+            if (!invul)
+            {
+                Death();
+            }
+        }
         else if(other.gameObject.GetComponent<PEM>() != null)
         {
-            Stun(other.gameObject.GetComponent<PEM>().stundur);
+            
+                Stun(other.gameObject.GetComponent<PEM>().stundur);
+            
             
         }
        
@@ -291,7 +317,7 @@ public class PlayerControler : MonoBehaviour
                 default:
                     break;
             }
-            gameObject.transform.position = new Vector3(x, 1, CameraKill.transform.position.z + 50);
+            gameObject.transform.position = new Vector3(x, 3, CameraKill.transform.position.z + 50);
             invul = true;
             gameObject.transform.rotation = new Quaternion(0.0f, 0.0f, 0.0f, 0.0f);
             /*if(Lives<=0)
@@ -317,6 +343,14 @@ public class PlayerControler : MonoBehaviour
         inputAction.Disable();
     }
     //////////////
+    ///
+
+    IEnumerator ExecuteAfterTime()
+    {
+        yield return new WaitForSeconds(3);
+        canmove = true;
+        // Code to execute after the delay
+    }
 }
 
 
