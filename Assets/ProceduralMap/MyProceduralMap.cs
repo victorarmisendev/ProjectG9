@@ -15,8 +15,6 @@ public class MyProceduralMap : MonoBehaviour
 
     private int counter = 1;
 
-    int counterRemove = 0;
-
     public float chunkLength;
 
     Vector3 initialPos;
