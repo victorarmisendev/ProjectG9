@@ -38,29 +38,29 @@ public class MyProceduralMap : MonoBehaviour
 
 
 
-    GameObject pickChunk()
+    GameObject pickChunk(int counter)
     {
         if (counter < 30)
         {
-            int rand = Random.Range(0, 5);
+            int rand = Random.Range(0, 14);
             return chunks[rand];
         }
 
         else if (counter < 60 && counter >= 30)
         {
-            int rand = Random.Range(0, 5);
+            int rand = Random.Range(0, 14);
             return chunks[rand];
         }
 
         else if (counter < 90 && counter >= 60)
         {
-            int rand = Random.Range(0, 5);
+            int rand = Random.Range(0, 14);
             return chunks[rand];
         }
 
         else
         {
-            int rand = Random.Range(0, 5);
+            int rand = Random.Range(0, 14);
             return chunks[rand];
         }
     }
@@ -69,7 +69,7 @@ public class MyProceduralMap : MonoBehaviour
 
     public void spawnChunk()
     {
-        GameObject chunkToSpawn = pickChunk();
+        GameObject chunkToSpawn = pickChunk(counter);
         
         spawnPos = initialPos + new Vector3(0, 0, chunkLength * counter);
             
