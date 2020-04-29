@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
-public class GManager : MonoBehaviour
+public class TutManager : MonoBehaviour
 {
     public GameObject[] playerTypes;
     private int NumPlayers;
@@ -21,8 +20,8 @@ public class GManager : MonoBehaviour
     }
     Vector3 PosCar(int i)
     {
-        float x=0;
-        switch(i)
+        float x = 0;
+        switch (i)
         {
             case 0:
                 x = -12;
@@ -39,23 +38,23 @@ public class GManager : MonoBehaviour
             default:
                 break;
         }
-        return new Vector3(x,1, CameraKill.transform.position.z + 80);
+        return new Vector3(x, 1, CameraKill.transform.position.z);
 
     }
     void Start()
-    {       
+    {
         NumPlayers = Gamepad.all.Count;
         pads = Gamepad.all.ToArray();
 
         Vector3 my = new Vector3(0, 0, 0);
-        GameObject afg = (GameObject)Instantiate(Canvas, my , Quaternion.identity);
+        GameObject afg = (GameObject)Instantiate(Canvas, my, Quaternion.identity);
         Debug.Log("Number of gamepads: " + NumPlayers);
 
         //Create and Spawn players in random position and assign pads. 
         for (int i = 0; i < NumPlayers; i++)
         {
             GameObject player = (GameObject)Instantiate(playerTypes[Random.Range(0, playerTypes.Length)], PosCar(i), Quaternion.identity);
-     
+
             player.GetComponent<PlayerControler>().gamepad_current = pads[i];
             player.GetComponent<PlayerControler>().PlayerNum = i + 1;
             player.GetComponent<PlayerControler>().CameraKill = CameraKill;
@@ -66,22 +65,22 @@ public class GManager : MonoBehaviour
                 case 0:
                     Transform HUDplayer = afg.transform.GetChild(i);
                     HUDplayer.gameObject.SetActive(true);
-                    for(int j=0;j < HUDplayer.childCount;j++)
+                    for (int j = 0; j < HUDplayer.childCount; j++)
                     {
-                        switch(j)
+                        switch (j)
                         {
                             case 0:
                                 HUDplayer.GetChild(j).GetComponent<Text>().text = "Lives " + player.GetComponent<PlayerControler>().Lives;
                                 player.GetComponent<PlayerControler>().canvas = HUDplayer.GetChild(j).GetComponent<Text>();
                                 break;
                             case 1:
-                                player.transform.GetComponent<MovementShoot>().bar=HUDplayer.GetChild(j).GetComponent<GunBar>();
+                                player.transform.GetComponent<MovementShoot>().bar = HUDplayer.GetChild(j).GetComponent<GunBar>();
                                 break;
                             default:
                                 break;
                         }
                     }
-                    
+
                     break;
                 case 1:
                     Transform HUDplayer2 = afg.transform.GetChild(i);
@@ -95,7 +94,7 @@ public class GManager : MonoBehaviour
                                 player.GetComponent<PlayerControler>().canvas = HUDplayer2.GetChild(j).GetComponent<Text>();
                                 break;
                             case 1:
-                                player.transform.GetComponent<MovementShoot>().bar = HUDplayer2.GetChild(j).GetComponent<GunBar>();
+                                player.transform.GetChild(2).GetComponent<MovementShoot>().bar = HUDplayer2.GetChild(j).GetComponent<GunBar>();
                                 break;
                             default:
                                 break;
@@ -114,7 +113,7 @@ public class GManager : MonoBehaviour
                                 player.GetComponent<PlayerControler>().canvas = HUDplayer3.GetChild(j).GetComponent<Text>();
                                 break;
                             case 1:
-                                player.transform.GetComponent<MovementShoot>().bar = HUDplayer3.GetChild(j).GetComponent<GunBar>();
+                                player.transform.GetChild(2).GetComponent<MovementShoot>().bar = HUDplayer3.GetChild(j).GetComponent<GunBar>();
                                 break;
                             default:
                                 break;
@@ -133,7 +132,7 @@ public class GManager : MonoBehaviour
                                 player.GetComponent<PlayerControler>().canvas = HUDplayer4.GetChild(j).GetComponent<Text>();
                                 break;
                             case 1:
-                                player.transform.GetComponent<MovementShoot>().bar = HUDplayer4.GetChild(j).GetComponent<GunBar>();
+                                player.transform.GetChild(2).GetComponent<MovementShoot>().bar = HUDplayer4.GetChild(j).GetComponent<GunBar>();
                                 break;
                             default:
                                 break;
@@ -144,10 +143,11 @@ public class GManager : MonoBehaviour
                     break;
             }
 
-            if(player.GetComponentsInChildren<MovementShoot>()!=null)
+            if (player.GetComponentsInChildren<MovementShoot>() != null)
             {
-                
+
             }
+            //
             players.Add(player); //Usamos esta lista para dibujar el nombre, imagen y vidas de los jugadores. 
         }
 
@@ -157,9 +157,9 @@ public class GManager : MonoBehaviour
 
     void Update()
     {
-        if(GameObject.FindGameObjectsWithTag("Player").Length == 1)
+        /*if(players.Count==1)
         {
-            //SceneManager.LoadScene("MenuPrincipal");
-        }
+            Application.Quit();
+        }*/
     }
 }

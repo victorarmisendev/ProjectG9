@@ -13,6 +13,8 @@ TagManager:
   - Lava
   - Puente
   - Selector
+  - canvMan
+  - tutTrig
   layers:
   - Default
   - TransparentFX

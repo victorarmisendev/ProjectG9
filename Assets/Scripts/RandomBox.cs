@@ -6,7 +6,6 @@ public class RandomBox : MonoBehaviour
 {
     public enum Type { WEAPON , TRAP};
     public Type mytipe;
-
     public GameObject[] possibleTrap;
     public GameObject[] possibleWeapon;
     private void OnTriggerEnter(Collider other)
@@ -22,8 +21,7 @@ public class RandomBox : MonoBehaviour
             else if (mytipe == Type.WEAPON)
             {
                 int randnum = Random.Range(0, 3);
-
-                other.GetComponent<PlayerControler>().currentWeapon = possibleWeapon[randnum];
+                other.GetComponent<MovementShoot>().Bullet = possibleWeapon[randnum];
             }
         }
     }

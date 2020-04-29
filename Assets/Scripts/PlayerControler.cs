@@ -331,7 +331,7 @@ public class PlayerControler : MonoBehaviour
     }
     IEnumerator InvulCD()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(5);
         invul = false;
     }
     //NO TOCAR ESTAS FUNCIONES, O NO IRA EL INPUT.
