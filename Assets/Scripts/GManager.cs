@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GManager : MonoBehaviour
 {
@@ -157,9 +158,9 @@ public class GManager : MonoBehaviour
 
     void Update()
     {
-        /*if(players.Count==1)
+        if(players.Count==1)
         {
-            Application.Quit();
-        }*/
+            SceneManager.LoadScene("MenuPrincipal");
+        }
     }
 }
