@@ -34,7 +34,7 @@ public class MenuVertical : MonoBehaviour
             detect = false;
             Debug.Log("Released");
         }
-        state = Mathf.Clamp(state, 0, 3);
+        state = Mathf.Clamp(state, 0, 2);
         Debug.Log("The value is: " + state);
 
         //Feedback:
@@ -43,28 +43,20 @@ public class MenuVertical : MonoBehaviour
             text_modes[0].GetComponent<Text>().color = Color.green;
             text_modes[1].GetComponent<Text>().color = Color.grey;
             text_modes[2].GetComponent<Text>().color = Color.grey;
-            text_modes[3].GetComponent<Text>().color = Color.grey;
+
         }
         if (state == 1)
         {
             text_modes[0].GetComponent<Text>().color = Color.grey;
             text_modes[1].GetComponent<Text>().color = Color.green;
             text_modes[2].GetComponent<Text>().color = Color.grey;
-            text_modes[3].GetComponent<Text>().color = Color.grey;
+
         }
         else if (state == 2)
         {
             text_modes[0].GetComponent<Text>().color = Color.grey;
             text_modes[1].GetComponent<Text>().color = Color.grey;
             text_modes[2].GetComponent<Text>().color = Color.green;
-            text_modes[3].GetComponent<Text>().color = Color.grey;
-        }
-        else if (state == 3)
-        {
-            text_modes[0].GetComponent<Text>().color = Color.grey;
-            text_modes[1].GetComponent<Text>().color = Color.grey;
-            text_modes[2].GetComponent<Text>().color = Color.grey;
-            text_modes[3].GetComponent<Text>().color = Color.green;
         }
     }
 }

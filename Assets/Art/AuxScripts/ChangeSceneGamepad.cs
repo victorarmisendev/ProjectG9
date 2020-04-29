@@ -23,7 +23,7 @@ public class ChangeSceneGamepad : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             pressedOnce = true;
         }
-        if (pad[0].aButton.isPressed && pressedOnce == false && MenuVertical.state == 3)
+        if (pad[0].aButton.isPressed && pressedOnce == false && MenuVertical.state == 1)
         {
             //Change scene.
             options.SetActive(true);
@@ -31,7 +31,26 @@ public class ChangeSceneGamepad : MonoBehaviour
             pressedOnce = true;
 
         }
-        if(pressedOnce== true)
+        if (pad[0].aButton.isPressed && pressedOnce == false && MenuVertical.state == 2)
+        {
+            //Change scene.
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 5);
+            pressedOnce = true;
+
+        }
+        if (pad[0].aButton.isPressed && pressedOnce == false && MenuVertical.state == 2)
+        {
+            //Change scene.
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 5);
+            pressedOnce = true;
+
+        }
+        if (pad[0].bButton.isPressed)
+        {
+            Application.Quit();
+        }
+        Debug.Log(MenuVertical.state);
+        if (pressedOnce== true)
         {
             StartCoroutine(InvulCD());
         }

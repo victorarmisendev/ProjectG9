@@ -79,5 +79,9 @@ public class SelectGameModes : MonoBehaviour
                     break;
             }
         }
+        if (pad[0].bButton.isPressed)
+        {
+            SceneManager.LoadScene(1);
+        }
     }
 }
