@@ -27,6 +27,7 @@ public class SpawnTrigger : MonoBehaviour
             Destroy(gameObject.GetComponent<BoxCollider>());
             can = false;
             
+            
         }
     }
 

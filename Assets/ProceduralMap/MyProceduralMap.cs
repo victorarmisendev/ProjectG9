@@ -31,6 +31,16 @@ public class MyProceduralMap : MonoBehaviour
         spawnChunk();
         spawnChunk();
         spawnChunk();
+        spawnChunk();
+        spawnChunk();
+        spawnChunk();
+        spawnChunk();
+        spawnChunk();
+        spawnChunk();
+        spawnChunk();
+        spawnChunk();
+        spawnChunk();
+        spawnChunk();
 
         initialPos = currentChunk.transform.position;
         spawnRot = currentChunk.transform.rotation;
@@ -38,30 +48,29 @@ public class MyProceduralMap : MonoBehaviour
 
 
 
-    GameObject pickChunk(int counter)
+    GameObject pickChunk()
     {
-        if (counter < 30)
+        if (counter < 10)
         {
-            int rand = Random.Range(0, 14);
+            int rand = Random.Range(0, 6);
             return chunks[rand];
         }
 
-        else if (counter < 60 && counter >= 30)
+        else if (counter < 25 && counter > 10)
         {
-            int rand = Random.Range(0, 14);
+            int rand = Random.Range(1, 9);
             return chunks[rand];
         }
 
-        else if (counter < 90 && counter >= 60)
+        else if (counter > 25)
         {
-            int rand = Random.Range(0, 14);
+            int rand = Random.Range(5, 12);
             return chunks[rand];
         }
 
         else
         {
-            int rand = Random.Range(0, 14);
-            return chunks[rand];
+            return chunks[12];
         }
     }
 
@@ -69,15 +78,15 @@ public class MyProceduralMap : MonoBehaviour
 
     public void spawnChunk()
     {
-        GameObject chunkToSpawn = pickChunk(counter);
+        GameObject chunkToSpawn = pickChunk();
         
         spawnPos = initialPos + new Vector3(0, 0, chunkLength * counter);
-            
+        print("spawned");
         GameObject newChunk = Instantiate(chunkToSpawn, spawnPos, spawnRot);
         counter++;
 
         myQueue.Enqueue(newChunk);
-        if(counter > 14)
+        if(counter > 24)
         {
             removeChunk();
         }
