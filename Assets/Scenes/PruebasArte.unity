@@ -835,7 +835,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 805f3af9b2f975143aa073f01525fb42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text_modes: []
+  text_modes:
+  - {fileID: 1904367678}
+  - {fileID: 1460581341}
   PauseMenuUI: {fileID: 1149021263}
 --- !u!1 &413675710 stripped
 GameObject:

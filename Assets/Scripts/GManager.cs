@@ -158,6 +158,7 @@ public class GManager : MonoBehaviour
 
     void Update()
     {
+        Debug.Log("Number of players is: " + players.Count);
         if(players.Count==1)
         {
             SceneManager.LoadScene("MenuPrincipal");
