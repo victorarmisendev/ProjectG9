@@ -228,6 +228,7 @@ MonoBehaviour:
   canvas5: {fileID: 1400336843}
   canvas6: {fileID: 846510959}
   canvas7: {fileID: 2098445074}
+  canvas8: {fileID: 216928253}
 --- !u!4 &24408456
 Transform:
   m_ObjectHideFlags: 0
@@ -551,6 +552,7 @@ MonoBehaviour:
   Canvas: {fileID: 1073767852}
   CameraKill: {fileID: 1639680756}
   PMenu: {fileID: 0}
+  finalCanvas: {fileID: 0}
 --- !u!4 &99872394 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7999978140936798919, guid: a35c97d93971db54caa28083156f4e10,

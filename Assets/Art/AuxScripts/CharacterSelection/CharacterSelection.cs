@@ -13,6 +13,7 @@ public class CharacterSelection : MonoBehaviour
     public GameObject SelectorPrefab;
     public Transform[] positions;
     public List<int> Lista;
+    public List<Selector> pj;
     void Start()
     {
         //conseguir players. NUM de jugadores. 
@@ -25,12 +26,18 @@ public class CharacterSelection : MonoBehaviour
             //Instance the Selectors: 
             GameObject selector = Instantiate(SelectorPrefab, positions[i].position, Quaternion.identity);
             selector.GetComponent<Selector>().currentPad = pads[i];
+            pj.Add(selector.GetComponent<Selector>());
             Lista.Add(selector.GetComponent<Selector>().state);
         }
         DontDestroyOnLoad(transform.gameObject);
     }
     private void Update()
     {
+        Lista.Clear();
+        for(int i = 0; i < numberOfPlayers; i++)
+        {
+            Lista.Add(pj[i].state);
+        }
         if (pads[0].aButton.isPressed)
         {
             SceneManager.LoadScene("PruebasArte");

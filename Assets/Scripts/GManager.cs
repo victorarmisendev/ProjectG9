@@ -56,7 +56,7 @@ public class GManager : MonoBehaviour
         for (int i = 0; i < NumPlayers; i++)
         {
             Debug.Log("YOUR NUMBER IS" +Personajes[i]);
-            GameObject player = (GameObject)Instantiate(playerTypes[Personajes[i]], PosCar(i), Quaternion.identity);
+            GameObject player = (GameObject)Instantiate(playerTypes[Personajes[i]-1], PosCar(i), Quaternion.identity);
      
             player.GetComponent<PlayerControler>().gamepad_current = pads[i];
             player.GetComponent<PlayerControler>().PlayerNum = i + 1;

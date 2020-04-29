@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TutManager : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class TutManager : MonoBehaviour
     public GameObject Canvas;
     public GameObject CameraKill;
     public PasueMenu PMenu;
+    public GameObject finalCanvas;
+
     Vector3 RandomPosCar()
     {
         //Cambiar valores segun la pista. 
@@ -157,9 +160,14 @@ public class TutManager : MonoBehaviour
 
     void Update()
     {
+        if (pads[0].aButton.isPressed && finalCanvas.active)
+        {
+            SceneManager.LoadScene("MenuPrincipal");
+        }
         /*if(players.Count==1)
         {
             Application.Quit();
         }*/
+
     }
 }
