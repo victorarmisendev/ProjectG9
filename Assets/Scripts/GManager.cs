@@ -15,6 +15,8 @@ public class GManager : MonoBehaviour
     public GameObject CameraKill;
     public GameObject EndCanvas;
     public PasueMenu PMenu;
+    public string winnerPlayer = "";
+    public Text winner;
     Vector3 RandomPosCar()
     {
         //Cambiar valores segun la pista. 
@@ -162,6 +164,15 @@ public class GManager : MonoBehaviour
         if(GameObject.FindGameObjectsWithTag("Player").Length == 1)
         {
             EndCanvas.SetActive(true);
+            string name = GameObject.FindGameObjectWithTag("Player").gameObject.name;
+            string name2 = "";
+            for (int i = 0; i < name.Length; i++)
+            {
+                if (name[i] == '(')
+                    break;
+                name2 += name[i];
+            }
+            winner.text = name2;
             //SceneManager.LoadScene("MenuPrincipal");
         }
     }
