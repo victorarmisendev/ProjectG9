@@ -21,7 +21,7 @@ public class RandomBox : MonoBehaviour
             }
             else if (mytipe == Type.WEAPON)
             {
-                int randnum = Random.Range(0, 1);
+                int randnum = Random.Range(0, 3);
 
                 other.GetComponent<PlayerControler>().currentWeapon = possibleWeapon[randnum];
             }
