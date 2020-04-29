@@ -13,6 +13,7 @@ public class GManager : MonoBehaviour
     public List<GameObject> players = new List<GameObject>();
     public GameObject Canvas;
     public GameObject CameraKill;
+    public GameObject EndCanvas;
     public PasueMenu PMenu;
     Vector3 RandomPosCar()
     {
@@ -56,8 +57,8 @@ public class GManager : MonoBehaviour
         for (int i = 0; i < NumPlayers; i++)
         {
             Debug.Log("YOUR NUMBER IS" +Personajes[i]);
-            GameObject player = (GameObject)Instantiate(playerTypes[Personajes[i]], PosCar(i), Quaternion.identity);
-     
+            GameObject player = (GameObject)Instantiate(playerTypes[Personajes[i]-1], PosCar(i), Quaternion.identity);
+            //GameObject player = (GameObject)Instantiate(playerTypes[1], PosCar(i), Quaternion.identity);
             player.GetComponent<PlayerControler>().gamepad_current = pads[i];
             player.GetComponent<PlayerControler>().PlayerNum = i + 1;
             player.GetComponent<PlayerControler>().CameraKill = CameraKill;
@@ -160,6 +161,7 @@ public class GManager : MonoBehaviour
     {
         if(GameObject.FindGameObjectsWithTag("Player").Length == 1)
         {
+            EndCanvas.SetActive(true);
             //SceneManager.LoadScene("MenuPrincipal");
         }
     }

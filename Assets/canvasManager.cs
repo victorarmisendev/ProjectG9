@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class canvasManager : MonoBehaviour
 {
     public int counter = 0;
-
+    public Gamepad[] pads;
     public GameObject canvas1;
     public GameObject canvas2;
     public GameObject canvas3;
@@ -13,6 +15,7 @@ public class canvasManager : MonoBehaviour
     public GameObject canvas5;
     public GameObject canvas6;
     public GameObject canvas7;
+    public GameObject canvas8;
 
 
     public void CanvasChange()
@@ -56,12 +59,15 @@ public class canvasManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        pads = Gamepad.all.ToArray();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (pads[0].aButton.isPressed && canvas8.active)
+        {
+            SceneManager.LoadScene("MenuPrincipal");
+        }
     }
 }

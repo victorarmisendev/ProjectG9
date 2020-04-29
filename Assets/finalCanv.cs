@@ -25,6 +25,6 @@ public class finalCanv : MonoBehaviour
     }
     public void goMenu()
     {
-        SceneManager.LoadScene("MenuPrincipal");
+        
     }
 }
