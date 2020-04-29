@@ -72,16 +72,16 @@ public class SelectGameModes : MonoBehaviour
             switch(state)
             {
                 case 1:
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
                     break;
                 case 2:
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
                     break;
             }
         }
         if (pad[0].bButton.isPressed)
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(0);
         }
     }
 }

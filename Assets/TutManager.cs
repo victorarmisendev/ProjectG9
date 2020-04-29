@@ -97,7 +97,7 @@ public class TutManager : MonoBehaviour
                                 player.GetComponent<PlayerControler>().canvas = HUDplayer2.GetChild(j).GetComponent<Text>();
                                 break;
                             case 1:
-                                player.transform.GetChild(2).GetComponent<MovementShoot>().bar = HUDplayer2.GetChild(j).GetComponent<GunBar>();
+                                player.transform.GetComponent<MovementShoot>().bar = HUDplayer2.GetChild(j).GetComponent<GunBar>();
                                 break;
                             default:
                                 break;
@@ -116,7 +116,7 @@ public class TutManager : MonoBehaviour
                                 player.GetComponent<PlayerControler>().canvas = HUDplayer3.GetChild(j).GetComponent<Text>();
                                 break;
                             case 1:
-                                player.transform.GetChild(2).GetComponent<MovementShoot>().bar = HUDplayer3.GetChild(j).GetComponent<GunBar>();
+                                player.transform.GetComponent<MovementShoot>().bar = HUDplayer3.GetChild(j).GetComponent<GunBar>();
                                 break;
                             default:
                                 break;
@@ -135,7 +135,7 @@ public class TutManager : MonoBehaviour
                                 player.GetComponent<PlayerControler>().canvas = HUDplayer4.GetChild(j).GetComponent<Text>();
                                 break;
                             case 1:
-                                player.transform.GetChild(2).GetComponent<MovementShoot>().bar = HUDplayer4.GetChild(j).GetComponent<GunBar>();
+                                player.transform.GetComponent<MovementShoot>().bar = HUDplayer4.GetChild(j).GetComponent<GunBar>();
                                 break;
                             default:
                                 break;
