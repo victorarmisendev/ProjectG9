@@ -16,7 +16,7 @@ public class canvasManager : MonoBehaviour
     public GameObject canvas6;
     public GameObject canvas7;
     public GameObject canvas8;
-
+    public PasueMenu PMenu;
 
     public void CanvasChange()
     {
