@@ -881,6 +881,8 @@ MonoBehaviour:
   acceleration: 0.1
   mSpeed: 10
   speedPlayer: 0
+  release: 1
+  pos: 0
   KeyboardPruebas: 0
   PlayerNum: 0
   Lives: 3
@@ -910,7 +912,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &3154362174996009031
 MonoBehaviour:
@@ -924,7 +926,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35a38d6d3a17cf347ab64415bbe58147, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bullet: {fileID: 8933236516399352429, guid: 9a1a817844852ec478497dc26af1687e, type: 3}
+  Bullet: {fileID: 1000014264868206, guid: ca55dd9d7d291014a8b13aaf95318a3a, type: 3}
   BulletSP: {fileID: 7086300115445873679}
   Trap: {fileID: 0}
   TrampSP: {fileID: 4725461604073946754}

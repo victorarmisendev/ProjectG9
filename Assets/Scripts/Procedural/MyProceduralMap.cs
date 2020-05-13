@@ -79,7 +79,6 @@ public class MyProceduralMap : MonoBehaviour
         GameObject chunkToSpawn = pickChunk();
         
         spawnPos = initialPos + new Vector3(0, 0, chunkLength * counter);
-        print("spawned");
         GameObject newChunk = Instantiate(chunkToSpawn, spawnPos, spawnRot);
         counter++;
 

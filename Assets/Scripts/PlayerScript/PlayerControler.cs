@@ -16,7 +16,9 @@ public class PlayerControler : MonoBehaviour
   
     // InputActions
     PlayerInputActions inputAction;
+    public bool release = true;
     // Move
+    public int pos;
     Vector2 movementInput;
     public bool KeyboardPruebas = false;
 
@@ -136,32 +138,61 @@ public class PlayerControler : MonoBehaviour
                 RB.MovePosition(RB.position + transform.forward * speed * Time.fixedDeltaTime * (this.speedPlayer * 5.5f));
             }
            
-            //Rotation car.
+            //Car Movement
             Vector2 gp = gamepad_current.leftStick.ReadValue();
 
-            if (gp.x > 0.0f)
+            if (gp.x > 0.0f && release)
             {
-                if (gameObject.transform.rotation.y < 0.5f)
+                release = false;
+                pos--;
+                if(pos<0)
                 {
-                    RB.MoveRotation(RB.rotation * Quaternion.Euler(0.0f, 100.0f * Time.fixedDeltaTime, 0.0f));
+                    pos = 0;
                 }
-                Right = true;
+                ChangeSpot(pos);
             }
-            if (gp.x < 0.0f)
+            else if(gp.x < 0.0f && release)
             {
-                if (gameObject.transform.rotation.y > -0.5f)
+                pos++;
+                if (pos > 4)
                 {
-                    RB.MoveRotation(RB.rotation * Quaternion.Euler(0.0f, -100.0f * Time.fixedDeltaTime, 0.0f));
+                    pos = 4;
                 }
-                Left = true;
+                release = false;
+                ChangeSpot(pos);
             }
-            if(gp.y < 0.0f)
+            else if (gp.x==0 && !release)
             {
-                 Rear=true;
+                release = true;
             }
-        }
+            }
     }
 
+    private void ChangeSpot(int pos)
+    {
+        float X=0;
+        switch (pos)
+        {
+            case 0:
+                X = 27;
+                break;
+            case 1:
+                X = 12;
+                break;
+            case 2:
+                X = -2;
+                break;
+            case 3:
+                X = -18;
+                break;
+            case 4:
+                X = -33;
+                break;
+            default:
+                break;
+        }
+        gameObject.transform.position = new Vector3(X, 3, gameObject.transform.position.z);
+    }
     private void FixedUpdate()
     {
         //Input: Keyboard.
@@ -305,27 +336,27 @@ public class PlayerControler : MonoBehaviour
             switch (respawnX)
             {
                 case 0:
-                    x = -15;
+                    x = 27;
                     break;
                 case 1:
-                    x = -2;
+                    x = 12;
                     break;
                 case 2:
-                    x = 2;
+                    x = -2;
                     break;
                 case 3:
-                    x = 15;
+                    x = -18;
                     break;
                 default:
                     break;
             }
-            gameObject.transform.position = new Vector3(x, 3, CameraKill.transform.position.z + 50);
+            gameObject.transform.position = new Vector3(x, 3, CameraKill.transform.position.z + 80);
             invul = true;
             gameObject.transform.rotation = new Quaternion(0.0f, 0.0f, 0.0f, 0.0f);
-            if(Lives<=0)
+            /*if(Lives<=0)
             {
                 Destroy(gameObject);
-            }
+            }*/
             StartCoroutine(InvulCD());
         }
     }

@@ -28,87 +28,65 @@ public class MovementShoot : MonoBehaviour
         Ray ray = UnityEngine.Camera.main.ScreenPointToRay(Input.mousePosition);
 
         Trap = PC.currentTrap;
-        //g = BulletSP.transform.position;
-
-        //Calculate Rotation. 
-       //Vector2 gp = transform.parent.gameObject.GetComponent<PlayerControler>().gamepad_current.rightStick.ReadValue();
-
-       /* if (gp.x > 0.0f)
-        {
-            RB.MoveRotation(RB.rotation * Quaternion.Euler(0.0f, 100.0f * Time.fixedDeltaTime, 0.0f));
-        }
-        if (gp.x < 0.0f)
-        {
-            RB.MoveRotation(RB.rotation * Quaternion.Euler(0.0f, -100.0f * Time.fixedDeltaTime, 0.0f));       
-        }*/
-    
         //Acelerar con el de RT. 
         if (PC.gamepad_current.leftTrigger.isPressed && Canshoot)
         {
             bar.setValue(0);
-            Shoot();
+            Shoot(0);
            
         }
-        if (PC.gamepad_current.leftShoulder.isPressed && Canshoot)
+        else if(PC.gamepad_current.aButton.isPressed && Canshoot)
         {
-            SPTrap();
+            bar.setValue(0);
+            Shoot(1);
         }
-
-        //RB.rotation = new Quaternion(0.0f, RB.rotation.y, 0.0f, 1.0f);
-
-            //if(PlayerPlane.Raycast(ray, out hitdist))
-            //{
-            //    Vector3 TargetPoint = ray.GetPoint(hitdist);
-            //    Quaternion targetRotation = Quaternion.LookRotation(TargetPoint - transform.position);
-            //    targetRotation.x = 0;
-            //    targetRotation.z = 0;
-
-
-            //    transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 7f * Time.deltaTime);
-            //}
-            /*if(Input.GetMouseButtonDown(0)&&Canshoot)
-            {
-               bar.setValue(0);
-               Shoot();           
-            }*/
+        else if (PC.gamepad_current.bButton.isPressed && Canshoot)
+        {
+            bar.setValue(0);
+            Shoot(2);
+        }
+        else if (PC.gamepad_current.xButton.isPressed && Canshoot)
+        {
+            bar.setValue(0);
+            Shoot(3);
+        }
+        else if (PC.gamepad_current.yButton.isPressed && Canshoot)
+        {
+            bar.setValue(0);
+            Shoot(4);
+        }
     }
    public void ChangeBar(GunBar a)
     {
         bar = a;
     }
-    void SPTrap()
+    void Shoot(int num)
     {
-        if (Trap != null)
+        Vector3 pos=new Vector3(0, 0, 0); ;
+        switch (num)
         {
-            Instantiate(Trap.transform, TrampSP.transform.position, TrampSP.transform.rotation);
-            PC.currentTrap = null;
+            case 0:
+                pos = new Vector3(27, 0, PC.CameraKill.transform.position.z + 125f);
+                break;
+            case 1:
+                pos = new Vector3(12, 0, PC.CameraKill.transform.position.z + 125f);
+                break;
+            case 2:
+                pos = new Vector3(-2, 0, PC.CameraKill.transform.position.z + 125f);
+                break;
+            case 3:
+                pos = new Vector3(-18, 0, PC.CameraKill.transform.position.z + 125f);
+                break;
+            case 4:
+                pos = new Vector3(-33, 0, PC.CameraKill.transform.position.z + 125f);
+                break;
+            default:
+                break;
         }
-
-    }
-    void Shoot()
-    {
-        if (Bullet.transform.GetComponentInChildren<PEMBullet>())
-        {
-            Vector3 pos = BulletSP.transform.position;
-            if (PC.Rear)
-            {
-                pos.z = pos.z - 3.0f;
-                Bullet.transform.GetComponentInChildren<PEMBullet>().rear = true;
-            }
-            else
-            {
-                pos.z = pos.z + 3.0f;
-                Bullet.transform.GetComponentInChildren<PEMBullet>().rear = false;
-            }
-           
-            Instantiate(Bullet.transform, pos, BulletSP.transform.rotation);
-            Canshoot = false;
-            StartCoroutine(Cooldown());
-        }
-        else if (Bullet.transform.GetComponentInChildren<BalaAlquitran>())
-        {
-
-        }
+        
+       Instantiate(Bullet.transform, pos, BulletSP.transform.rotation);
+       Canshoot = false;
+       StartCoroutine(Cooldown());
     }
     IEnumerator Cooldown()
     {

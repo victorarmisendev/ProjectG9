@@ -10,7 +10,7 @@ public class RandomBox : MonoBehaviour
     public GameObject[] possibleWeapon;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+       /* if (other.tag == "Player")
         {
             //
             if (mytipe == Type.TRAP)
@@ -23,6 +23,6 @@ public class RandomBox : MonoBehaviour
                 int randnum = Random.Range(0, 3);
                 other.GetComponent<MovementShoot>().Bullet = possibleWeapon[randnum];
             }
-        }
+        }*/
     }
 }

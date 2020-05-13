@@ -28,16 +28,16 @@ public class GManager : MonoBehaviour
         switch(i)
         {
             case 0:
-                x = -12;
+                x = 27;
                 break;
             case 1:
-                x = -2;
+                x = 12;
                 break;
             case 2:
-                x = 2;
+                x = -2;
                 break;
             case 3:
-                x = 12;
+                x = -18;
                 break;
             default:
                 break;
@@ -62,6 +62,7 @@ public class GManager : MonoBehaviour
             GameObject player = (GameObject)Instantiate(playerTypes[Personajes[i]-1], PosCar(i), Quaternion.identity);
             //GameObject player = (GameObject)Instantiate(playerTypes[1], PosCar(i), Quaternion.identity);
             player.GetComponent<PlayerControler>().gamepad_current = pads[i];
+            player.GetComponent<PlayerControler>().pos = i;
             player.GetComponent<PlayerControler>().PlayerNum = i + 1;
             player.GetComponent<PlayerControler>().CameraKill = CameraKill;
             player.GetComponent<PlayerControler>().respawnX = i;
