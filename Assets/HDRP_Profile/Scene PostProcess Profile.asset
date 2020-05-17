@@ -92,6 +92,7 @@ MonoBehaviour:
   - {fileID: 5273065851018237629}
   - {fileID: 810219948319757474}
   - {fileID: 6695436861031135237}
+  - {fileID: 4216780454381793930}
 --- !u!114 &810219948319757474
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -104,7 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b709909182ba0943abef2c49ed59205, type: 3}
   m_Name: PaniniProjection
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   m_AdvancedMode: 0
   distance:
     m_OverrideState: 1
@@ -138,7 +139,7 @@ MonoBehaviour:
     m_Value: {fileID: 0}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.4
+    m_Value: 0.2
     min: 0
     max: 1
   m_MaxSamples:
@@ -146,6 +147,44 @@ MonoBehaviour:
     m_Value: 6
     min: 3
     max: 24
+--- !u!114 &4216780454381793930
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b8bcdf71d7fafa419fca1ed162f5fc9, type: 3}
+  m_Name: ColorAdjustments
+  m_EditorClassIdentifier: 
+  active: 1
+  m_AdvancedMode: 0
+  postExposure:
+    m_OverrideState: 0
+    m_Value: 0.5
+  contrast:
+    m_OverrideState: 1
+    m_Value: 3
+    min: -100
+    max: 100
+  colorFilter:
+    m_OverrideState: 0
+    m_Value: {r: 1, g: 1, b: 1, a: 1}
+    hdr: 1
+    showAlpha: 0
+    showEyeDropper: 1
+  hueShift:
+    m_OverrideState: 1
+    m_Value: 0
+    min: -180
+    max: 180
+  saturation:
+    m_OverrideState: 1
+    m_Value: -6
+    min: -100
+    max: 100
 --- !u!114 &4953279222029863476
 MonoBehaviour:
   m_ObjectHideFlags: 3
