@@ -14,6 +14,7 @@ public class MenuGlobal : MonoBehaviour
     public GameObject cam;
     public Text text, text2;
     private int aux = 3;
+    private float timer = 3.5f;
 
 
     private void Start()
@@ -87,7 +88,7 @@ public class MenuGlobal : MonoBehaviour
 
     void JoyStickMainMenu()
     {
-
+        timer -= Time.deltaTime;
         aux = Mathf.Clamp(aux, 3, 7);
 
         if (stateMenu == 2)
@@ -106,10 +107,9 @@ public class MenuGlobal : MonoBehaviour
                 aux--;
                 Debug.Log("HA ENTRADO JOYSTICK IZQUIERDO");
             }
-            if (pad.aButton.wasPressedThisFrame)
+            if (pad.aButton.wasPressedThisFrame && timer <= 0.0f)
             {
-                stateMenu = aux; //Confirmacion de a donde vamos.
-                aux = 3;
+                    stateMenu = aux; //Confirmacion de a donde vamos.                
             }
         }
     }
@@ -247,12 +247,16 @@ public class MenuGlobal : MonoBehaviour
             if (pad.bButton.wasPressedThisFrame)
             {
                 ////Return to splash menu.
-                //if (stateMenu == 3 || stateMenu == 4 || stateMenu == 5 || stateMenu == 6 || stateMenu == 3)
-                //{
-                //    stateMenu = 2;
-                //    Debug.Log("The state menu contador is: " + stateMenu);
-                //}
-            }
+                if (stateMenu == 3 || stateMenu == 4 || stateMenu == 5 || stateMenu == 6 || stateMenu == 7)
+                {
+                    stateMenu = 2;
+                    aux = 3;
+                    Debug.Log("The state menu contador is: " + stateMenu);
+                }
+
+
+
+        }
 
 
             MoveTo(stateMenu);
