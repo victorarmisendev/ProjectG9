@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MenuGlobal : MonoBehaviour
 {
@@ -10,15 +11,14 @@ public class MenuGlobal : MonoBehaviour
     public int state = 1;
     public int stateMenu = 1;
     public Gamepad pad;
-    public bool PRESSED_A = false;
+
     public GameObject cam;
     public Text text, text2;
-    private int aux = 3;
+    private int aux = 3, aux2 = 1;
     private float timer = 3.5f;
     private bool activeTimer = false;
 
-
-
+    public Transform[] camera_positions;
 
     private void Start()
     {
@@ -88,7 +88,7 @@ public class MenuGlobal : MonoBehaviour
             Vector3 camera_pos = cam.transform.position;
 
             cam.transform.position = Vector3.Lerp(cam.transform.position,
-                new Vector3(sections[0].transform.position.x, sections[0].transform.position.y, camera_pos.z), step);
+                new Vector3(camera_positions[0].position.x, camera_positions[0].position.y, camera_pos.z), step);
         }
 
         if (state == 2)
@@ -97,7 +97,7 @@ public class MenuGlobal : MonoBehaviour
             Vector3 camera_pos = cam.transform.position;
 
             cam.transform.position = Vector3.Lerp(cam.transform.position,
-                new Vector3(sections[1].transform.position.x, sections[1].transform.position.y, camera_pos.z), step);
+                new Vector3(camera_positions[1].position.x, camera_positions[1].position.y, camera_pos.z), step);
         }
 
         if (state == 3)
@@ -106,7 +106,7 @@ public class MenuGlobal : MonoBehaviour
             Vector3 camera_pos = cam.transform.position;
 
             cam.transform.position = Vector3.Lerp(cam.transform.position,
-                new Vector3(camera_pos.x, sections[2].transform.position.y, camera_pos.z), step);
+                new Vector3(camera_pos.x, camera_positions[2].position.y, camera_pos.z), step);
         }
 
         if (state == 4)
@@ -115,7 +115,7 @@ public class MenuGlobal : MonoBehaviour
             Vector3 camera_pos = cam.transform.position;
 
             cam.transform.position = Vector3.Lerp(cam.transform.position,
-                new Vector3(sections[3].transform.position.x, sections[3].transform.position.y, camera_pos.z), step);
+                new Vector3(camera_positions[3].position.x, camera_positions[3].position.y, camera_pos.z), step);
         }
 
         if (state == 5)
@@ -124,7 +124,7 @@ public class MenuGlobal : MonoBehaviour
             Vector3 camera_pos = cam.transform.position;
 
             cam.transform.position = Vector3.Lerp(cam.transform.position,
-                new Vector3(sections[4].transform.position.x, sections[4].transform.position.y, camera_pos.z), step);
+                new Vector3(camera_positions[4].position.x, camera_positions[4].position.y, camera_pos.z), step);
         }
 
         if (state == 6)
@@ -133,7 +133,7 @@ public class MenuGlobal : MonoBehaviour
             Vector3 camera_pos = cam.transform.position;
 
             cam.transform.position = Vector3.Lerp(cam.transform.position,
-                new Vector3(sections[5].transform.position.x, sections[5].transform.position.y, camera_pos.z), step);
+                new Vector3(camera_positions[5].position.x, camera_positions[5].position.y, camera_pos.z), step);
         }
 
         if (state == 7)
@@ -142,7 +142,7 @@ public class MenuGlobal : MonoBehaviour
             Vector3 camera_pos = cam.transform.position;
 
             cam.transform.position = Vector3.Lerp(cam.transform.position,
-                new Vector3(sections[6].transform.position.x, sections[6].transform.position.y, camera_pos.z), step);
+                new Vector3(camera_positions[6].position.x, camera_positions[6].position.y, camera_pos.z), step);
         }
 
     }
@@ -160,7 +160,6 @@ public class MenuGlobal : MonoBehaviour
                     stateMenu = 2;
                 }
                 break;
-
             case 2:
                 sections[0].SetActive(false);
                 sections[1].SetActive(true);
@@ -175,14 +174,38 @@ public class MenuGlobal : MonoBehaviour
             if (pad.bButton.wasPressedThisFrame)
                 stateMenu = 1;
                 break;
-
             case 3:
-                //Play: GO TO SELECTION MENU. 
-                //Go to the position.
+                // Play: GO TO SELECTION MENU. 
+                // Go to the position.
                 sections[0].SetActive(false);
                 sections[1].SetActive(false);
                 sections[2].SetActive(true);
-            if (pad.bButton.wasPressedThisFrame)
+                aux2 = Mathf.Clamp(aux2, 1, 3);
+                if (pad.leftStick.right.wasPressedThisFrame)
+                    aux2++;
+                if (pad.leftStick.left.wasPressedThisFrame)
+                    aux2--;
+                if (pad.aButton.wasPressedThisFrame)
+                {
+                    //stateMenu = aux; //Confirmacion de a donde vamos. 
+                    //Change scene to mode selected. 
+                    switch(aux2)
+                    {
+                        case 1:
+                            //Change: 
+                            //SceneManager.LoadScene("Runner");
+                            break;
+                        case 2:
+                            //Change: 
+                            //SceneManager.LoadScene("Arena");
+                            break;
+                        case 3:
+                            //Change: 
+                            //SceneManager.LoadScene("Tutorial");
+                            break;
+                    }
+                }
+                if (pad.bButton.wasPressedThisFrame)
                 stateMenu = 2;
                 break;
 
@@ -191,7 +214,8 @@ public class MenuGlobal : MonoBehaviour
                     stateMenu = 2;
                 break;
 
-            case 5: // Options         
+            case 5: // Options: Put the controls to modify the menu. 
+                //Change the buttons, volume and graphics by input. 
                 if (pad.bButton.wasPressedThisFrame)
                     stateMenu = 2;
                 break;
