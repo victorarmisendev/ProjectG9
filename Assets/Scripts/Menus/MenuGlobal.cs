@@ -106,7 +106,7 @@ public class MenuGlobal : MonoBehaviour
             Vector3 camera_pos = cam.transform.position;
 
             cam.transform.position = Vector3.Lerp(cam.transform.position,
-                new Vector3(camera_pos.x, camera_positions[2].position.y, camera_pos.z), step);
+                new Vector3(camera_positions[2].position.x, camera_positions[2].position.y, camera_pos.z), step);
         }
 
         if (state == 4)
