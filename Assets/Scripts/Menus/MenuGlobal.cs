@@ -15,6 +15,9 @@ public class MenuGlobal : MonoBehaviour
     public Text text, text2;
     private int aux = 3;
     private float timer = 3.5f;
+    private bool activeTimer = false;
+
+
 
 
     private void Start()
@@ -30,7 +33,7 @@ public class MenuGlobal : MonoBehaviour
         sections[0].SetActive(true);
 
     }
-
+    
     void Update()
     {
         //state = Mathf.Clamp(state, 1, 2); // Min y max por las secciones del menu global. 
@@ -51,93 +54,31 @@ public class MenuGlobal : MonoBehaviour
 
     void InputMovement()
     {
-        if (stateMenu < 2)
-        {
-            if (pad.aButton.wasPressedThisFrame)
-            {
-                //Cambio de section. 
-                stateMenu++;
-            }
-
-            if (pad.bButton.wasPressedThisFrame)
-            {
-                //Cambio de section. 
-                stateMenu--;
-            }
-
-        }
-        else
-        {
-            if (pad.bButton.wasPressedThisFrame)
-            {
-                //Cambio de section. 
-                stateMenu = 2;
-            }
-        }
-
-        //if (stateMenu <= 3)
-        //{           
-        //    if (pad.bButton.wasPressedThisFrame)
+        //if (stateMenu < 2)
+        //{
+        //    if (pad.aButton.wasPressedThisFrame)
         //    {
         //        //Cambio de section. 
-        //        stateMenu--;
+        //        stateMenu++;
         //    }
+        //    //if (pad.bButton.wasPressedThisFrame)
+        //    //{
+        //    //    //Cambio de section. 
+        //    //    stateMenu--;
+        //    //}
+        //}
+        //else
+        //{
+        //    //if (pad.bButton.wasPressedThisFrame)
+        //    //{
+        //    //    //Cambio de section. 
+        //    //    stateMenu = 2;
+        //    //}
         //}
       
     }
 
-    void JoyStickMainMenu()
-    {
-        timer -= Time.deltaTime;
-        aux = Mathf.Clamp(aux, 3, 7);
 
-        if (stateMenu == 2)
-        {
-            text2.text = "The menu contador is: " + aux.ToString();
-            if (pad.leftStick.up.wasPressedThisFrame)
-            {
-                //Cambio de section. 
-                aux++;
-                Debug.Log("HA ENTRADO JOYSTICK IZQUIERDO");
-            }
-
-            if (pad.leftStick.down.wasPressedThisFrame)
-            {
-                //Cambio de section. 
-                aux--;
-                Debug.Log("HA ENTRADO JOYSTICK IZQUIERDO");
-            }
-            if (pad.aButton.wasPressedThisFrame && timer <= 0.0f)
-            {
-                    stateMenu = aux; //Confirmacion de a donde vamos.                
-            }
-        }
-    }
-
-    //void ChangeSections(int state)
-    //{
-    //    switch(state)
-    //    {
-    //        case 1:
-    //            //Active section one. 
-    //            sections[0].SetActive(true);
-    //            sections[1].SetActive(false);
-    //            sections[2].SetActive(false);
-    //            break;
-    //        case 2:
-    //            sections[0].SetActive(false);
-    //            sections[1].SetActive(true);
-    //            sections[2].SetActive(false);
-    //            break;
-    //        //case 3:
-    //        //    sections[0].SetActive(false);
-    //        //    sections[1].SetActive(false);
-    //        //    sections[2].SetActive(true);
-    //        //    break;
-    //        default: //Nothing for now.
-    //            break;
-    //    }
-    //}
     void MoveTo(int state)
     {
 
@@ -207,61 +148,65 @@ public class MenuGlobal : MonoBehaviour
     }
     void MainMenu()
     {
-        //if (state > 2)
-        //{
-            //Do the move in the main menu. 
-            JoyStickMainMenu();
-            //if (pad.aButton.wasPressedThisFrame)
-            //{ 
-            //} FAIL 
-            switch (stateMenu)
-            {
-                case 1:
-                    sections[0].SetActive(true);
-                    sections[1].SetActive(false);
-                    sections[2].SetActive(false);                       
-                    break;
-                case 2:
-                    sections[0].SetActive(false);
-                    sections[1].SetActive(true);
-                    sections[2].SetActive(false);
-                    Debug.Log("ENTRA EN EL 2");
-                    break;
-                case 3:
-                    //Play: GO TO SELECTION MENU. 
-                    //Go to the position.
-                    sections[0].SetActive(false);
-                    sections[1].SetActive(false);
-                    sections[2].SetActive(true);
-                    break;
-                case 4: // Controls
-                    break;
-                case 5: // Options 
-                    break;
-                case 6: // Credits
-                    break;
-                case 7: // Exit 
-                    break;
-
-            }
-            if (pad.bButton.wasPressedThisFrame)
-            {
-                ////Return to splash menu.
-                if (stateMenu == 3 || stateMenu == 4 || stateMenu == 5 || stateMenu == 6 || stateMenu == 7)
+        switch (stateMenu)
+        {
+            case 1:
+                sections[0].SetActive(true);
+                sections[1].SetActive(false);
+                sections[2].SetActive(false);
+                if (pad.aButton.wasPressedThisFrame)
                 {
+                    //Cambio de section. 
                     stateMenu = 2;
-                    aux = 3;
-                    Debug.Log("The state menu contador is: " + stateMenu);
                 }
+                break;
 
+            case 2:
+                sections[0].SetActive(false);
+                sections[1].SetActive(true);
+                sections[2].SetActive(false);
+            text2.text = "The menu contador is: " + aux.ToString();
+            if (pad.leftStick.up.wasPressedThisFrame)
+                aux++;
+            if (pad.leftStick.down.wasPressedThisFrame)
+                aux--;
+            if (pad.aButton.wasPressedThisFrame)
+                stateMenu = aux; //Confirmacion de a donde vamos.      
+            if (pad.bButton.wasPressedThisFrame)
+                stateMenu = 1;
+                break;
 
+            case 3:
+                //Play: GO TO SELECTION MENU. 
+                //Go to the position.
+                sections[0].SetActive(false);
+                sections[1].SetActive(false);
+                sections[2].SetActive(true);
+            if (pad.bButton.wasPressedThisFrame)
+                stateMenu = 2;
+                break;
 
+            case 4: // Controls
+                if (pad.bButton.wasPressedThisFrame)
+                    stateMenu = 2;
+                break;
+
+            case 5: // Options         
+                if (pad.bButton.wasPressedThisFrame)
+                    stateMenu = 2;
+                break;
+
+            case 6: // Credits
+                if (pad.bButton.wasPressedThisFrame)
+                    stateMenu = 2;
+                break;
+
+            case 7: // Exit 
+                if (pad.bButton.wasPressedThisFrame)
+                    stateMenu = 2;
+                break;
         }
-
-
             MoveTo(stateMenu);
-
-        //}
     }
 
 
