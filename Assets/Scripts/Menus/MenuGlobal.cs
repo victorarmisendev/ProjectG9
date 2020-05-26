@@ -175,44 +175,46 @@ public class MenuGlobal : MonoBehaviour
             if (pad.bButton.wasPressedThisFrame)
                 stateMenu = 1;
 
-                switch(aux)
-                {
-                    case 3:
-                        foreach(var b in textosMenu)
-                        {
-                            b.color = Color.white;
-                        }
-                        textosMenu[0].color = Color.green;
-                        break;
-                    case 4:
-                        foreach (var b in textosMenu)
-                        {
-                            b.color = Color.white;
-                        }
-                        textosMenu[1].color = Color.green;
-                        break;
-                    case 5:
-                        foreach (var b in textosMenu)
-                        {
-                            b.color = Color.white;
-                        }
-                        textosMenu[2].color = Color.green;
-                        break;
-                    case 6:
-                        foreach (var b in textosMenu)
-                        {
-                            b.color = Color.white;
-                        }
-                        textosMenu[3].color = Color.green;
-                        break;
-                    case 7:
-                        foreach (var b in textosMenu)
-                        {
-                            b.color = Color.white;
-                        }
-                        textosMenu[4].color = Color.green;
-                        break;
-                }
+            aux = Mathf.Clamp(aux, 3, 7);
+
+            switch (aux)
+            {
+                case 3:
+                    foreach(var b in textosMenu)
+                    {
+                        b.color = Color.white;
+                    }
+                    textosMenu[0].color = Color.green;
+                    break;
+                case 4:
+                    foreach (var b in textosMenu)
+                    {
+                        b.color = Color.white;
+                    }
+                    textosMenu[1].color = Color.green;
+                    break;
+                case 5:
+                    foreach (var b in textosMenu)
+                    {
+                        b.color = Color.white;
+                    }
+                    textosMenu[2].color = Color.green;
+                    break;
+                case 6:
+                    foreach (var b in textosMenu)
+                    {
+                        b.color = Color.white;
+                    }
+                    textosMenu[3].color = Color.green;
+                    break;
+                case 7:
+                    foreach (var b in textosMenu)
+                    {
+                        b.color = Color.white;
+                    }
+                    textosMenu[4].color = Color.green;
+                    break;
+            }
 
 
                 break;
