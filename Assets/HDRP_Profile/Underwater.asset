@@ -16,13 +16,13 @@ MonoBehaviour:
   m_AdvancedMode: 0
   lift:
     m_OverrideState: 1
-    m_Value: {x: 0, y: 0.24105835, z: 1, w: 0}
+    m_Value: {x: 0, y: 0.26130247, z: 1, w: 0}
   gamma:
     m_OverrideState: 1
-    m_Value: {x: 0, y: 0.28461218, z: 1, w: -0.22044091}
+    m_Value: {x: 0, y: 0.26372814, z: 1, w: -0.22044091}
   gain:
     m_OverrideState: 1
-    m_Value: {x: 0.053677976, y: 0.4804852, z: 1, w: 0}
+    m_Value: {x: 0, y: 0.2474761, z: 1, w: 0}
 --- !u!114 &-6655779379860192965
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -309,7 +309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c1bfcd0f0fa7b8468f281d6bbbaf320, type: 3}
   m_Name: LensDistortion
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   m_AdvancedMode: 0
   intensity:
     m_OverrideState: 1

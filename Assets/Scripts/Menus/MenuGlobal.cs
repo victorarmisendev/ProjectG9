@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class MenuGlobal : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class MenuGlobal : MonoBehaviour
     private int aux = 3, aux2 = 1;
     private float timer = 3.5f;
     private bool activeTimer = false;
+    public TextMeshProUGUI[] textosMenu;
 
     public Transform[] camera_positions;
 
@@ -77,7 +79,6 @@ public class MenuGlobal : MonoBehaviour
         //}
       
     }
-
 
     void MoveTo(int state)
     {
@@ -151,9 +152,9 @@ public class MenuGlobal : MonoBehaviour
         switch (stateMenu)
         {
             case 1:
-                sections[0].SetActive(true);
-                sections[1].SetActive(false);
-                sections[2].SetActive(false);
+                //sections[0].SetActive(true);
+                //sections[1].SetActive(false);
+                //sections[2].SetActive(false);
                 if (pad.aButton.wasPressedThisFrame)
                 {
                     //Cambio de section. 
@@ -161,25 +162,66 @@ public class MenuGlobal : MonoBehaviour
                 }
                 break;
             case 2:
-                sections[0].SetActive(false);
-                sections[1].SetActive(true);
-                sections[2].SetActive(false);
+                //sections[0].SetActive(false);
+                //sections[1].SetActive(true);
+                //sections[2].SetActive(false);
             text2.text = "The menu contador is: " + aux.ToString();
             if (pad.leftStick.up.wasPressedThisFrame)
-                aux++;
-            if (pad.leftStick.down.wasPressedThisFrame)
                 aux--;
+            if (pad.leftStick.down.wasPressedThisFrame)
+                aux++;
             if (pad.aButton.wasPressedThisFrame)
                 stateMenu = aux; //Confirmacion de a donde vamos.      
             if (pad.bButton.wasPressedThisFrame)
                 stateMenu = 1;
+
+                switch(aux)
+                {
+                    case 3:
+                        foreach(var b in textosMenu)
+                        {
+                            b.color = Color.white;
+                        }
+                        textosMenu[0].color = Color.green;
+                        break;
+                    case 4:
+                        foreach (var b in textosMenu)
+                        {
+                            b.color = Color.white;
+                        }
+                        textosMenu[1].color = Color.green;
+                        break;
+                    case 5:
+                        foreach (var b in textosMenu)
+                        {
+                            b.color = Color.white;
+                        }
+                        textosMenu[2].color = Color.green;
+                        break;
+                    case 6:
+                        foreach (var b in textosMenu)
+                        {
+                            b.color = Color.white;
+                        }
+                        textosMenu[3].color = Color.green;
+                        break;
+                    case 7:
+                        foreach (var b in textosMenu)
+                        {
+                            b.color = Color.white;
+                        }
+                        textosMenu[4].color = Color.green;
+                        break;
+                }
+
+
                 break;
             case 3:
                 // Play: GO TO SELECTION MENU. 
                 // Go to the position.
-                sections[0].SetActive(false);
-                sections[1].SetActive(false);
-                sections[2].SetActive(true);
+                //sections[0].SetActive(false);
+                //sections[1].SetActive(false);
+                //sections[2].SetActive(true);
                 aux2 = Mathf.Clamp(aux2, 1, 3);
                 if (pad.leftStick.right.wasPressedThisFrame)
                     aux2++;
