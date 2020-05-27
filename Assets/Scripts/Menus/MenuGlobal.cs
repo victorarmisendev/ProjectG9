@@ -19,8 +19,11 @@ public class MenuGlobal : MonoBehaviour
     private float timer = 3.5f;
     private bool activeTimer = false;
     public TextMeshProUGUI[] textosMenu;
+    //public GameObject[] carteles;
 
-    public Transform[] camera_positions;
+    public GameObject indicatorPlay;
+
+    public Transform[] camera_positions, selectorPosition;
 
     private void Start()
     {
@@ -229,23 +232,40 @@ public class MenuGlobal : MonoBehaviour
                     aux2++;
                 if (pad.leftStick.left.wasPressedThisFrame)
                     aux2--;
+                if(aux2 == 1)
+                    indicatorPlay.transform.position = selectorPosition[0].position;
+                if(aux2 == 2)
+                    indicatorPlay.transform.position = selectorPosition[1].position;
+                if (aux2 == 3)
+                    indicatorPlay.transform.position = selectorPosition[2].position;
                 if (pad.aButton.wasPressedThisFrame)
                 {
                     //stateMenu = aux; //Confirmacion de a donde vamos. 
                     //Change scene to mode selected. 
-                    switch(aux2)
+                    Color metal = new Color(204, 169, 90);
+                    switch (aux2)
                     {
+               
                         case 1:
                             //Change: 
                             //SceneManager.LoadScene("Runner");
+                            //carteles[0].GetComponent<Renderer>().material.color = Color.green;
+                            //carteles[1].GetComponent<Renderer>().material.color = metal;
+                            //carteles[2].GetComponent<Renderer>().material.color = metal;
                             break;
                         case 2:
                             //Change: 
                             //SceneManager.LoadScene("Arena");
+                            //carteles[0].GetComponent<Renderer>().material.color = metal;
+                            //carteles[1].GetComponent<Renderer>().material.color = Color.green;
+                            //carteles[2].GetComponent<Renderer>().material.color = metal;
                             break;
                         case 3:
                             //Change: 
-                            //SceneManager.LoadScene("Tutorial");
+                            //SceneManager.LoadScene("Tutorial"); //IMPORTANT
+                            //carteles[0].GetComponent<Renderer>().material.color = metal;
+                            //carteles[1].GetComponent<Renderer>().material.color = metal;
+                            //carteles[2].GetComponent<Renderer>().material.color = Color.green;
                             break;
                     }
                 }
