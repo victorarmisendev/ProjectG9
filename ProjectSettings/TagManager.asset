@@ -15,6 +15,7 @@ TagManager:
   - Selector
   - canvMan
   - tutTrig
+  - field
   layers:
   - Default
   - TransparentFX
