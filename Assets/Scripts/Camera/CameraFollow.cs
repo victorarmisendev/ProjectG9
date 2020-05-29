@@ -9,7 +9,7 @@ public class CameraFollow : MonoBehaviour
     private Vector3 velocity;
     private float smoothTime = .5f;
     public float speed;
-    private bool start = false;
+    public static bool start = false;
 
     private IEnumerator coroutine;
 

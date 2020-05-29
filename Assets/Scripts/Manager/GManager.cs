@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GManager : MonoBehaviour
-{
+{ 
     public GameObject[] playerTypes;
     private int NumPlayers;
     public Gamepad[] pads;
