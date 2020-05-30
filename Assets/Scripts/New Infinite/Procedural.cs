@@ -12,7 +12,7 @@ public class Procedural : MonoBehaviour
     void Start()
     {
         newPos = lastField.transform.position;
-        InvokeRepeating("Instance", 1.0f, 1.5f);
+        InvokeRepeating("Instance", 0.5f, 1.1f);
     }
 
     GameObject RandomFunction(GameObject[] fields)
@@ -25,6 +25,9 @@ public class Procedural : MonoBehaviour
         newPos = lastField.transform.position + Vector3.forward * 83.1f;
         GameObject fieldInstanced = Instantiate(RandomFunction(fields), newPos, Quaternion.identity);
         lastField = fieldInstanced;
+        //Destroy(fieldInstanced, 10.0f);
+        //Borrar todas aquellas fields que ya se han creado y no se vean en pantalla y que esten por detras
+        //del jugador. 
     }
 
 }

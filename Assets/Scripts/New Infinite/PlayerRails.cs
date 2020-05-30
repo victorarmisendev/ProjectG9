@@ -2,22 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerRails : MonoBehaviour
 {
 
+    //Objects   
+    GameObject toSpawn = null;
+   public GameObject partOfTheCar;
+    //Arrays   
     public GameObject[] rails;
+    //Pos   
+    Vector3 toPos;   
+    Quaternion initialRot;
+    //Var    
     public Gamepad pad;
     private int count = 0;
-    private Rigidbody rb;
-    public int speed; //Constant speed player
-    Vector3 toPos;
-    public int speedChangeRail;
-    Quaternion initialRot;
-    public GameObject partOfTheCar;
-    public int lives;
+    private Rigidbody rb;      
     public Camera main;
-    GameObject toSpawn = null;
+    public GameObject finishCanvas;
+    //
+    public int lives = 3, points;
+    //Speeds    
+    public int speed; //Constant speed player
+    public int speedChangeRail;
+    public bool isDead = false;
 
     void Start()
     {
@@ -32,7 +41,7 @@ public class PlayerRails : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (CameraFollow.start)
+        if (CameraFollow.start && !isDead)
         {
             toPos = new Vector3(rails[count].transform.position.x,
                         transform.position.y,
@@ -45,8 +54,9 @@ public class PlayerRails : MonoBehaviour
 
     void Update()
     {
-        if (CameraFollow.start)
+        if (CameraFollow.start && !isDead)
         {
+            points++;
             //Move the player in Update to change the rail. JOYSTICK LEFT. 
             if (pad.leftStick.left.wasPressedThisFrame)
             {
@@ -62,7 +72,7 @@ public class PlayerRails : MonoBehaviour
                 count = Mathf.Clamp(count, 0, rails.Length - 1);
             }
 
-            //speed
+            //speed:
             RaycastHit hit;
             if (Physics.Raycast(main.transform.position,
                 main.transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity))
@@ -85,10 +95,28 @@ public class PlayerRails : MonoBehaviour
                 transform.position = toSpawn.transform.position;
 
             }
+         
+        }
 
-        }    
+        if (lives <= 0)
+        {
+            //Finish the match.
+            isDead = true;
+            StartCoroutine(Finish(5.0f));
+        }
+    }
+
+    IEnumerator Finish(float seconds)
+    {
+        finishCanvas.SetActive(true);
+        yield return new WaitForSeconds(seconds);
+        //GameObject par = Instantiate(explosion, rb.position, explosion.transform.rotation);
+        //Destroy(this.gameObject);
+        //Destroy(par, 3.0f);
+        //SceneManager.LoadScene("Splash"); //Deberia ser esto. 
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); //Deberia ser esto. 
     }
 
 
-  
+
 }
