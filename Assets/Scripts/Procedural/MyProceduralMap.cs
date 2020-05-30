@@ -33,12 +33,6 @@ public class MyProceduralMap : MonoBehaviour
         spawnChunk();
         spawnChunk();
         spawnChunk();
-        spawnChunk();
-        spawnChunk();
-        spawnChunk();
-        spawnChunk();
-        spawnChunk();
-        spawnChunk();
 
         initialPos = currentChunk.transform.position;
         spawnRot = currentChunk.transform.rotation;
