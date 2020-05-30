@@ -81,7 +81,7 @@ public class PlayerRails : MonoBehaviour
                 {
                     var boneChild = hit.transform.Find("Reset");
                     toSpawn = boneChild.gameObject;
-                    Debug.Log("Enter" + " :" + hit.transform.name);
+                    //Debug.Log("Enter" + " :" + hit.transform.name);
                 }
                 //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
             }
