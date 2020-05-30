@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AlweyRotate : MonoBehaviour
 {
-    private float velocity = 0.5f;
+    private float velocity = -0.5f;
 
     void Start()
     {
