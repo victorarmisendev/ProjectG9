@@ -30,6 +30,12 @@ public class MenuGlobal : MonoBehaviour
 
     public TextMeshProUGUI[] options;
     public int resolution = 1;
+    public int graphics = 1;
+    public int volume = 1;
+
+    public AudioSource AS;
+
+    public bool FULL = false;
 
     private void Start()
     {
@@ -42,6 +48,10 @@ public class MenuGlobal : MonoBehaviour
         //}
 
         sections[0].SetActive(true);
+
+        options[2].text = "Volume: 1";
+        options[1].text = "Graphics: Ultra";
+        options[3].text = "Fullscreen: ON";
 
     }
     
@@ -175,6 +185,7 @@ public class MenuGlobal : MonoBehaviour
                 //sections[1].SetActive(true);
                 //sections[2].SetActive(false);
             text2.text = "The menu contador is: " + aux.ToString();
+
             if (pad.leftStick.up.wasPressedThisFrame)
                 aux--;
             if (pad.leftStick.down.wasPressedThisFrame)
@@ -349,19 +360,19 @@ public class MenuGlobal : MonoBehaviour
                         {
                             case 1:
                                 SetResolution(1920, 1080);
-                                options[0].text = "Graphics: 1920 x 1080";
+                                options[0].text = "Resolution: 1920 x 1080";
                                 break;
                             case 2:
                                 SetResolution(1280, 1024);
-                                options[0].text = "Graphics: 1280 x 1024";
+                                options[0].text = "Resolution: 1280 x 1024";
                                 break;
                             case 3:
                                 SetResolution(1280, 720);
-                                options[0].text = "Graphics: 1280 x 720";
+                                options[0].text = "Resolution: 1280 x 720";
                                 break;
                             case 4:
                                 SetResolution(800, 640);
-                                options[0].text = "Graphics: 800 x 640";
+                                options[0].text = "Resolution: 800 x 640";
                                 break;
                         }
         
@@ -375,11 +386,43 @@ public class MenuGlobal : MonoBehaviour
                         }
                         options[1].color = Color.green;
 
+
+                        graphics = Mathf.Clamp(graphics, 1, 4);
+
                         if (pad.aButton.wasPressedThisFrame)
                         {
-
+                            graphics++;
+                            if (graphics > 4)
+                                graphics = 1;
                         }
-     
+
+
+                        switch (graphics)
+                        {
+                            case 1:
+
+                                options[1].text = "Graphics: Ultra";
+                                SetQuality(1);
+                                break;
+                            case 2:
+    
+                                options[1].text = "Graphics: High";
+                                SetQuality(1);
+                                break;
+                            case 3:
+ 
+                                options[1].text = "Graphics: Medium";
+                                SetQuality(1);
+                                break;
+                            case 4:
+
+                                options[1].text = "Graphics: Low";
+                                SetQuality(1);
+                                break;
+                        }
+
+
+
                         //Graphics
                         break;
                     case 3:
@@ -389,9 +432,38 @@ public class MenuGlobal : MonoBehaviour
                             b.color = Color.white;
                         }
                         options[2].color = Color.green;
+
+
+                        volume = Mathf.Clamp(volume, 1, 4);
+
                         if (pad.aButton.wasPressedThisFrame)
                         {
+                            volume++;
+                            if (volume > 4)
+                                volume = 1;
+                        }
 
+
+                        switch (volume)
+                        {
+                            case 1:
+
+                                options[2].text = "Volume: 1";
+                                SetVolum(0.25f);
+                                break;
+                            case 2:
+                                options[2].text = "Volume: 1";
+                                SetVolum(0.5f);
+                                break;
+                            case 3:
+                                options[2].text = "Volume: 3";
+                                SetVolum(0.75f);
+                                break;
+                            case 4:
+                                SetVolum(1.0f);
+                                options[2].text = "Volume: 4";
+   
+                                break;
                         }
 
                         //Volume
@@ -402,9 +474,20 @@ public class MenuGlobal : MonoBehaviour
                             b.color = Color.white;
                         }
                         options[3].color = Color.green;
+
+                        if(FULL)
+                        {
+                            options[3].text = "Fullscreen: ON";
+                        } 
+                        else
+                        {
+                            options[3].text = "Fullscreen: OFF";
+                        }
+                      
                         if (pad.aButton.wasPressedThisFrame)
                         {
-
+                            FULL = !FULL;
+                            Screen.fullScreen = FULL;
                         }
         
                         //Fullscreen
@@ -433,6 +516,16 @@ public class MenuGlobal : MonoBehaviour
     public void SetResolution(int width, int height)
     {
         Screen.SetResolution(width, height, Screen.fullScreen);
+    }
+
+    public void SetQuality(int QualityIndex)
+    {
+        QualitySettings.SetQualityLevel(QualityIndex);
+    }
+
+    public void SetVolum(float volum)
+    {
+        AS.volume = volum / 10;
     }
 
 }
