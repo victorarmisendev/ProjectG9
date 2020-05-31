@@ -12,7 +12,6 @@ public class MPStats : MonoBehaviour
     public GameObject T4;
     public GameObject[] player;
 
-
     // Update is called once per frame
     void Update()
     {

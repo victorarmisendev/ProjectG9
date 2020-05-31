@@ -75,7 +75,6 @@ public class MPPlayerRail : MonoBehaviour
                 count++;
                 count = Mathf.Clamp(count, 0, rails.Length - 1);
             }
-
             //speed:
             RaycastHit hit;
             if (Physics.Raycast(main.transform.position,
@@ -105,20 +104,12 @@ public class MPPlayerRail : MonoBehaviour
         if (lives <= 0)
         {
             //Finish the match.
+            Destroy(gameObject);
             isDead = true;
-            StartCoroutine(Finish(5.0f));
+           
         }
     }
-    IEnumerator Finish(float seconds)
-    {
-        //finishCanvas.SetActive(true);
-        yield return new WaitForSeconds(seconds);
-        //GameObject par = Instantiate(explosion, rb.position, explosion.transform.rotation);
-        //Destroy(this.gameObject);
-        //Destroy(par, 3.0f);
-        //SceneManager.LoadScene("Splash"); //Deberia ser esto. 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); //Deberia ser esto. 
-    }
+
 
 
 }
