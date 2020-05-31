@@ -1303,7 +1303,7 @@ MonoBehaviour:
   finishCanvas: {fileID: 0}
   pauseMenu: {fileID: 0}
   playerNum: 0
-  lives: 3
+  lives: 6
   points: 0
   speed: 50
   speedChangeRail: 3

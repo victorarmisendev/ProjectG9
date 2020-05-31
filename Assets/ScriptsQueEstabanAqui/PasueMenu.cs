@@ -73,17 +73,17 @@ public class PasueMenu : MonoBehaviour
     {
         if(gameIsPaused)
         {
-            Resume();
+            Pause();        
         }
         else
         {
-            Pause();
+            Resume();
         }
     }
     public void Resume()
     {
         PauseMenuUI.SetActive(false);
-        Time.timeScale = 1;
+        //Time.timeScale = 1;
         gameIsPaused = false;
     }
     public void Exit()
@@ -93,7 +93,7 @@ public class PasueMenu : MonoBehaviour
    void Pause()
     {
         PauseMenuUI.SetActive(true);
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
         gameIsPaused = true;
     }
 }
