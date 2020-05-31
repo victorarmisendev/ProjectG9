@@ -3790,6 +3790,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 798079977694854791, guid: 8737800c8bc5aea40a86ea54d5babe8c,
         type: 3}
+      propertyPath: playerTypes.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 798079977694854791, guid: 8737800c8bc5aea40a86ea54d5babe8c,
+        type: 3}
       propertyPath: PMenu
       value: 
       objectReference: {fileID: 322982751}
@@ -3828,6 +3833,12 @@ PrefabInstance:
       propertyPath: EndCanvas
       value: 
       objectReference: {fileID: 1355815869}
+    - target: {fileID: 798079977694854791, guid: 8737800c8bc5aea40a86ea54d5babe8c,
+        type: 3}
+      propertyPath: playerTypes.Array.data[1]
+      value: 
+      objectReference: {fileID: 6601076661270987173, guid: f06ed067714143f49b1eae83a64a2683,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8737800c8bc5aea40a86ea54d5babe8c, type: 3}
 --- !u!1 &1777824323
