@@ -37,30 +37,37 @@ public class GManager : MonoBehaviour
             player.GetComponent<MPPlayerRail>().rails = rails;
             player.GetComponent<MPPlayerRail>().playerNum = i + 1;
             player.GetComponent<MPPlayerRail>().pauseMenu = PMenu;
-            player.GetComponent<MPPlayerRail>().count = i;
             player.GetComponent<MPPlayerRail>().main = Mycamera;
-            player.GetComponent<MPPlayerRail>().SetPosition();
+            
             switch (i)
             {
                 case 0:
+                    player.GetComponent<MPPlayerRail>().count = i;
+                    player.GetComponent<MPPlayerRail>().SetPosition();
                     HUD.GetComponent<MPStats>().player[i] = player;
                     HUD.GetComponent<MPStats>().T1.SetActive(true);
                     player.transform.GetChild(0).gameObject.GetComponent<Renderer>().enabled = true;
                     player.transform.GetChild(0).gameObject.GetComponent<Renderer>().sharedMaterial = colores[i];
                     break;
                 case 1:
+                    player.GetComponent<MPPlayerRail>().count = i;
+                    player.GetComponent<MPPlayerRail>().SetPosition();
                     HUD.GetComponent<MPStats>().player[i] = player;
                     HUD.GetComponent<MPStats>().T2.SetActive(true);
                     player.transform.GetChild(0).gameObject.GetComponent<Renderer>().enabled = true;
                     player.transform.GetChild(0).gameObject.GetComponent<Renderer>().sharedMaterial = colores[i];
                     break;
                 case 2:
+                    player.GetComponent<MPPlayerRail>().count = 4;
+                    player.GetComponent<MPPlayerRail>().SetPosition();
                     HUD.GetComponent<MPStats>().player[i] = player;
                     HUD.GetComponent<MPStats>().T3.SetActive(true);
                     player.transform.GetChild(0).gameObject.GetComponent<Renderer>().enabled = true;
                     player.transform.GetChild(0).gameObject.GetComponent<Renderer>().sharedMaterial = colores[i];
                     break;
                 case 3:
+                    player.GetComponent<MPPlayerRail>().count = 5;
+                    player.GetComponent<MPPlayerRail>().SetPosition();
                     HUD.GetComponent<MPStats>().player[i] = player;
                     HUD.GetComponent<MPStats>().T4.SetActive(true);
                     player.transform.GetChild(0).gameObject.GetComponent<Renderer>().enabled = true;
