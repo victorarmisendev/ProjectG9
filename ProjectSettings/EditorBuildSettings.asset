@@ -8,27 +8,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Splash.unity
     guid: 15f9bfce68a725c4bb1004296f98bc1b
-  - enabled: 0
-    path: Assets/Scenes/Escenas Antiguas/MenuPrincipal.unity
-    guid: 985d5a44802f60f47b12410e38a7f84d
-  - enabled: 0
-    path: Assets/Scenes/Escenas Antiguas/MenuGamemodes.unity
-    guid: b1f461e82d57dab46a030d5d6ba0cfb5
-  - enabled: 0
-    path: "Assets/Scenes/Modos de juego/Selection/Selecci\xF3nPersonaje.unity"
-    guid: 0de4d01788b6a31439800a35bbd32964
-  - enabled: 0
-    path: Assets/Scenes/Modos de juego/Tutorial.unity
-    guid: 6f5c30a5922613a4095c3b01b5f90e43
-  - enabled: 0
-    path: Assets/Scenes/Modos de juego/Infinite.unity
-    guid: 756d279e4bfa23943ba4e5de5be22fdf
-  - enabled: 0
-    path: Assets/Scenes/Escenas Antiguas/Credits.unity
-    guid: d9864e1fc114ced44b0ca60f802f305e
+  - enabled: 1
+    path: Assets/Scenes/Modos de juego/NewInfinite.unity
+    guid: 7f820c61de22a7b409e3dec9a2893ef1
   - enabled: 1
     path: Assets/Scenes/Modos de juego/MultiInfinite.unity
     guid: b609afbcc009eea4fbdd02cd0c4e45a1
+  - enabled: 1
+    path: Assets/Scenes/Modos de juego/Arena.unity
+    guid: 3914f2d099b02e745a9cd04391b94e94
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 33ba080b2c0ac1f429d2039491b71e48,
       type: 2}

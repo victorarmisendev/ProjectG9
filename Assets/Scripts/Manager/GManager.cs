@@ -32,7 +32,7 @@ public class GManager : MonoBehaviour
         for (int i = 0; i < NumPlayers; i++)
         {
             Debug.Log("YOUR NUMBER IS" +i);
-            GameObject player = (GameObject)Instantiate(playerTypes[i], my, Quaternion.identity);
+            GameObject player = (GameObject)Instantiate(playerTypes[0], my, Quaternion.identity);
             player.GetComponent<MPPlayerRail>().pad = pads[i];
             player.GetComponent<MPPlayerRail>().rails = rails;
             player.GetComponent<MPPlayerRail>().playerNum = i + 1;

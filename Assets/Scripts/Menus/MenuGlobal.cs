@@ -264,7 +264,7 @@ public class MenuGlobal : MonoBehaviour
                     {
                         case 1:
                             //Change: 
-                            //SceneManager.LoadScene("Runner");
+                            SceneManager.LoadScene(1);
                             //carteles[0].GetComponent<Renderer>().material.color = Color.green;
                             //carteles[1].GetComponent<Renderer>().material.color = metal;
                             //carteles[2].GetComponent<Renderer>().material.color = metal;
@@ -275,6 +275,7 @@ public class MenuGlobal : MonoBehaviour
                             //carteles[0].GetComponent<Renderer>().material.color = metal;
                             //carteles[1].GetComponent<Renderer>().material.color = Color.green;
                             //carteles[2].GetComponent<Renderer>().material.color = metal;
+                            SceneManager.LoadScene(2);
                             break;
                         case 3:
                             //Change: 
@@ -282,6 +283,7 @@ public class MenuGlobal : MonoBehaviour
                             //carteles[0].GetComponent<Renderer>().material.color = metal;
                             //carteles[1].GetComponent<Renderer>().material.color = metal;
                             //carteles[2].GetComponent<Renderer>().material.color = Color.green;
+                            SceneManager.LoadScene(3);
                             break;
                     }
                 }
