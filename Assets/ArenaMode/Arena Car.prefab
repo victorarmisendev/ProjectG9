@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3032206752172262664}
   m_Layer: 0
   m_Name: Arena Car
-  m_TagString: Untagged
+  m_TagString: PlayerArena
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 5991678919496274302}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 9036514974176152992}
   m_Father: {fileID: 0}
@@ -93,15 +93,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4040339980889620, guid: 127b4df7baa4f284283bb315ff3a713e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.566889
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4040339980889620, guid: 127b4df7baa4f284283bb315ff3a713e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.142185
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4040339980889620, guid: 127b4df7baa4f284283bb315ff3a713e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.238665
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4040339980889620, guid: 127b4df7baa4f284283bb315ff3a713e, type: 3}
       propertyPath: m_LocalRotation.x

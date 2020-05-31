@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 894143232573396374}
+  - component: {fileID: 180765966875441530}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -31,6 +32,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &180765966875441530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2919938753214912120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e09580dce4f0b304e9049c1a4effa86b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockFly: {fileID: 4240851958692071237, guid: 5521f618da9cace459e06ff3f8d383e4, type: 3}
+  rockFloor: {fileID: 4131087444634495157, guid: b520cf9d12309ea40970d43ba98860d9,
+    type: 3}
+  player: {fileID: 0}
 --- !u!1 &4661661671109601664
 GameObject:
   m_ObjectHideFlags: 0
