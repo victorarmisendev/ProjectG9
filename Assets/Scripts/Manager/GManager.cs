@@ -11,63 +11,63 @@ public class GManager : MonoBehaviour
     private int NumPlayers;
     public Gamepad[] pads;
     public List<GameObject> players = new List<GameObject>();
-    public GameObject Canvas;
-    public GameObject CameraKill;
     public GameObject EndCanvas;
     public PasueMenu PMenu;
     public string winnerPlayer = "";
     public Text winner;
-    Vector3 RandomPosCar()
-    {
-        //Cambiar valores segun la pista. 
-        return new Vector3(1, 15.0f, Random.Range(-15, 15));
-    }
-    Vector3 PosCar(int i)
-    {
-        float x=0;
-        switch(i)
-        {
-            case 0:
-                x = 27;
-                break;
-            case 1:
-                x = 12;
-                break;
-            case 2:
-                x = -2;
-                break;
-            case 3:
-                x = -18;
-                break;
-            default:
-                break;
-        }
-        return new Vector3(x,1, CameraKill.transform.position.z + 80);
-
-    }
+    public GameObject[] rails;
+    public Camera Mycamera;
+    public GameObject HUD;
+    public Material[] colores;
     void Start()
     {       
         NumPlayers = Gamepad.all.Count;
         pads = Gamepad.all.ToArray();
 
         Vector3 my = new Vector3(0, 0, 0);
-        GameObject afg = (GameObject)Instantiate(Canvas, my , Quaternion.identity);
         Debug.Log("Number of gamepads: " + NumPlayers);
-        CharacterSelection a = FindObjectOfType<CharacterSelection>();
-        List<int> Personajes = a.Lista;
+        //CharacterSelection a = FindObjectOfType<CharacterSelection>();
+        //List<int> Personajes = a.Lista;
         //Create and Spawn players in random position and assign pads. 
         for (int i = 0; i < NumPlayers; i++)
         {
-            Debug.Log("YOUR NUMBER IS" +Personajes[i]);
-            GameObject player = (GameObject)Instantiate(playerTypes[Personajes[i]-1], PosCar(i), Quaternion.identity);
-            //GameObject player = (GameObject)Instantiate(playerTypes[1], PosCar(i), Quaternion.identity);
-            player.GetComponent<PlayerControler>().gamepad_current = pads[i];
-            player.GetComponent<PlayerControler>().pos = i;
-            player.GetComponent<PlayerControler>().PlayerNum = i + 1;
-            player.GetComponent<PlayerControler>().CameraKill = CameraKill;
-            player.GetComponent<PlayerControler>().respawnX = i;
-            player.GetComponent<PlayerControler>().pause = PMenu;
+            Debug.Log("YOUR NUMBER IS" +i);
+            GameObject player = (GameObject)Instantiate(playerTypes[i], my, Quaternion.identity);
+            player.GetComponent<MPPlayerRail>().pad = pads[i];
+            player.GetComponent<MPPlayerRail>().rails = rails;
+            player.GetComponent<MPPlayerRail>().playerNum = i + 1;
+            player.GetComponent<MPPlayerRail>().pauseMenu = PMenu;
+            player.GetComponent<MPPlayerRail>().count = i;
+            player.GetComponent<MPPlayerRail>().main = Mycamera;
+            player.GetComponent<MPPlayerRail>().SetPosition();
             switch (i)
+            {
+                case 0:
+                    HUD.GetComponent<MPStats>().player[i] = player;
+                    HUD.GetComponent<MPStats>().T1.SetActive(true);
+                    player.transform.GetChild(0).gameObject.GetComponent<Renderer>().enabled = true;
+                    player.transform.GetChild(0).gameObject.GetComponent<Renderer>().sharedMaterial = colores[i];
+                    break;
+                case 1:
+                    HUD.GetComponent<MPStats>().player[i] = player;
+                    HUD.GetComponent<MPStats>().T2.SetActive(true);
+                    player.transform.GetChild(0).gameObject.GetComponent<Renderer>().enabled = true;
+                    player.transform.GetChild(0).gameObject.GetComponent<Renderer>().sharedMaterial = colores[i];
+                    break;
+                case 2:
+                    HUD.GetComponent<MPStats>().player[i] = player;
+                    HUD.GetComponent<MPStats>().T3.SetActive(true);
+                    player.transform.GetChild(0).gameObject.GetComponent<Renderer>().enabled = true;
+                    player.transform.GetChild(0).gameObject.GetComponent<Renderer>().sharedMaterial = colores[i];
+                    break;
+                case 3:
+                    HUD.GetComponent<MPStats>().player[i] = player;
+                    HUD.GetComponent<MPStats>().T4.SetActive(true);
+                    player.transform.GetChild(0).gameObject.GetComponent<Renderer>().enabled = true;
+                    player.transform.GetChild(0).gameObject.GetComponent<Renderer>().sharedMaterial = colores[i];
+                    break;
+            }
+           /*switch (i)
             {
                 case 0:
                     Transform HUDplayer = afg.transform.GetChild(i);
@@ -88,7 +88,7 @@ public class GManager : MonoBehaviour
                         }
                     }
                     break;
-                case 1:
+                /*case 1:
                     Transform HUDplayer2 = afg.transform.GetChild(i);
                     HUDplayer2.gameObject.SetActive(true);
                     for (int j = 0; j < HUDplayer2.childCount; j++)
@@ -153,9 +153,9 @@ public class GManager : MonoBehaviour
             {
                 
             }
-            players.Add(player); //Usamos esta lista para dibujar el nombre, imagen y vidas de los jugadores. 
+            players.Add(player); //Usamos esta lista para dibujar el nombre, imagen y vidas de los jugadores. */
         }
-
+        
 
 
     }

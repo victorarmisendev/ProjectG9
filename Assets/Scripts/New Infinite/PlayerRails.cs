@@ -105,7 +105,6 @@ public class PlayerRails : MonoBehaviour
             StartCoroutine(Finish(5.0f));
         }
     }
-
     IEnumerator Finish(float seconds)
     {
         finishCanvas.SetActive(true);
