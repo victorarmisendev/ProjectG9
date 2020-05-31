@@ -17,6 +17,7 @@ TagManager:
   - tutTrig
   - field
   - PlayerArena
+  - Cliff
   layers:
   - Default
   - TransparentFX
