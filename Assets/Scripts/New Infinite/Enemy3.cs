@@ -27,6 +27,27 @@ public class Enemy3 : MonoBehaviour
             counter += 0.02f;
             rb.MovePosition(rb.position - (Vector3.forward * counter));
         }
+        else
+        {
+            MPPlayerRail[] go = FindObjectsOfType<MPPlayerRail>();
+            PlayerRails[] go2= FindObjectsOfType<PlayerRails>();
+
+            if(go!=null)
+            {
+                for (int i = 0; i < go.Length; i++)
+                {
+                    if (Vector3.Distance(go[i].transform.position, gameObject.transform.position)<100)
+                    {
+                        active = true;
+                        Debug.Log("Yo");
+                    }
+                }
+            }
+            else if (go2!=null)
+            {
+
+            }
+        }
     }
 
     void Update()
@@ -56,10 +77,7 @@ public class Enemy3 : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
-        {
-            active = true;
-        }
+       
     }
 
 
