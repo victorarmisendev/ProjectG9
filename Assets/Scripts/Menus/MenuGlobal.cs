@@ -25,10 +25,13 @@ public class MenuGlobal : MonoBehaviour
 
     public Transform[] camera_positions, selectorPosition;
 
+    public GameObject controlsCartel;
+    float actualRotY = 0.0f; 
+
     private void Start()
     {
         pad = Gamepad.all[0]; //El primer jugador lleva el menu.
-
+        actualRotY = controlsCartel.transform.eulerAngles.y;
         //Reset
         //foreach(var s in sections)
         //{
@@ -274,6 +277,24 @@ public class MenuGlobal : MonoBehaviour
                 break;
 
             case 4: // Controls
+                if (pad.leftStick.right.wasPressedThisFrame)
+                {
+                    actualRotY += actualRotY + 180.0f;
+                }
+                if (pad.leftStick.left.wasPressedThisFrame)
+                {
+                    actualRotY -= actualRotY + 180.0f;
+                }
+
+
+
+                controlsCartel.transform.eulerAngles =
+                       Vector3.Lerp(controlsCartel.transform.eulerAngles,
+                       new Vector3(controlsCartel.transform.eulerAngles.x,
+                       actualRotY,
+                       controlsCartel.transform.eulerAngles.x), Time.deltaTime);
+
+
                 if (pad.bButton.wasPressedThisFrame)
                     stateMenu = 2;
                 break;
