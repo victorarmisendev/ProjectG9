@@ -31,11 +31,6 @@ public class Boss : MonoBehaviour
                 rockFlyAttack();
                 break;
             case 1:
-                boulderCount = 0;
-                while (boulderCount < 3)
-                {
-                    InvokeRepeating("rockRollAttack", 1, 1);
-                }
                 rockRollAttack();
                 break;
             case 2:
