@@ -41,7 +41,10 @@ public class MPPlayerRail : MonoBehaviour
     }
     public void SetPosition()
     {
-        transform.position = rails[count].transform.position;
+        if (count != 6)
+        {
+            transform.position = rails[count].transform.position;
+        }
     }
     private void FixedUpdate()
     {

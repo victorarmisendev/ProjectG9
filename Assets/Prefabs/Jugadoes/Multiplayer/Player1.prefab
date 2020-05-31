@@ -1298,6 +1298,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   count: 0
   main: {fileID: 0}
   finishCanvas: {fileID: 0}
