@@ -27,7 +27,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Escenas Antiguas/Credits.unity
     guid: d9864e1fc114ced44b0ca60f802f305e
   - enabled: 1
-    path: Assets/Scenes/Modos de juego/NewInfinite.unity
+    path: Assets/Scenes/Modos de juego/MultiInfinite.unity
     guid: b609afbcc009eea4fbdd02cd0c4e45a1
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 33ba080b2c0ac1f429d2039491b71e48,

@@ -54,7 +54,14 @@ public class Enemy1 : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<PlayerRails>().lives--;
+            if (collision.gameObject.GetComponent<PlayerRails>() != null)
+            {
+                collision.gameObject.GetComponent<PlayerRails>().lives--;
+            }
+            else
+            {
+                collision.gameObject.GetComponent<MPPlayerRail>().lives--;
+            }
             Destroy(gameObject, 0.5f);
         }
     }

@@ -51,7 +51,14 @@ public class Enemy2 : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<PlayerRails>().lives--;
+            if (collision.gameObject.GetComponent<PlayerRails>() != null)
+            {
+                collision.gameObject.GetComponent<PlayerRails>().lives--;
+            }
+            else
+            {
+                collision.gameObject.GetComponent<MPPlayerRail>().lives--;
+            }
             GameObject par = Instantiate(explosion, rb.position, explosion.transform.rotation);
             Destroy(par, 3.0f);
             Destroy(gameObject, 0.5f);

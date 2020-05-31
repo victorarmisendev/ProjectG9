@@ -14,8 +14,11 @@ public class Stats : MonoBehaviour
 
     void Update()
     {
-        lives.text = "Lives: " + player.GetComponent<PlayerRails>().lives.ToString();
-        points.text = "Points: " + player.GetComponent<PlayerRails>().points.ToString();
+
+
+        lives.text = "Lives: " + player.GetComponent<PlayerRails>().lives;
+
+        points.text = "Points: " + player.GetComponent<PlayerRails>().points;
     }
 
 
