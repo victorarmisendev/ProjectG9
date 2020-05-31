@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 5645834883363077827}
   - component: {fileID: 3032206752172262664}
   - component: {fileID: 3055592545288100425}
+  - component: {fileID: 7203302544728107241}
+  - component: {fileID: 4312396274293670497}
   m_Layer: 0
   m_Name: Arena Car
   m_TagString: PlayerArena
@@ -93,13 +95,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 012008c263619db458e8ada3f9741e51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!54 &7230838135182387830
+--- !u!54 &7203302544728107241
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9035800702665091934}
+  m_GameObject: {fileID: 5991678919496274302}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -108,14 +110,14 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 80
-  m_CollisionDetection: 0
---- !u!65 &9156551727096144545
+  m_CollisionDetection: 1
+--- !u!65 &4312396274293670497
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9035800702665091934}
+  m_GameObject: {fileID: 5991678919496274302}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
@@ -179,12 +181,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 127b4df7baa4f284283bb315ff3a713e, type: 3}
---- !u!1 &9035800702665091934 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1090761194096874, guid: 127b4df7baa4f284283bb315ff3a713e,
-    type: 3}
-  m_PrefabInstance: {fileID: 9036046965863982004}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9036514974176152992 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4040339980889620, guid: 127b4df7baa4f284283bb315ff3a713e,

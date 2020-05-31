@@ -33,37 +33,15 @@ public class PlayerArena : MonoBehaviour
         }
         else if(!pad.rightTrigger.isPressed)
         {
-            if(speed > 0.0f)
-            {
-                speed -= 0.005f;
-            }
-            else
-            {
-                speed = 0.0f;
-            }
-        }
-        else if (pad.leftTrigger.isPressed)
-        {
-            print("left");
-            if (speed > -0.3f)
-            {
-                speed -= 0.005f;
-            }
-            else if (speed <= -0.3f)
-            {
-                speed = -0.3f;
-            }
-        }
-        else if (!pad.leftTrigger.isPressed)
-        {
-            if (speed < 0.0f)
-            {
-                speed += 0.005f;
-            }
-            else
-            {
-                speed = 0.0f;
-            }
+
+                if (speed > 0.0f)
+                {
+                    speed -= 0.005f;
+                }
+                else
+                {
+                    speed = 0.0f;
+                }
         }
 
         if (pad.leftStick.left.isPressed)
