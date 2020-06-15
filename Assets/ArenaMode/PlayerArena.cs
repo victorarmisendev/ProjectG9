@@ -12,6 +12,8 @@ public class PlayerArena : MonoBehaviour
     public Rigidbody rb;
     public GameObject particle;
 
+    public AudioSource engineSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +35,7 @@ public class PlayerArena : MonoBehaviour
             {
                 speed = 0.8f;
             }
+            engineSound.Play();
         }
         else if (pad.leftTrigger.isPressed)
         {
@@ -46,16 +49,21 @@ public class PlayerArena : MonoBehaviour
                 speed = -0.3f;
             }
         }
-        else if(!pad.rightTrigger.isPressed && !pad.leftTrigger.isPressed)
+        else if(!pad.rightTrigger.isPressed)
         {
-            if(speed > 0.0f)
+            engineSound.Stop();
+            if(!pad.leftTrigger.isPressed)
             {
-                speed -= 0.005f;
+                if (speed > 0.0f)
+                {
+                    speed -= 0.005f;
+                }
+                else
+                {
+                    speed = 0.0f;
+                }
             }
-            else
-            {
-                speed = 0.0f;
-            }
+
         }
 
         if (pad.leftStick.left.isPressed)
