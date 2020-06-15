@@ -127,6 +127,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.55168784, y: 0.810084, z: 1.6294433}
   m_Center: {x: -0.024223685, y: 0.4125226, z: -0.054109156}
+--- !u!65 &8045676521469678509
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9035800702665091934}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.55424607, y: 0.8317466, z: 1.8912005}
+  m_Center: {x: -0.025326908, y: 0.51830935, z: -0.17033005}
 --- !u!1001 &1699944231532673635
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -271,6 +284,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: car3_interior_5
       objectReference: {fileID: 0}
+    - target: {fileID: 1090761194096874, guid: 127b4df7baa4f284283bb315ff3a713e, type: 3}
+      propertyPath: m_TagString
+      value: PlayerArena
+      objectReference: {fileID: 0}
     - target: {fileID: 4040339980889620, guid: 127b4df7baa4f284283bb315ff3a713e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -317,6 +334,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 127b4df7baa4f284283bb315ff3a713e, type: 3}
+--- !u!1 &9035800702665091934 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1090761194096874, guid: 127b4df7baa4f284283bb315ff3a713e,
+    type: 3}
+  m_PrefabInstance: {fileID: 9036046965863982004}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9036514974176152992 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4040339980889620, guid: 127b4df7baa4f284283bb315ff3a713e,

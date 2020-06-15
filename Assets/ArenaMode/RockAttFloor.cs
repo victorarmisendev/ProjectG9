@@ -8,13 +8,13 @@ public class RockAttFloor : MonoBehaviour
     private bool onFloor = false;
     public GameObject boulder;
     public GameObject particle;
-
+    private float speed;
     
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "PlayerArena")
         {
-            Destroy(other.gameObject);
+            Destroy(other.transform.parent.gameObject);
             Destroy(boulder.gameObject);
             particle.SetActive(true);
         }
@@ -32,7 +32,7 @@ public class RockAttFloor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        speed = Random.Range(0.05f, 0.09f);
     }
 
     // Update is called once per frame
@@ -40,7 +40,7 @@ public class RockAttFloor : MonoBehaviour
     {
         if (onFloor == true)
         {
-            transform.position += new Vector3(0, 0, -0.045f);
+            transform.position += new Vector3(0, 0, -speed);
             transform.Rotate (-1.0f, 0.0f, 0.0f, Space.Self);
         }
     }

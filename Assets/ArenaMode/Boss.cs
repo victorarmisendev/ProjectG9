@@ -12,6 +12,8 @@ public class Boss : MonoBehaviour
     public float attackCD = 5.0f;
     int counterAttacks = 0;
 
+    public Animator BossAnimator;
+
     private int attackCounter;
     // Start is called before the first frame update
     void Start()
@@ -19,6 +21,7 @@ public class Boss : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("PlayerArena");
         playerPos = player.transform.position;
         InvokeRepeating("attack", 4, 4);
+        BossAnimator = gameObject.GetComponent<Animator>();
         
     }
 
@@ -30,10 +33,14 @@ public class Boss : MonoBehaviour
         switch(i)
         {
             case 0:
-                rockFlyAttack();
+                //rockFlyAttack();
+                BossAnimator.SetTrigger("RockAttack1");
+                Invoke("rockFlyAttack",2.0f);
                 break;
             case 1:
-                rockRollAttack();
+                //rockRollAttack();
+                BossAnimator.SetTrigger("RockAttack2");
+                Invoke("rockRollAttack", 2.0f);
                 break;
             case 2:
                 spawnMinion();
@@ -55,12 +62,13 @@ public class Boss : MonoBehaviour
     }
     void rockRollAttack()
     {
+        
         float xPos = Random.Range(-22.0f, -7.0f);
-        Instantiate(rockFloor, new Vector3 (xPos, 15, 12.5f), new Quaternion(0, 0, 0, 1));
+        Instantiate(rockFloor, new Vector3 (xPos, 25, 12.5f), new Quaternion(Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), 1));
         xPos = Random.Range(-8.0f, 7.0f);
-        Instantiate(rockFloor, new Vector3(xPos, 15, 12.5f), new Quaternion(0, 0, 0, 1));
+        Instantiate(rockFloor, new Vector3(xPos, 25, 12.5f), new Quaternion(Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), 1));
         xPos = Random.Range(8.0f, 23.75f);
-        Instantiate(rockFloor, new Vector3(xPos, 15, 12.5f), new Quaternion(0, 0, 0, 1));
+        Instantiate(rockFloor, new Vector3(xPos, 25, 12.5f), new Quaternion(Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), 1));
 
     }
     //private void Update()
