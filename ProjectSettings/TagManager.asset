@@ -16,6 +16,8 @@ TagManager:
   - canvMan
   - tutTrig
   - field
+  - PlayerArena
+  - Cliff
   layers:
   - Default
   - TransparentFX
