@@ -13,6 +13,7 @@ public class PlayerArena : MonoBehaviour
     public GameObject particle;
 
     public AudioSource engineSound;
+    public float audioVolume;
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +36,7 @@ public class PlayerArena : MonoBehaviour
             {
                 speed = 0.8f;
             }
-            engineSound.Play();
+            
         }
         else if (pad.leftTrigger.isPressed)
         {
@@ -51,7 +52,7 @@ public class PlayerArena : MonoBehaviour
         }
         else if(!pad.rightTrigger.isPressed)
         {
-            engineSound.Stop();
+            
             if(!pad.leftTrigger.isPressed)
             {
                 if (speed > 0.0f)
@@ -65,7 +66,22 @@ public class PlayerArena : MonoBehaviour
             }
 
         }
+        if(speed > 0.003f)
+        {
+            engineSound.volume = speed;
+            if (!engineSound.isPlaying)
+            {
+                engineSound.Play();
+            }
+        }
+        else
+        {
 
+            if (engineSound.isPlaying)
+            {
+                engineSound.Stop();
+            }
+        }
         if (pad.leftStick.left.isPressed)
         {
             direction = -2.5f;
