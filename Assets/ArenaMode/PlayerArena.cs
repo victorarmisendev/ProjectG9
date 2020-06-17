@@ -15,6 +15,8 @@ public class PlayerArena : MonoBehaviour
     public AudioSource engineSound;
     public float audioVolume;
 
+    public int lives = 3;
+
     // Start is called before the first frame update
     void Start()
     {
