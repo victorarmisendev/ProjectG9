@@ -1600,6 +1600,7 @@ MonoBehaviour:
   - {fileID: 9143571457572647052, guid: d2d95424c6caf99479ccb855154e19ee, type: 3}
   - {fileID: 7567948969911752430, guid: f84d094a7688c25448e77e51cc05b8ea, type: 3}
   lastField: {fileID: 1882190161}
+  timeSpawn: 1.65
 --- !u!4 &847011908
 Transform:
   m_ObjectHideFlags: 0
@@ -2993,12 +2994,12 @@ PrefabInstance:
     - target: {fileID: 2121164118789472388, guid: 2dc901f97a354b64b92e3e4fe643304b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2121164118789472388, guid: 2dc901f97a354b64b92e3e4fe643304b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2121164118789472388, guid: 2dc901f97a354b64b92e3e4fe643304b,
         type: 3}
