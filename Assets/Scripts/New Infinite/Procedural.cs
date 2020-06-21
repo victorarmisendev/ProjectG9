@@ -37,10 +37,10 @@ public class Procedural : MonoBehaviour
         myQueue.Enqueue(lastField);
         counter++;
 
-        if(counter >= 11)
-        {
-            removeChunk();
-        }
+        //if(counter >= 11)
+        //{
+        //    removeChunk();
+        //}
 
         //Destroy(fieldInstanced, 10.0f);
         //Borrar todas aquellas fields que ya se han creado y no se vean en pantalla y que esten por detras

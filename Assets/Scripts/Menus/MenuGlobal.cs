@@ -29,6 +29,7 @@ public class MenuGlobal : MonoBehaviour
     public GameObject infiniteControls, arenaControls;
 
     public TextMeshProUGUI[] options;
+    public TextMeshProUGUI modeControls;
     public int resolution = 1;
     public int graphics = 1;
     public int volume = 1;
@@ -292,19 +293,7 @@ public class MenuGlobal : MonoBehaviour
                 break;
 
             case 4: // Controls
-                    //if (pad.aButton.wasPressedThisFrame)
-                    //{
-                    //    transform.Rotate(Vector3.up, 180);
-                    //}
-                    //if (pad.leftStick.left.wasPressedThisFrame)
-                    //{
-                    //    actualRotY -= actualRotY + 180.0f;
-                    //}
-                    //controlsCartel.transform.localEulerAngles =
-                    //       Vector3.Lerp(controlsCartel.transform.eulerAngles,
-                    //       new Vector3(controlsCartel.transform.eulerAngles.x,
-                    //       actualRotY,
-                    //       controlsCartel.transform.eulerAngles.x), Time.deltaTime);     
+
                 aux3Controles = Mathf.Clamp(aux3Controles, 1, 2);
                 if (pad.leftStick.right.wasPressedThisFrame)
                     aux3Controles++;
@@ -314,14 +303,14 @@ public class MenuGlobal : MonoBehaviour
                 {
                     infiniteControls.SetActive(true);
                     arenaControls.SetActive(false);
+                    modeControls.text = "Infinite";
                 }
                 if (aux3Controles == 2)
                 {
                     infiniteControls.SetActive(false);
                     arenaControls.SetActive(true);
+                    modeControls.text = "Arena";
                 }
-
-
 
                 if (pad.bButton.wasPressedThisFrame)
                 stateMenu = 2;
@@ -509,6 +498,8 @@ public class MenuGlobal : MonoBehaviour
             case 7: // Exit 
                 if (pad.bButton.wasPressedThisFrame)
                     stateMenu = 2;
+                if(pad.aButton.wasPressedThisFrame)
+                    Application.Quit();
                 break;
         }
             MoveTo(stateMenu);
