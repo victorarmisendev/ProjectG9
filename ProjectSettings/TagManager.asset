@@ -18,6 +18,7 @@ TagManager:
   - field
   - PlayerArena
   - Cliff
+  - Shield
   layers:
   - Default
   - TransparentFX
