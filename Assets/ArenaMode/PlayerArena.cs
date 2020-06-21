@@ -31,7 +31,8 @@ public class PlayerArena : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(pad.rightTrigger.isPressed)
+        score++;
+        if (pad.rightTrigger.isPressed)
         {
             if(speed < 0.8f)
             {
