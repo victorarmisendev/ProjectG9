@@ -17,7 +17,11 @@ public class Procedural : MonoBehaviour
     {
         myQueue.Enqueue(lastField);
         newPos = lastField.transform.position;
-        InvokeRepeating("Instance", 0.5f, timeSpawn);
+        //InvokeRepeating("Instance", 0.5f, timeSpawn);
+        Instance();
+        Instance();
+        Instance();
+        Instance();
         Instance();
         Instance();
         Instance();
@@ -29,7 +33,7 @@ public class Procedural : MonoBehaviour
         return fields[Random.Range(0, fields.Length)];
     }
 
-    void Instance()
+    public void Instance()
     {
         newPos = lastField.transform.position + Vector3.forward * 83.1f;
         GameObject fieldInstanced = Instantiate(RandomFunction(fields), newPos, Quaternion.identity);
@@ -37,7 +41,7 @@ public class Procedural : MonoBehaviour
         myQueue.Enqueue(lastField);
         counter++;
 
-        if(counter >= 11)
+        if(counter >= 17)
         {
             removeChunk();
         }

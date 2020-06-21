@@ -8,7 +8,7 @@ public class CameraFollow : MonoBehaviour
     private GameObject[] players;
     private Vector3 velocity;
     private float smoothTime = .5f;
-    public float speed;
+    public float speed = 50;
     public static bool start = false;
 
     private IEnumerator coroutine;
@@ -18,6 +18,7 @@ public class CameraFollow : MonoBehaviour
     {
         coroutine = ExecuteAfterTime();
         StartCoroutine(coroutine);
+        InvokeRepeating("accelerate", 8.0f, 8.0f);
         //players = GameObject.FindGameObjectsWithTag("Base");
     }
     void FixedUpdate() 
@@ -33,6 +34,12 @@ public class CameraFollow : MonoBehaviour
         }
 
     }
+
+    private void accelerate()
+    {
+        speed += 10;
+    }
+
     void SetPos()
     {
         //Vector3 posFrame = Vector3.zero;

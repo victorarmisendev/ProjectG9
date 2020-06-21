@@ -52,7 +52,7 @@ public class Enemy3 : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("Active is: " + active.ToString() + "and colision is: " + colision);
+        //Debug.Log("Active is: " + active.ToString() + "and colision is: " + colision);
     }
 
     private void OnCollisionEnter(Collision collision)
