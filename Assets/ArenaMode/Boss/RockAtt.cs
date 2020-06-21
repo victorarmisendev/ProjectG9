@@ -21,7 +21,7 @@ public class RockAtt : MonoBehaviour
         explosion.Play();
         if (other.gameObject.tag == "PlayerArena")
         {
-            Destroy(other.transform.parent.gameObject);
+            other.gameObject.GetComponentInParent<PlayerArena>().Respwan();
             for (int i = 0; i < elements1.Length; i++)
             {
                 Destroy(elements1[i]);

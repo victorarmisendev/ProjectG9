@@ -116,7 +116,18 @@ public class PlayerArena : MonoBehaviour
 
         
     }
-
+    public void Respwan()
+    {
+        lives--;
+        if(lives <=0)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            gameObject.transform.position = Vector3.zero;
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Cliff")

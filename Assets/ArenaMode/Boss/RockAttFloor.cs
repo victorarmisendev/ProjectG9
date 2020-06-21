@@ -16,7 +16,7 @@ public class RockAttFloor : MonoBehaviour
     {
         if(other.gameObject.tag == "PlayerArena")
         {
-            Destroy(other.transform.parent.gameObject);
+            other.gameObject.GetComponentInParent<PlayerArena>().Respwan();
             Destroy(boulder.gameObject);
             explosion.Play();
             particle.SetActive(true);
