@@ -42,8 +42,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 0.42457753, z: 1}
+  m_Center: {x: 0, y: 1.34405, z: 0}
 --- !u!1 &6780298528657433345
 GameObject:
   m_ObjectHideFlags: 0
@@ -1134,8 +1134,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.4551529, y: 0.4513655, z: 1}
-  m_Center: {x: -0.0060011577, y: 0.21431252, z: 0}
+  m_Size: {x: 0.36370862, y: 0.4305843, z: 0.8828513}
+  m_Center: {x: 0.004550128, y: 0.22470318, z: -0.010874991}
 --- !u!114 &6782288838656878817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1158,7 +1158,6 @@ MonoBehaviour:
   finishCanvas: {fileID: 0}
   lives: 3
   points: 0
-  speed: 50
   speedChangeRail: 3
   isDead: 0
 --- !u!54 &6782288838656878816
