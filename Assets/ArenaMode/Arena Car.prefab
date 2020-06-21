@@ -227,6 +227,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   particle: {fileID: 1699944231532707011}
   engineSound: {fileID: 4750894850562065160}
+  audioVolume: 0
+  lives: 3
 --- !u!54 &7203302544728107241
 Rigidbody:
   m_ObjectHideFlags: 0
