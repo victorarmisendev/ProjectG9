@@ -12,6 +12,14 @@ public class PlayerArena : MonoBehaviour
     public Rigidbody rb;
     public GameObject particle;
 
+    public AudioSource engineSound;
+    public float audioVolume;
+
+    public int lives = 3;
+
+    public bool shield = false;
+    public int score = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,46 +33,67 @@ public class PlayerArena : MonoBehaviour
     {
         if(pad.rightTrigger.isPressed)
         {
-            if(speed < 1.0f)
+            if(speed < 0.8f)
             {
-                speed += 0.005f;
+                speed += 0.003f;
             }
-            else if (speed >= 1.0f)
+            else if (speed >= 0.08f)
             {
-                speed = 1.0f;
+                speed = 0.8f;
             }
+            
         }
         else if (pad.leftTrigger.isPressed)
         {
             print("left");
             if (speed > -0.3f)
             {
-                speed -= 0.005f;
+                speed -= 0.003f;
             }
             else if (speed <= -0.3f)
             {
                 speed = -0.3f;
             }
         }
-        else if(!pad.rightTrigger.isPressed && !pad.leftTrigger.isPressed)
+        else if(!pad.rightTrigger.isPressed)
         {
-            if(speed > 0.0f)
+            
+            if(!pad.leftTrigger.isPressed)
             {
-                speed -= 0.005f;
+                if (speed > 0.0f)
+                {
+                    speed -= 0.005f;
+                }
+                else
+                {
+                    speed = 0.0f;
+                }
             }
-            else
+
+        }
+        if(speed > 0.003f)
+        {
+            engineSound.volume = speed;
+            if (!engineSound.isPlaying)
             {
-                speed = 0.0f;
+                engineSound.Play();
             }
         }
+        else
+        {
 
+            if (engineSound.isPlaying)
+            {
+                engineSound.Stop();
+            }
+        }
         if (pad.leftStick.left.isPressed)
         {
-            direction = -1.5f;
+            direction = -2.5f;
         }
         else if(pad.leftStick.right.isPressed)
         {
-            direction = 1.5f;
+            direction = 2.5f;
         }
         else
         {
