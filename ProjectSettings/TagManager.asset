@@ -19,6 +19,7 @@ TagManager:
   - PlayerArena
   - Cliff
   - Shield
+  - BScenes
   layers:
   - Default
   - TransparentFX
