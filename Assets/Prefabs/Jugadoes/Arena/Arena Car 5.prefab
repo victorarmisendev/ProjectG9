@@ -11,8 +11,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.7859222, z: 1.1283742}
-  m_Center: {x: 0, y: 0.37933677, z: -0.06418761}
+  m_Size: {x: 0.6760566, y: 0.05736813, z: 0.97490585}
+  m_Center: {x: 0.09638488, y: 0.015059743, z: 0.012546116}
 --- !u!1 &4224262741985876054
 GameObject:
   m_ObjectHideFlags: 0
@@ -421,7 +421,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100006, guid: 4ee4a26ee3fa26c45ad91eb9ec1aed98, type: 3}
       propertyPath: m_TagString
-      value: PlayerArena
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 4ee4a26ee3fa26c45ad91eb9ec1aed98, type: 3}
       propertyPath: m_LocalPosition.x
