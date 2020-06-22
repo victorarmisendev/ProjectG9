@@ -3344,7 +3344,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 17beec66449fb1643943c4d08bb7b45c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 9cc804418f8dcd843a1299dc43c3ef63, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.02
   m_Pitch: 1
@@ -15243,7 +15243,7 @@ Light:
   m_BounceIntensity: 9.54
   m_ColorTemperature: 6570
   m_UseColorTemperature: 1
-  m_BoundingSphereOverride: {x: 1.5046328e-36, y: 1.009742e-28, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 9.67e-43, y: -0.0000000013806476, z: 9.67e-43, w: 2.2751694}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0

@@ -39,7 +39,7 @@ public class Boss : MonoBehaviour
             if (player != null)
             {
                 playerPos = player.transform.position;
-                InvokeRepeating("attack", 4, 4);
+                InvokeRepeating("attack", 3, 3);
                 BossAnimator = gameObject.GetComponent<Animator>();
             }
         }
