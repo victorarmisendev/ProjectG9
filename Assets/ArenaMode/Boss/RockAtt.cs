@@ -21,7 +21,10 @@ public class RockAtt : MonoBehaviour
         explosion.Play();
         if (other.gameObject.tag == "PlayerArena")
         {
-            other.gameObject.GetComponentInParent<PlayerArena>().Respwan();
+            if (!other.gameObject.GetComponent<PlayerArena>().shield)
+            {
+                other.gameObject.GetComponentInParent<PlayerArena>().Respwan();
+            }
             if(!other.gameObject.GetComponentInParent<PlayerArena>())
             {
                 Debug.Log("HEY");

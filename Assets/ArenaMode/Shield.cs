@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Shield : MonoBehaviour
 {
+    private Vector3 initialPos;
+    private void Start()
+    {
+        initialPos = transform.position;
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "ArenaPlayer")
@@ -14,5 +19,10 @@ public class Shield : MonoBehaviour
             }
         }
         Destroy(this.gameObject);
+    }
+
+    private void Update()
+    {
+        transform.position += new Vector3(0.0f, Mathf.Sin(Time.deltaTime), 0.0f);
     }
 }
