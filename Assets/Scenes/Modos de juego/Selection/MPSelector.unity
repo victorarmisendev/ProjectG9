@@ -2020,6 +2020,7 @@ MonoBehaviour:
   points: 0
   speedChangeRail: 3
   isDead: 0
+  CarID: 0
 --- !u!65 &128334607
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2412,6 +2413,7 @@ MonoBehaviour:
   points: 0
   speedChangeRail: 3
   isDead: 0
+  CarID: 0
 --- !u!65 &159321595
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2656,6 +2658,7 @@ MonoBehaviour:
   points: 0
   speedChangeRail: 3
   isDead: 0
+  CarID: 0
 --- !u!65 &166327626
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4353,6 +4356,10 @@ PrefabInstance:
       propertyPath: MULTI
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1640775847, guid: 26c56652b7fdef7478e7f9b0f1a7620c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5273657278599024226, guid: 26c56652b7fdef7478e7f9b0f1a7620c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5305,6 +5312,7 @@ MonoBehaviour:
   points: 0
   speedChangeRail: 3
   isDead: 0
+  CarID: 0
 --- !u!1 &291292781
 GameObject:
   m_ObjectHideFlags: 0
@@ -5784,6 +5792,7 @@ MonoBehaviour:
   points: 0
   speedChangeRail: 3
   isDead: 0
+  CarID: 0
 --- !u!1 &310423573
 GameObject:
   m_ObjectHideFlags: 0
@@ -7236,6 +7245,7 @@ MonoBehaviour:
   points: 0
   speedChangeRail: 3
   isDead: 0
+  CarID: 0
 --- !u!1 &397438310
 GameObject:
   m_ObjectHideFlags: 0
@@ -7412,6 +7422,7 @@ MonoBehaviour:
   points: 0
   speedChangeRail: 3
   isDead: 0
+  CarID: 0
 --- !u!1 &404035185
 GameObject:
   m_ObjectHideFlags: 0
@@ -10055,6 +10066,7 @@ MonoBehaviour:
   points: 0
   speedChangeRail: 3
   isDead: 0
+  CarID: 0
 --- !u!65 &616325452
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11583,6 +11595,7 @@ MonoBehaviour:
   points: 0
   speedChangeRail: 3
   isDead: 0
+  CarID: 0
 --- !u!1 &707632056
 GameObject:
   m_ObjectHideFlags: 0
@@ -12030,6 +12043,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countdown: {fileID: 0}
+  clip: {fileID: 0}
 --- !u!1 &727781035
 GameObject:
   m_ObjectHideFlags: 0
@@ -13467,6 +13481,7 @@ MonoBehaviour:
   points: 0
   speedChangeRail: 3
   isDead: 0
+  CarID: 0
 --- !u!65 &818201197
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13642,6 +13657,7 @@ MonoBehaviour:
   points: 0
   speedChangeRail: 3
   isDead: 0
+  CarID: 0
 --- !u!65 &822588690
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13817,6 +13833,7 @@ MonoBehaviour:
   points: 0
   speedChangeRail: 3
   isDead: 0
+  CarID: 0
 --- !u!1 &833899717
 GameObject:
   m_ObjectHideFlags: 0
@@ -14526,6 +14543,7 @@ MonoBehaviour:
   points: 0
   speedChangeRail: 3
   isDead: 0
+  CarID: 0
 --- !u!1 &902900424
 GameObject:
   m_ObjectHideFlags: 0
@@ -15640,6 +15658,7 @@ MonoBehaviour:
   points: 0
   speedChangeRail: 3
   isDead: 0
+  CarID: 0
 --- !u!1 &983732861
 GameObject:
   m_ObjectHideFlags: 0
@@ -17376,6 +17395,7 @@ MonoBehaviour:
   points: 0
   speedChangeRail: 3
   isDead: 0
+  CarID: 0
 --- !u!65 &1055598719
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19330,6 +19350,7 @@ MonoBehaviour:
   points: 0
   speedChangeRail: 3
   isDead: 0
+  CarID: 0
 --- !u!65 &1162755471
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19891,6 +19912,7 @@ MonoBehaviour:
   points: 0
   speedChangeRail: 3
   isDead: 0
+  CarID: 0
 --- !u!65 &1189974479
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20848,6 +20870,7 @@ MonoBehaviour:
   points: 0
   speedChangeRail: 3
   isDead: 0
+  CarID: 0
 --- !u!65 &1245234257
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22477,6 +22500,7 @@ MonoBehaviour:
   points: 0
   speedChangeRail: 3
   isDead: 0
+  CarID: 0
 --- !u!65 &1323234942
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23412,6 +23436,7 @@ MonoBehaviour:
   points: 0
   speedChangeRail: 3
   isDead: 0
+  CarID: 0
 --- !u!1 &1370011067
 GameObject:
   m_ObjectHideFlags: 0
@@ -23652,6 +23677,7 @@ MonoBehaviour:
   points: 0
   speedChangeRail: 3
   isDead: 0
+  CarID: 0
 --- !u!65 &1376845577
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25863,6 +25889,7 @@ MonoBehaviour:
   points: 0
   speedChangeRail: 3
   isDead: 0
+  CarID: 0
 --- !u!1 &1485851473
 GameObject:
   m_ObjectHideFlags: 0
@@ -26253,6 +26280,7 @@ MonoBehaviour:
   points: 0
   speedChangeRail: 3
   isDead: 0
+  CarID: 0
 --- !u!65 &1503497237
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -27491,6 +27519,7 @@ MonoBehaviour:
   points: 0
   speedChangeRail: 3
   isDead: 0
+  CarID: 0
 --- !u!65 &1591637786
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -28944,6 +28973,7 @@ MonoBehaviour:
   points: 0
   speedChangeRail: 3
   isDead: 0
+  CarID: 0
 --- !u!1 &1664448488
 GameObject:
   m_ObjectHideFlags: 0
@@ -30631,6 +30661,7 @@ MonoBehaviour:
   points: 0
   speedChangeRail: 3
   isDead: 0
+  CarID: 0
 --- !u!65 &1784766787
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -31618,6 +31649,7 @@ MonoBehaviour:
   points: 0
   speedChangeRail: 3
   isDead: 0
+  CarID: 0
 --- !u!65 &1835104058
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -33168,6 +33200,7 @@ MonoBehaviour:
   points: 0
   speedChangeRail: 3
   isDead: 0
+  CarID: 0
 --- !u!1 &1955564903
 GameObject:
   m_ObjectHideFlags: 0
