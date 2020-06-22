@@ -26,8 +26,8 @@ public class MPPlayerRail : MonoBehaviour
     public int lives = 3;
     public int points= 500;
     //Speeds    
-    public int speed; //Constant speed player
-    public int speedChangeRail;
+    private int speed = 50; //Constant speed player
+    private float speedChangeRail = 3.0f;
     public bool isDead = false;
 
     public int CarID;
@@ -39,6 +39,7 @@ public class MPPlayerRail : MonoBehaviour
        
         rb = GetComponent<Rigidbody>();
         initialRot = rb.rotation;
+        InvokeRepeating("accelerate", 8.0f, 8.0f);
     }
     public void SetPosition()
     {
@@ -57,6 +58,21 @@ public class MPPlayerRail : MonoBehaviour
             rb.position = Vector3.Lerp(transform.position, toPos, Time.fixedDeltaTime * speedChangeRail);
             rb.rotation = Quaternion.Lerp(rb.rotation, initialRot, Time.fixedDeltaTime * speedChangeRail);
             rb.MovePosition(rb.position + (Vector3.forward * speed) * Time.fixedDeltaTime);
+        }
+    }
+
+
+
+    private void accelerate()
+    {
+        speed += 10;
+        if (speedChangeRail <= 6.0f)
+        {
+            speedChangeRail += 0.5f;
+        }
+        else if (speedChangeRail > 6.0f)
+        {
+            speedChangeRail = 6.0f;
         }
     }
     // Update is called once per frame
