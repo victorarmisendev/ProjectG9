@@ -36,6 +36,7 @@ public class MenuGlobal : MonoBehaviour
 
     public AudioSource AS;
     public AudioSource ClickA, ClickB, MoveJoystick;
+    public AudioSource music;
 
     public bool FULL = false;
 
@@ -49,6 +50,7 @@ public class MenuGlobal : MonoBehaviour
         //{
         //    s.SetActive(false);
         //}
+        music.Play();
 
         sections[0].SetActive(true);
 
@@ -414,17 +416,17 @@ public class MenuGlobal : MonoBehaviour
                             case 2:
     
                                 options[1].text = "Graphics: High";
-                                SetQuality(1);
+                                SetQuality(2);
                                 break;
                             case 3:
  
                                 options[1].text = "Graphics: Medium";
-                                SetQuality(1);
+                                SetQuality(3);
                                 break;
                             case 4:
 
                                 options[1].text = "Graphics: Low";
-                                SetQuality(1);
+                                SetQuality(4);
                                 break;
                         }
 
@@ -457,15 +459,15 @@ public class MenuGlobal : MonoBehaviour
                             case 1:
 
                                 options[2].text = "Volume: 1";
-                                SetVolum(0.25f);
+                                SetVolum(1.25f);
                                 break;
                             case 2:
                                 options[2].text = "Volume: 1";
-                                SetVolum(0.5f);
+                                SetVolum(1.5f);
                                 break;
                             case 3:
                                 options[2].text = "Volume: 3";
-                                SetVolum(0.75f);
+                                SetVolum(1.75f);
                                 break;
                             case 4:
                                 SetVolum(1.0f);
