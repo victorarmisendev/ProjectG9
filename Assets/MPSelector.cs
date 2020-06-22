@@ -74,7 +74,7 @@ public class MPSelector : MonoBehaviour
             SceneManager.LoadScene("MultiInfinite");
         }
         //jugador 1
-        if (pads[0] != null)
+        if (pads.Length > 0)
         {
             if (pads[0].leftStick.left.wasPressedThisFrame)
             {
@@ -110,63 +110,64 @@ public class MPSelector : MonoBehaviour
                     SceneManager.LoadScene("Splash");
                 }
             }
-        }
 
-        switch (num)
-        {
-            case 1:
-                for (int i = 0; i < player1Car.Length; i++)
-                {
-                    player1Car[i].SetActive(false);
-                }
-                player1Car[0].SetActive(true);
-                break;
-            case 2:
-                for (int i = 0; i < player1Car.Length; i++)
-                {
-                    player1Car[i].SetActive(false);
-                }
-                player1Car[1].SetActive(true);
-                break;
-            case 3:
-                for (int i = 0; i < player1Car.Length; i++)
-                {
-                    player1Car[i].SetActive(false);
-                }
-                player1Car[2].SetActive(true);
-                break;
-            case 4:
-                for (int i = 0; i < player1Car.Length; i++)
-                {
-                    player1Car[i].SetActive(false);
-                }
-                player1Car[3].SetActive(true);
-                break;
-            case 5:
-                for (int i = 0; i < player1Car.Length; i++)
-                {
-                    player1Car[i].SetActive(false);
-                }
-                player1Car[4].SetActive(true);
-                break;
-            case 6:
-                for (int i = 0; i < player1Car.Length; i++)
-                {
-                    player1Car[i].SetActive(false);
-                }
-                player1Car[5].SetActive(true);
-                break;
-            case 7:
-                for (int i = 0; i < player1Car.Length; i++)
-                {
-                    player1Car[i].SetActive(false);
-                }
-                player1Car[6].SetActive(true);
-                break;
+
+            switch (num)
+            {
+                case 1:
+                    for (int i = 0; i < player1Car.Length; i++)
+                    {
+                        player1Car[i].SetActive(false);
+                    }
+                    player1Car[0].SetActive(true);
+                    break;
+                case 2:
+                    for (int i = 0; i < player1Car.Length; i++)
+                    {
+                        player1Car[i].SetActive(false);
+                    }
+                    player1Car[1].SetActive(true);
+                    break;
+                case 3:
+                    for (int i = 0; i < player1Car.Length; i++)
+                    {
+                        player1Car[i].SetActive(false);
+                    }
+                    player1Car[2].SetActive(true);
+                    break;
+                case 4:
+                    for (int i = 0; i < player1Car.Length; i++)
+                    {
+                        player1Car[i].SetActive(false);
+                    }
+                    player1Car[3].SetActive(true);
+                    break;
+                case 5:
+                    for (int i = 0; i < player1Car.Length; i++)
+                    {
+                        player1Car[i].SetActive(false);
+                    }
+                    player1Car[4].SetActive(true);
+                    break;
+                case 6:
+                    for (int i = 0; i < player1Car.Length; i++)
+                    {
+                        player1Car[i].SetActive(false);
+                    }
+                    player1Car[5].SetActive(true);
+                    break;
+                case 7:
+                    for (int i = 0; i < player1Car.Length; i++)
+                    {
+                        player1Car[i].SetActive(false);
+                    }
+                    player1Car[6].SetActive(true);
+                    break;
+            }
         }
 
         //jugador 2
-        if (pads[1] != null)
+        if (pads.Length > 1)
         {
             if (pads[1].leftStick.left.wasPressedThisFrame)
             {
@@ -202,63 +203,64 @@ public class MPSelector : MonoBehaviour
                     SceneManager.LoadScene("Splash");
                 }
             }
-        }
 
-        switch (num2)
-        {
-            case 1:
-                for (int i = 0; i < player2Car.Length; i++)
-                {
-                    player2Car[i].SetActive(false);
-                }
-                player2Car[0].SetActive(true);
-                break;
-            case 2:
-                for (int i = 0; i < player2Car.Length; i++)
-                {
-                    player2Car[i].SetActive(false);
-                }
-                player2Car[1].SetActive(true);
-                break;
-            case 3:
-                for (int i = 0; i < player2Car.Length; i++)
-                {
-                    player2Car[i].SetActive(false);
-                }
-                player2Car[2].SetActive(true);
-                break;
-            case 4:
-                for (int i = 0; i < player2Car.Length; i++)
-                {
-                    player2Car[i].SetActive(false);
-                }
-                player2Car[3].SetActive(true);
-                break;
-            case 5:
-                for (int i = 0; i < player2Car.Length; i++)
-                {
-                    player2Car[i].SetActive(false);
-                }
-                player2Car[4].SetActive(true);
-                break;
-            case 6:
-                for (int i = 0; i < player2Car.Length; i++)
-                {
-                    player2Car[i].SetActive(false);
-                }
-                player2Car[5].SetActive(true);
-                break;
-            case 7:
-                for (int i = 0; i < player2Car.Length; i++)
-                {
-                    player2Car[i].SetActive(false);
-                }
-                player2Car[6].SetActive(true);
-                break;
+
+            switch (num2)
+            {
+                case 1:
+                    for (int i = 0; i < player2Car.Length; i++)
+                    {
+                        player2Car[i].SetActive(false);
+                    }
+                    player2Car[0].SetActive(true);
+                    break;
+                case 2:
+                    for (int i = 0; i < player2Car.Length; i++)
+                    {
+                        player2Car[i].SetActive(false);
+                    }
+                    player2Car[1].SetActive(true);
+                    break;
+                case 3:
+                    for (int i = 0; i < player2Car.Length; i++)
+                    {
+                        player2Car[i].SetActive(false);
+                    }
+                    player2Car[2].SetActive(true);
+                    break;
+                case 4:
+                    for (int i = 0; i < player2Car.Length; i++)
+                    {
+                        player2Car[i].SetActive(false);
+                    }
+                    player2Car[3].SetActive(true);
+                    break;
+                case 5:
+                    for (int i = 0; i < player2Car.Length; i++)
+                    {
+                        player2Car[i].SetActive(false);
+                    }
+                    player2Car[4].SetActive(true);
+                    break;
+                case 6:
+                    for (int i = 0; i < player2Car.Length; i++)
+                    {
+                        player2Car[i].SetActive(false);
+                    }
+                    player2Car[5].SetActive(true);
+                    break;
+                case 7:
+                    for (int i = 0; i < player2Car.Length; i++)
+                    {
+                        player2Car[i].SetActive(false);
+                    }
+                    player2Car[6].SetActive(true);
+                    break;
+            }
         }
 
         //player 3
-        if (pads[2] != null)
+        if (pads.Length > 2)
         {
             if (pads[2].leftStick.left.wasPressedThisFrame)
             {
@@ -294,63 +296,64 @@ public class MPSelector : MonoBehaviour
                     SceneManager.LoadScene("Splash");
                 }
             }
-        }
 
-        switch (num3)
-        {
-            case 1:
-                for (int i = 0; i < player3Car.Length; i++)
-                {
-                    player3Car[i].SetActive(false);
-                }
-                player3Car[0].SetActive(true);
-                break;
-            case 2:
-                for (int i = 0; i < player3Car.Length; i++)
-                {
-                    player3Car[i].SetActive(false);
-                }
-                player3Car[1].SetActive(true);
-                break;
-            case 3:
-                for (int i = 0; i < player3Car.Length; i++)
-                {
-                    player3Car[i].SetActive(false);
-                }
-                player3Car[2].SetActive(true);
-                break;
-            case 4:
-                for (int i = 0; i < player3Car.Length; i++)
-                {
-                    player3Car[i].SetActive(false);
-                }
-                player3Car[3].SetActive(true);
-                break;
-            case 5:
-                for (int i = 0; i < player3Car.Length; i++)
-                {
-                    player3Car[i].SetActive(false);
-                }
-                player3Car[4].SetActive(true);
-                break;
-            case 6:
-                for (int i = 0; i < player3Car.Length; i++)
-                {
-                    player3Car[i].SetActive(false);
-                }
-                player3Car[5].SetActive(true);
-                break;
-            case 7:
-                for (int i = 0; i < player3Car.Length; i++)
-                {
-                    player3Car[i].SetActive(false);
-                }
-                player3Car[6].SetActive(true);
-                break;
+
+            switch (num3)
+            {
+                case 1:
+                    for (int i = 0; i < player3Car.Length; i++)
+                    {
+                        player3Car[i].SetActive(false);
+                    }
+                    player3Car[0].SetActive(true);
+                    break;
+                case 2:
+                    for (int i = 0; i < player3Car.Length; i++)
+                    {
+                        player3Car[i].SetActive(false);
+                    }
+                    player3Car[1].SetActive(true);
+                    break;
+                case 3:
+                    for (int i = 0; i < player3Car.Length; i++)
+                    {
+                        player3Car[i].SetActive(false);
+                    }
+                    player3Car[2].SetActive(true);
+                    break;
+                case 4:
+                    for (int i = 0; i < player3Car.Length; i++)
+                    {
+                        player3Car[i].SetActive(false);
+                    }
+                    player3Car[3].SetActive(true);
+                    break;
+                case 5:
+                    for (int i = 0; i < player3Car.Length; i++)
+                    {
+                        player3Car[i].SetActive(false);
+                    }
+                    player3Car[4].SetActive(true);
+                    break;
+                case 6:
+                    for (int i = 0; i < player3Car.Length; i++)
+                    {
+                        player3Car[i].SetActive(false);
+                    }
+                    player3Car[5].SetActive(true);
+                    break;
+                case 7:
+                    for (int i = 0; i < player3Car.Length; i++)
+                    {
+                        player3Car[i].SetActive(false);
+                    }
+                    player3Car[6].SetActive(true);
+                    break;
+            }
         }
 
         //player 4
-        if (pads[3] != null)
+        if (pads.Length > 3)
         {
             if (pads[3].leftStick.left.wasPressedThisFrame)
             {
@@ -386,59 +389,60 @@ public class MPSelector : MonoBehaviour
                     SceneManager.LoadScene("Splash");
                 }
             }
-        }
 
-        switch (num4)
-        {
-            case 1:
-                for (int i = 0; i < player4Car.Length; i++)
-                {
-                    player4Car[i].SetActive(false);
-                }
-                player4Car[0].SetActive(true);
-                break;
-            case 2:
-                for (int i = 0; i < player4Car.Length; i++)
-                {
-                    player4Car[i].SetActive(false);
-                }
-                player4Car[1].SetActive(true);
-                break;
-            case 3:
-                for (int i = 0; i < player4Car.Length; i++)
-                {
-                    player4Car[i].SetActive(false);
-                }
-                player4Car[2].SetActive(true);
-                break;
-            case 4:
-                for (int i = 0; i < player4Car.Length; i++)
-                {
-                    player4Car[i].SetActive(false);
-                }
-                player4Car[3].SetActive(true);
-                break;
-            case 5:
-                for (int i = 0; i < player4Car.Length; i++)
-                {
-                    player4Car[i].SetActive(false);
-                }
-                player4Car[4].SetActive(true);
-                break;
-            case 6:
-                for (int i = 0; i < player4Car.Length; i++)
-                {
-                    player4Car[i].SetActive(false);
-                }
-                player4Car[5].SetActive(true);
-                break;
-            case 7:
-                for (int i = 0; i < player4Car.Length; i++)
-                {
-                    player4Car[i].SetActive(false);
-                }
-                player4Car[6].SetActive(true);
-                break;
+
+            switch (num4)
+            {
+                case 1:
+                    for (int i = 0; i < player4Car.Length; i++)
+                    {
+                        player4Car[i].SetActive(false);
+                    }
+                    player4Car[0].SetActive(true);
+                    break;
+                case 2:
+                    for (int i = 0; i < player4Car.Length; i++)
+                    {
+                        player4Car[i].SetActive(false);
+                    }
+                    player4Car[1].SetActive(true);
+                    break;
+                case 3:
+                    for (int i = 0; i < player4Car.Length; i++)
+                    {
+                        player4Car[i].SetActive(false);
+                    }
+                    player4Car[2].SetActive(true);
+                    break;
+                case 4:
+                    for (int i = 0; i < player4Car.Length; i++)
+                    {
+                        player4Car[i].SetActive(false);
+                    }
+                    player4Car[3].SetActive(true);
+                    break;
+                case 5:
+                    for (int i = 0; i < player4Car.Length; i++)
+                    {
+                        player4Car[i].SetActive(false);
+                    }
+                    player4Car[4].SetActive(true);
+                    break;
+                case 6:
+                    for (int i = 0; i < player4Car.Length; i++)
+                    {
+                        player4Car[i].SetActive(false);
+                    }
+                    player4Car[5].SetActive(true);
+                    break;
+                case 7:
+                    for (int i = 0; i < player4Car.Length; i++)
+                    {
+                        player4Car[i].SetActive(false);
+                    }
+                    player4Car[6].SetActive(true);
+                    break;
+            }
         }
 
 
