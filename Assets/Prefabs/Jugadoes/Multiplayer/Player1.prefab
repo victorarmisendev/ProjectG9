@@ -1338,6 +1338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24180b9182376a347af8806a2769cb5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  toSpawn: {fileID: 0}
   partOfTheCar: {fileID: 6600406864004271871}
   rails:
   - {fileID: 0}
@@ -1353,8 +1354,6 @@ MonoBehaviour:
   playerNum: 0
   lives: 6
   points: 0
-  speed: 50
-  speedChangeRail: 3
   isDead: 0
   CarID: 0
 --- !u!1 &6601093669397203289

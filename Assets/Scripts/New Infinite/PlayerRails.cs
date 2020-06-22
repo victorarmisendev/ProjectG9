@@ -8,7 +8,7 @@ public class PlayerRails : MonoBehaviour
 {
 
     //Objects   
-    GameObject toSpawn = null;
+    public GameObject toSpawn = null;
    public GameObject partOfTheCar;
     //Arrays   
     public GameObject[] rails;

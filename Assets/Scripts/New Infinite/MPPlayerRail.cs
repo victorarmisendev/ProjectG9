@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class MPPlayerRail : MonoBehaviour
 {
     //Objects   
-    GameObject toSpawn = null;
+    public GameObject toSpawn = null;
     public GameObject partOfTheCar;
     //Arrays   
     public GameObject[] rails;
@@ -104,9 +104,18 @@ public class MPPlayerRail : MonoBehaviour
                 {
                     var boneChild = hit.transform.Find("Reset");
                     toSpawn = boneChild.gameObject;
-                    Debug.Log("Enter" + " :" + hit.transform.name);
+                    //Debug.Log("Enter" + " :" + hit.transform.name);
                 }
                 //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
+            }
+
+            if (partOfTheCar.GetComponent<Renderer>().isVisible == false)
+            {
+                lives--;
+                //Change pos. Change pos in a place without collision or walls. 
+                //Get a visibles fields seen in the camera.
+                transform.position = toSpawn.transform.position;
+
             }
 
             if(pad.yButton.wasPressedThisFrame)
@@ -119,14 +128,7 @@ public class MPPlayerRail : MonoBehaviour
                 SceneManager.LoadScene("End");
             }
 
-            if (partOfTheCar.GetComponent<Renderer>().isVisible == false)
-            {
-                lives--;
-                //Change pos. Change pos in a place without collision or walls. 
-                //Get a visibles fields seen in the camera.
-                transform.position = toSpawn.transform.position;
-
-            }
+           
 
         }
 
