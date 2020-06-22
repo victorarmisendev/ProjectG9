@@ -178,7 +178,7 @@ public class MPSelector : MonoBehaviour
                 }
                 texto2.text = " " + num2;
             }
-            else if (pads[0].leftStick.right.wasPressedThisFrame)
+            else if (pads[1].leftStick.right.wasPressedThisFrame)
             {
                 num2++;
                 if (num2 > 7)
