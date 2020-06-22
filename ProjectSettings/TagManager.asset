@@ -19,6 +19,7 @@ TagManager:
   - PlayerArena
   - Cliff
   - Shield
+  - camera
   - BScenes
   layers:
   - Default

@@ -24,7 +24,7 @@ public class PlayerRails : MonoBehaviour
     //
     public int lives = 3, points;
     //Speeds    
-    public int speed; //Constant speed player
+    private int speed = 50; //Constant speed player
     public int speedChangeRail;
     public bool isDead = false;
 
@@ -36,6 +36,7 @@ public class PlayerRails : MonoBehaviour
         transform.position = rails[0].transform.position;
         rb = GetComponent<Rigidbody>();
         initialRot = rb.rotation;
+        InvokeRepeating("accelerate", 8.0f, 8.0f);
 
     }
 
@@ -50,6 +51,12 @@ public class PlayerRails : MonoBehaviour
             rb.rotation = Quaternion.Lerp(rb.rotation, initialRot, Time.fixedDeltaTime * speedChangeRail);
             rb.MovePosition(rb.position + (Vector3.forward * speed) * Time.fixedDeltaTime);            
         }
+    }
+
+
+    private void accelerate()
+    {
+        speed += 10;
     }
 
     void Update()
