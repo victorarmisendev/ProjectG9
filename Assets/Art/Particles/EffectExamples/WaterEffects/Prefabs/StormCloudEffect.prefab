@@ -4696,7 +4696,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 1.885e-42}
+  m_BoundingSphereOverride: {x: 0, y: 2.3510647e-38, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -9335,7 +9335,7 @@ Transform:
   m_GameObject: {fileID: 1000014264868206}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 3.7246766, y: 8.81, z: -18.182947}
-  m_LocalScale: {x: 6.7108293, y: 6.7108293, z: 6.7108293}
+  m_LocalScale: {x: 72.64472, y: 72.64472, z: 72.64472}
   m_Children:
   - {fileID: 4000012015296742}
   - {fileID: 4000013297235172}
@@ -9356,7 +9356,7 @@ ParticleSystem:
   cullingMode: 1
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 0
+  looping: 1
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
