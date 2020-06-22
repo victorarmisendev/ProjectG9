@@ -8,7 +8,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1876921924525312367}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 0.7859222, z: 1.1283742}
@@ -244,6 +244,8 @@ MonoBehaviour:
   lives: 3
   shield: 0
   score: 0
+  CarID: 0
+  PlayerID: 1
 --- !u!54 &8908116053210516750
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -268,7 +270,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5426275833171637401}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.55168784, y: 0.810084, z: 1.4300308}

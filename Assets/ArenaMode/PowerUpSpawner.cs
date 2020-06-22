@@ -6,9 +6,9 @@ public class PowerUpSpawner : MonoBehaviour
 {
     public GameObject[] powerUps;
 
-    void start()
+    void Start()
     {
-        InvokeRepeating("spawnPowerUp", 10.0f, 10.0f);
+        InvokeRepeating("SpawnPowerUp", 8.0f, 8.0f);
     }
 
     // Update is called once per frame
@@ -17,9 +17,10 @@ public class PowerUpSpawner : MonoBehaviour
         
     }
 
-    void spawnPowerUP()
+    void SpawnPowerUp()
     {
         int choose = Random.Range(0,2);
-        Instantiate(powerUps[choose], new Vector3(Random.Range(-20.0f, 20.0f), 0.5f, Random.Range(-15.0f, 15.0f)), new Quaternion(1,1,1,1));
+        Instantiate(powerUps[choose], new Vector3(Random.Range(-20.0f, 20.0f), 2.0f, Random.Range(-15.0f, 15.0f)), new Quaternion(0,3.1416f,0,1));
+        print("spawned");
     }
 }

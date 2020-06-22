@@ -16,10 +16,13 @@ public class RockAttFloor : MonoBehaviour
     {
         if(other.gameObject.tag == "PlayerArena")
         {
-            other.gameObject.GetComponentInParent<PlayerArena>().Respwan();
-            if (!other.gameObject.GetComponentInParent<PlayerArena>())
+            if (!other.gameObject.GetComponent<PlayerArena>().shield)
             {
-                Debug.Log("HEY");
+                other.gameObject.GetComponentInParent<PlayerArena>().Respwan();
+            }
+            else if (other.gameObject.GetComponent<PlayerArena>().shield)
+            {
+                other.gameObject.GetComponent<PlayerArena>().shield = false;
             }
             Destroy(boulder.gameObject);
             explosion.Play();

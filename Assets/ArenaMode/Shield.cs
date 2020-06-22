@@ -8,10 +8,11 @@ public class Shield : MonoBehaviour
     private void Start()
     {
         initialPos = transform.position;
+        Invoke("DestroyMe", 5.0f);
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "ArenaPlayer")
+        if (other.gameObject.tag == "PlayerArena")
         {
             if (other.gameObject.GetComponent<PlayerArena>().shield == false)
             {
@@ -20,9 +21,12 @@ public class Shield : MonoBehaviour
         }
         Destroy(this.gameObject);
     }
+    void DestroyMe()
+    {
+        Destroy(this.gameObject);
+    }
 
     private void Update()
     {
-        transform.position += new Vector3(0.0f, Mathf.Sin(Time.deltaTime), 0.0f);
     }
 }
