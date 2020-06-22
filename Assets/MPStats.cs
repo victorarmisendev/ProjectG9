@@ -21,9 +21,21 @@ public class MPStats : MonoBehaviour
             {
                 if (player[i].GetComponent<MPPlayerRail>())
                 {
-                    T1.transform.GetChild(0).GetComponent<Text>().text = "Lives: " + player[i].GetComponent<MPPlayerRail>().lives;
-                    T1.transform.GetChild(1).GetComponent<Text>().text = "Points: " + player[i].GetComponent<MPPlayerRail>().points;
-                }
+                    if (i == 0)
+                    {
+                        T1.transform.GetChild(0).GetComponent<Text>().text = "Lives: " + player[i].GetComponent<MPPlayerRail>().lives;
+                        T1.transform.GetChild(1).GetComponent<Text>().text = "Points: " + player[i].GetComponent<MPPlayerRail>().points;
+                    }
+                    if(i==1)
+                    {
+                        T2.transform.GetChild(0).GetComponent<Text>().text = "Lives: " + player[i].GetComponent<MPPlayerRail>().lives;
+                        T2.transform.GetChild(1).GetComponent<Text>().text = "Points: " + player[i].GetComponent<MPPlayerRail>().points;
+                    }
+                    if(i==2)
+                    {
+                        T3.transform.GetChild(0).GetComponent<Text>().text = "Lives: " + player[i].GetComponent<MPPlayerRail>().lives;
+                        T3.transform.GetChild(1).GetComponent<Text>().text = "Points: " + player[i].GetComponent<MPPlayerRail>().points;
+                    }
                 else if (player[i].GetComponent<PlayerArena>())
                 {
                     T1.transform.GetChild(0).GetComponent<Text>().text = "Lives: " + player[i].GetComponent<PlayerArena>().lives;
