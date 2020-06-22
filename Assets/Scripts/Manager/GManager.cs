@@ -47,7 +47,8 @@ public class GManager : MonoBehaviour
                 case 0:
                     player.GetComponent<MPPlayerRail>().count = i;
                     player.GetComponent<MPPlayerRail>().SetPosition();
-                  
+                    player.GetComponent<MPPlayerRail>().playerID = 1;
+
                     HUD.GetComponent<MPStats>().player[i] = player;
                     HUD.GetComponent<MPStats>().T1.SetActive(true);
                     player.transform.GetChild(0).gameObject.GetComponent<Renderer>().enabled = true;
@@ -56,6 +57,8 @@ public class GManager : MonoBehaviour
                 case 1:
                     player.GetComponent<MPPlayerRail>().count = i;
                     player.GetComponent<MPPlayerRail>().SetPosition();
+                    player.GetComponent<MPPlayerRail>().playerID = 1;
+
                     HUD.GetComponent<MPStats>().player[i] = player;
                     HUD.GetComponent<MPStats>().T2.SetActive(true);
                     player.transform.GetChild(0).gameObject.GetComponent<Renderer>().enabled = true;
@@ -64,6 +67,7 @@ public class GManager : MonoBehaviour
                 case 2:
                     player.GetComponent<MPPlayerRail>().count = 4;
                     player.GetComponent<MPPlayerRail>().SetPosition();
+                    player.GetComponent<MPPlayerRail>().playerID = 1;
                     HUD.GetComponent<MPStats>().player[i] = player;
                     HUD.GetComponent<MPStats>().T3.SetActive(true);
                     player.transform.GetChild(0).gameObject.GetComponent<Renderer>().enabled = true;
@@ -72,6 +76,7 @@ public class GManager : MonoBehaviour
                 case 3:
                     player.GetComponent<MPPlayerRail>().count = 5;
                     player.GetComponent<MPPlayerRail>().SetPosition();
+                    player.GetComponent<MPPlayerRail>().playerID = 1;
                     HUD.GetComponent<MPStats>().player[i] = player;
                     HUD.GetComponent<MPStats>().T4.SetActive(true);
                     player.transform.GetChild(0).gameObject.GetComponent<Renderer>().enabled = true;
@@ -87,12 +92,12 @@ public class GManager : MonoBehaviour
     {
         if(GameObject.FindGameObjectsWithTag("Player").Length == 1)
         {
-           /*GameObject Record = GameObject.FindGameObjectWithTag("Save");
+           GameObject Record = GameObject.FindGameObjectWithTag("Save");
             Record.GetComponent<inGameRecord>().newAScore = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<MPPlayerRail>().points;
             Record.GetComponent<inGameRecord>().CARID = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<MPPlayerRail>().CarID;
-            Record.GetComponent<inGameRecord>().Gamemode = 3;
-            Record.GetComponent<inGameRecord>().PlayerID = 1;
-            SceneManager.LoadScene("End");*/
+            Record.GetComponent<inGameRecord>().Gamemode = 2;
+            Record.GetComponent<inGameRecord>().PlayerID = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<MPPlayerRail>().playerID; ;
+            SceneManager.LoadScene("End");
         }
     }
     private IEnumerator Wait(float time)

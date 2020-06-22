@@ -93,8 +93,15 @@ public class PlayerRails : MonoBehaviour
                 count = Mathf.Clamp(count, 0, rails.Length - 1);
             }
 
- 
-
+            if (pad.yButton.wasPressedThisFrame)
+            {
+                GameObject Record = GameObject.FindGameObjectWithTag("Save");
+                Record.GetComponent<inGameRecord>().newAScore = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<MPPlayerRail>().points;
+                Record.GetComponent<inGameRecord>().CARID = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<MPPlayerRail>().CarID;
+                Record.GetComponent<inGameRecord>().Gamemode = 1;
+                Record.GetComponent<inGameRecord>().PlayerID = 1;
+                SceneManager.LoadScene("End");
+            }
 
             if (partOfTheCar.GetComponent<Renderer>().isVisible == false)
             {
@@ -102,6 +109,7 @@ public class PlayerRails : MonoBehaviour
                 //Change pos. Change pos in a place without collision or walls. 
                 //Get a visibles fields seen in the camera.
                 transform.position = Spawntriger.GetComponent<GetRespawn>().toSpawn.transform.position;
+                count = toSpawn.GetComponent<GetRespawn>().toSpawn.GetComponent<Numero>().carril;
 
             }
          

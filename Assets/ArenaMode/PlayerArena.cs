@@ -105,6 +105,15 @@ public class PlayerArena : MonoBehaviour
         {
             direction = -0.0f;
         }
+        if (pad.yButton.wasPressedThisFrame)
+        {
+            GameObject Record = GameObject.FindGameObjectWithTag("Save");
+            Record.GetComponent<inGameRecord>().newAScore = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<MPPlayerRail>().points;
+            Record.GetComponent<inGameRecord>().CARID = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<MPPlayerRail>().CarID;
+            Record.GetComponent<inGameRecord>().Gamemode = 3;
+            Record.GetComponent<inGameRecord>().PlayerID = 1;
+            SceneManager.LoadScene("End");
+        }
         //if (speed >= 0.0f)
         //{
         //    transform.Translate(Vector3.forward * speed);
@@ -113,7 +122,7 @@ public class PlayerArena : MonoBehaviour
         //{
         //    transform.Translate(Vector3.back * speed);
         //}
-        
+
         //transform.Rotate(0.0f, direction, 0.0f);
 
         rb.MovePosition(rb.position + transform.forward * speed);

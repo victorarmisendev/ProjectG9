@@ -21,16 +21,18 @@ public class MPPlayerRail : MonoBehaviour
     public Camera main;
     public GameObject finishCanvas;
     public PasueMenu pauseMenu;
+    public GameObject StatsCanvas;
     public int playerNum;
     //
     public int lives = 3;
-    public int points= 500;
+    public int points= 0;
     //Speeds    
     private int speed = 50; //Constant speed player
     private float speedChangeRail = 3.0f;
     public bool isDead = false;
 
     public int CarID;
+    public int playerID = 2;
     // Start is called before the first frame update
     void Start()
     {
@@ -102,6 +104,7 @@ public class MPPlayerRail : MonoBehaviour
                 //Change pos. Change pos in a place without collision or walls. 
                 //Get a visibles fields seen in the camera.
                 transform.position = toSpawn.GetComponent<GetRespawn>().toSpawn.transform.position;
+                count = toSpawn.GetComponent<GetRespawn>().toSpawn.GetComponent<Numero>().carril;
 
             }
 
@@ -110,8 +113,8 @@ public class MPPlayerRail : MonoBehaviour
                 GameObject Record = GameObject.FindGameObjectWithTag("Save");
                 Record.GetComponent<inGameRecord>().newAScore = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<MPPlayerRail>().points;
                 Record.GetComponent<inGameRecord>().CARID = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<MPPlayerRail>().CarID;
-                Record.GetComponent<inGameRecord>().Gamemode = 3;
-                Record.GetComponent<inGameRecord>().PlayerID = 1;
+                Record.GetComponent<inGameRecord>().Gamemode = 2;
+                Record.GetComponent<inGameRecord>().PlayerID = playerID;
                 SceneManager.LoadScene("End");
             }
 
