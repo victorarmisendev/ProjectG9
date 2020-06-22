@@ -10,6 +10,7 @@ public class GManagerSP : MonoBehaviour
     public Camera main;
     public GameObject finishCanvas;
     public GameObject scoreCanvas;
+
     // Start is called before the first frame update
     void Start()
     {

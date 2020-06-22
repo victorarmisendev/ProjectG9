@@ -46,5 +46,10 @@ public class ArenaManager_script : MonoBehaviour
             player.GetComponent<infotoopass_script>().carID[0] = num;
             SceneManager.LoadScene("Arena");
         }
+        else if (pads[0].bButton.wasPressedThisFrame)
+        {
+
+                SceneManager.LoadScene("Splash");
+        }
     }
 }

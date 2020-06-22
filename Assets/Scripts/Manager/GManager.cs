@@ -20,7 +20,8 @@ public class GManager : MonoBehaviour
     public GameObject HUD;
     public Material[] colores;
     void Start()
-    {       
+    {
+        GameObject info = GameObject.FindGameObjectWithTag("BScenes");
         NumPlayers = Gamepad.all.Count;
         pads = Gamepad.all.ToArray();
 
@@ -32,7 +33,7 @@ public class GManager : MonoBehaviour
         for (int i = 0; i < NumPlayers; i++)
         {
             Debug.Log("YOUR NUMBER IS" +i);
-            GameObject player = (GameObject)Instantiate(playerTypes[0], my, Quaternion.identity);
+            GameObject player = (GameObject)Instantiate(playerTypes[info.GetComponent<infotoopass_script>().carID[i] - 1], my, Quaternion.identity);
             player.GetComponent<MPPlayerRail>().pad = pads[i];
             player.GetComponent<MPPlayerRail>().rails = rails;
             player.GetComponent<MPPlayerRail>().playerNum = i + 1;

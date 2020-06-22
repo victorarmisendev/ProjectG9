@@ -2941,6 +2941,7 @@ MonoBehaviour:
   - {fileID: 554593776432444411, guid: b45d0712601ad8a4b8fe1bcfcbc041b1, type: 3}
   - {fileID: 554593776432444411, guid: 897bb9a25cdd10f4a907fef6e0c639ac, type: 3}
   lastField: {fileID: 1277103912}
+  timeSpawn: 1.5
 --- !u!4 &847011908
 Transform:
   m_ObjectHideFlags: 0
@@ -5601,7 +5602,7 @@ PrefabInstance:
     - target: {fileID: 798079977694854791, guid: 8737800c8bc5aea40a86ea54d5babe8c,
         type: 3}
       propertyPath: playerTypes.Array.size
-      value: 1
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 798079977694854791, guid: 8737800c8bc5aea40a86ea54d5babe8c,
         type: 3}
@@ -5658,6 +5659,42 @@ PrefabInstance:
       propertyPath: rails.Array.data[5]
       value: 
       objectReference: {fileID: 684160077}
+    - target: {fileID: 798079977694854791, guid: 8737800c8bc5aea40a86ea54d5babe8c,
+        type: 3}
+      propertyPath: playerTypes.Array.data[1]
+      value: 
+      objectReference: {fileID: 7674827767725157433, guid: e810a77cac414a14983b0456f001292d,
+        type: 3}
+    - target: {fileID: 798079977694854791, guid: 8737800c8bc5aea40a86ea54d5babe8c,
+        type: 3}
+      propertyPath: playerTypes.Array.data[2]
+      value: 
+      objectReference: {fileID: 7515006673883622945, guid: a69828ed61bdb3041bfe83ca18c6693e,
+        type: 3}
+    - target: {fileID: 798079977694854791, guid: 8737800c8bc5aea40a86ea54d5babe8c,
+        type: 3}
+      propertyPath: playerTypes.Array.data[3]
+      value: 
+      objectReference: {fileID: 3302004091162368070, guid: b5dc5bfee221e9d48b2d42aa59b014d4,
+        type: 3}
+    - target: {fileID: 798079977694854791, guid: 8737800c8bc5aea40a86ea54d5babe8c,
+        type: 3}
+      propertyPath: playerTypes.Array.data[4]
+      value: 
+      objectReference: {fileID: 5151922699046762847, guid: 81f3d1ff50272264e8e57bd8aeb82a13,
+        type: 3}
+    - target: {fileID: 798079977694854791, guid: 8737800c8bc5aea40a86ea54d5babe8c,
+        type: 3}
+      propertyPath: playerTypes.Array.data[5]
+      value: 
+      objectReference: {fileID: 85807976242247287, guid: c9190b6a645577f4c86877a7971d608b,
+        type: 3}
+    - target: {fileID: 798079977694854791, guid: 8737800c8bc5aea40a86ea54d5babe8c,
+        type: 3}
+      propertyPath: playerTypes.Array.data[6]
+      value: 
+      objectReference: {fileID: 5271191139019818555, guid: cf7f351dae7252b4390c7b490955ce1c,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8737800c8bc5aea40a86ea54d5babe8c, type: 3}
 --- !u!1 &1777824323

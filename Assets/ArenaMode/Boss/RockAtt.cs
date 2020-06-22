@@ -22,7 +22,7 @@ public class RockAtt : MonoBehaviour
         if (other.gameObject.tag == "PlayerArena")
         {
             other.gameObject.GetComponentInParent<PlayerArena>().Respwan();
-            if(other.gameObject.GetComponentInParent<PlayerArena>())
+            if(!other.gameObject.GetComponentInParent<PlayerArena>())
             {
                 Debug.Log("HEY");
             }

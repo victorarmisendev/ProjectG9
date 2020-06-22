@@ -46,5 +46,11 @@ public class SelectorManagerSP_script : MonoBehaviour
             player.GetComponent<infotoopass_script>().carID[0] = num;
             SceneManager.LoadScene("NewInfinite");
         }
+        else if (pads[0].bButton.wasPressedThisFrame)
+        {
+
+                SceneManager.LoadScene("Splash");
+
+        }
     }
 }
