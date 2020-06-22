@@ -209,7 +209,7 @@ public class EndManager : MonoBehaviour
             Second.text = "" + Record.GetComponent<inGameRecord>().SA;
             Third.text = "" + Record.GetComponent<inGameRecord>().TA;
         }
-        Record.GetComponent<inGameRecord>().SaveME();
+        //Record.GetComponent<inGameRecord>().SaveME();
 
     }
 

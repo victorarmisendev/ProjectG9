@@ -80,21 +80,24 @@ public class GManager : MonoBehaviour
             }
          
         }
-        //Destroy(GameObject.FindGameObjectWithTag("BScenes"));
+        Destroy(GameObject.FindGameObjectWithTag("BScenes"));
     }
 
     void Update()
     {
         if(GameObject.FindGameObjectsWithTag("Player").Length == 1)
         {
-            Time.timeScale = 0;
-            GameObject Record = GameObject.FindGameObjectWithTag("Save");
+           /*GameObject Record = GameObject.FindGameObjectWithTag("Save");
             Record.GetComponent<inGameRecord>().newAScore = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<MPPlayerRail>().points;
             Record.GetComponent<inGameRecord>().CARID = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<MPPlayerRail>().CarID;
             Record.GetComponent<inGameRecord>().Gamemode = 3;
             Record.GetComponent<inGameRecord>().PlayerID = 1;
-            SceneManager.LoadScene("End");
+            SceneManager.LoadScene("End");*/
         }
     }
+    private IEnumerator Wait(float time)
+    {
+        yield return new WaitForSeconds(time);
 
+    }
 }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3001323367112878667}
   m_Layer: 0
   m_Name: GameObject (1)
-  m_TagString: Untagged
+  m_TagString: Save
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52,3 +52,9 @@ MonoBehaviour:
   FA: 0
   SA: 0
   TA: 0
+  newSScore: 0
+  newMScore: 0
+  newAScore: 0
+  Gamemode: 0
+  CARID: 0
+  PlayerID: 0
