@@ -12,8 +12,10 @@ public class Procedural : MonoBehaviour
     private Vector3 newPos = Vector3.zero;
     public GameObject lastField;
     public float timeSpawn = 1.5f;
+    GameObject fieldInstanced;
 
     int counter = 1;
+    int numChunks = 1;
     Queue<GameObject> myQueue = new Queue<GameObject>();
 
     void Start()
@@ -51,10 +53,25 @@ public class Procedural : MonoBehaviour
     public void Instance()
     {
         newPos = lastField.transform.position + Vector3.forward * 83.1f;
-        GameObject fieldInstanced = Instantiate(RandomFunction(fields), newPos, Quaternion.identity);
+        if (numChunks < 13)
+        {
+            fieldInstanced = Instantiate(RandomFunction3(fields3), newPos, Quaternion.identity);
+        }
+        else if(numChunks >=13 && numChunks < 27)
+        {
+            fieldInstanced = Instantiate(RandomFunction2(fields2), newPos, Quaternion.identity);
+        }
+        else
+        {
+            fieldInstanced = Instantiate(RandomFunction(fields), newPos, Quaternion.identity);
+        }
+
+        
+        
         lastField = fieldInstanced;
         myQueue.Enqueue(lastField);
         counter++;
+        numChunks++;
 
         if(counter >= 17)
         {
@@ -70,6 +87,7 @@ public class Procedural : MonoBehaviour
         GameObject chunkToDestroy;
         chunkToDestroy = myQueue.Dequeue();
         Destroy(chunkToDestroy);
+        counter--;
     }
 
 }
