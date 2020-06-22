@@ -90,10 +90,10 @@ public class GManager : MonoBehaviour
 
     void Update()
     {
-        if(GameObject.FindGameObjectsWithTag("Player").Length == 1)
+        if(GameObject.FindGameObjectsWithTag("Player").Length <= 1)
         {
-           GameObject Record = GameObject.FindGameObjectWithTag("Save");
-            Record.GetComponent<inGameRecord>().newAScore = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<MPPlayerRail>().points;
+            GameObject Record = GameObject.FindGameObjectWithTag("Save");
+            Record.GetComponent<inGameRecord>().newMScore = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<MPPlayerRail>().points;
             Record.GetComponent<inGameRecord>().CARID = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<MPPlayerRail>().CarID;
             Record.GetComponent<inGameRecord>().Gamemode = 2;
             Record.GetComponent<inGameRecord>().PlayerID = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<MPPlayerRail>().playerID; ;
