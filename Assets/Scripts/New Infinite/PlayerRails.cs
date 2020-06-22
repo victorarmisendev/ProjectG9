@@ -26,7 +26,7 @@ public class PlayerRails : MonoBehaviour
     public int points;
     //Speeds    
     private int speed = 50; //Constant speed player
-    public int speedChangeRail;
+    private float speedChangeRail = 3.0f;
     public bool isDead = false;
 
     public int CarID;
@@ -60,6 +60,15 @@ public class PlayerRails : MonoBehaviour
     private void accelerate()
     {
         speed += 10;
+        if(speedChangeRail <= 6.0f)
+        {
+            speedChangeRail += 0.5f;
+        }
+        else if(speedChangeRail > 6.0f)
+        {
+            speedChangeRail = 6.0f;
+        }
+        
     }
 
     void Update()
