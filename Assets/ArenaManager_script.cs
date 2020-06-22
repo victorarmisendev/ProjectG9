@@ -12,6 +12,8 @@ public class ArenaManager_script : MonoBehaviour
     public Gamepad[] pads;
     public Text texto;
     public int num = 1;
+    public GameObject[] artCars;
+    public bool SP = false, Arena = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,12 +46,69 @@ public class ArenaManager_script : MonoBehaviour
         {
             GameObject player = (GameObject)Instantiate(InfoTopass, Vector3.zero, Quaternion.identity);
             player.GetComponent<infotoopass_script>().carID[0] = num;
-            SceneManager.LoadScene("Arena");
+            if(SP && Arena == false)
+                SceneManager.LoadScene("NewInfinite");
+            if (SP == false && Arena)
+                SceneManager.LoadScene("Arena");
         }
         else if (pads[0].bButton.wasPressedThisFrame)
         {
 
                 SceneManager.LoadScene("Splash");
         }
+
+        switch(num)
+        {
+            case 1:
+                for (int i = 0; i < artCars.Length; i++)
+                {
+                    artCars[i].SetActive(false);
+                }
+                artCars[0].SetActive(true);
+                break;
+            case 2:
+                for (int i = 0; i < artCars.Length; i++)
+                {
+                    artCars[i].SetActive(false);
+                }
+                artCars[1].SetActive(true);
+                break;
+            case 3:
+                for (int i = 0; i < artCars.Length; i++)
+                {
+                    artCars[i].SetActive(false);
+                }
+                artCars[2].SetActive(true);
+                break;
+            case 4:
+                for (int i = 0; i < artCars.Length; i++)
+                {
+                    artCars[i].SetActive(false);
+                }
+                artCars[3].SetActive(true);
+                break;
+            case 5:
+                for (int i = 0; i < artCars.Length; i++)
+                {
+                    artCars[i].SetActive(false);
+                }
+                artCars[4].SetActive(true);
+                break;
+            case 6:
+                for (int i = 0; i < artCars.Length; i++)
+                {
+                    artCars[i].SetActive(false);
+                }
+                artCars[5].SetActive(true);
+                break;
+            case 7:
+                for (int i = 0; i < artCars.Length; i++)
+                {
+                    artCars[i].SetActive(false);
+                }
+                artCars[6].SetActive(true);
+                break;
+        }
+
     }
 }
