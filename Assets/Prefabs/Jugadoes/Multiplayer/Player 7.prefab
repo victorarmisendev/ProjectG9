@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5997251888739028288}
   - component: {fileID: 2295858460447563233}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject
   m_TagString: camera
   m_Icon: {fileID: 0}
@@ -137,6 +137,64 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0.0000019073486}
+--- !u!1 &2302728400058636119
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7367370272986643273}
+  - component: {fileID: 761799507179930359}
+  - component: {fileID: 31410597245623026}
+  m_Layer: 0
+  m_Name: GameObject (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7367370272986643273
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2302728400058636119}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.06, z: 0.82483107}
+  m_LocalScale: {x: 1.4176266, y: 1.1330098, z: 1.1330098}
+  m_Children: []
+  m_Father: {fileID: 5271191139019463195}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &761799507179930359
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2302728400058636119}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.6422796, y: 0.66619635, z: 2.0114517}
+  m_Center: {x: 0.050723877, y: 0.16690272, z: 0.50572026}
+--- !u!114 &31410597245623026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2302728400058636119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43fcfcb929565684194afac1ececc5e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toSpawn: {fileID: 0}
 --- !u!1 &5271191139019818529
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,7 +206,7 @@ GameObject:
   - component: {fileID: 5271191139019463169}
   - component: {fileID: 5271191139016596007}
   - component: {fileID: 5271191139017562343}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wiper_right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -227,7 +285,7 @@ GameObject:
   - component: {fileID: 5271191139019463171}
   - component: {fileID: 5271191139016596001}
   - component: {fileID: 5271191139017562337}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Axle_front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -306,7 +364,7 @@ GameObject:
   - component: {fileID: 5271191139019463173}
   - component: {fileID: 5271191139016596011}
   - component: {fileID: 5271191139017562347}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wheel_front_left 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -386,7 +444,7 @@ GameObject:
   - component: {fileID: 5271191139019463175}
   - component: {fileID: 5271191139016596005}
   - component: {fileID: 5271191139017562341}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wiper_left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -465,7 +523,7 @@ GameObject:
   - component: {fileID: 5271191139019463177}
   - component: {fileID: 5271191139016596015}
   - component: {fileID: 5271191139017562351}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wheel_back_right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -545,7 +603,7 @@ GameObject:
   - component: {fileID: 5271191139019463179}
   - component: {fileID: 5271191139016596009}
   - component: {fileID: 5271191139017562345}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wheel_front_left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -624,7 +682,7 @@ GameObject:
   - component: {fileID: 5271191139019463181}
   - component: {fileID: 5271191139016596019}
   - component: {fileID: 5271191139017562355}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Steering_wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -703,7 +761,7 @@ GameObject:
   - component: {fileID: 5271191139019463183}
   - component: {fileID: 5271191139016596013}
   - component: {fileID: 5271191139017562349}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wheel_back_left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -782,7 +840,7 @@ GameObject:
   - component: {fileID: 5271191139019463185}
   - component: {fileID: 5271191139016596023}
   - component: {fileID: 5271191139017562359}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Seat_left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -861,7 +919,7 @@ GameObject:
   - component: {fileID: 5271191139019463187}
   - component: {fileID: 5271191139016596017}
   - component: {fileID: 5271191139017562353}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Seat_right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -940,7 +998,7 @@ GameObject:
   - component: {fileID: 5271191139019463189}
   - component: {fileID: 5271191139016596027}
   - component: {fileID: 5271191139017562363}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Glass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1020,7 +1078,7 @@ GameObject:
   - component: {fileID: 2405216560841020992}
   - component: {fileID: 6775990042856542114}
   - component: {fileID: 1427528312740120614}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player 7
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1055,6 +1113,7 @@ Transform:
   - {fileID: 5271191139019463169}
   - {fileID: 5874753965277969113}
   - {fileID: 5997251888739028288}
+  - {fileID: 7367370272986643273}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1099,6 +1158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24180b9182376a347af8806a2769cb5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  toSpawn: {fileID: 2302728400058636119}
   partOfTheCar: {fileID: 5271191139019818591}
   rails:
   - {fileID: 0}
@@ -1114,8 +1174,6 @@ MonoBehaviour:
   playerNum: 0
   lives: 3
   points: 0
-  speed: 50
-  speedChangeRail: 3
   isDead: 0
   CarID: 0
 --- !u!1 &5271191139019818557
@@ -1129,7 +1187,7 @@ GameObject:
   - component: {fileID: 5271191139019463197}
   - component: {fileID: 5271191139016596029}
   - component: {fileID: 5271191139017562365}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Axle_back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1208,7 +1266,7 @@ GameObject:
   - component: {fileID: 5271191139019463229}
   - component: {fileID: 5271191139016596003}
   - component: {fileID: 5271191139017562339}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bord
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1287,7 +1345,7 @@ GameObject:
   - component: {fileID: 5271191139019463231}
   - component: {fileID: 5271191139016596061}
   - component: {fileID: 5271191139017562141}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1369,6 +1427,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: ab1112643ee572748b01dede71158272, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ab1112643ee572748b01dede71158272, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ab1112643ee572748b01dede71158272, type: 3}
       propertyPath: m_LocalPosition.x

@@ -36,12 +36,18 @@ public class MPStats : MonoBehaviour
                         T3.transform.GetChild(0).GetComponent<Text>().text = "Lives: " + player[i].GetComponent<MPPlayerRail>().lives;
                         T3.transform.GetChild(1).GetComponent<Text>().text = "Points: " + player[i].GetComponent<MPPlayerRail>().points;
                     }
-                    else if (player[i].GetComponent<PlayerArena>())
+                    if (i == 3)
                     {
-                        T1.transform.GetChild(0).GetComponent<Text>().text = "Lives: " + player[i].GetComponent<PlayerArena>().lives;
-                        T1.transform.GetChild(1).GetComponent<Text>().text = "Points: " + player[i].GetComponent<PlayerArena>().score;
+                        T4.transform.GetChild(0).GetComponent<Text>().text = "Lives: " + player[i].GetComponent<MPPlayerRail>().lives;
+                        T4.transform.GetChild(1).GetComponent<Text>().text = "Points: " + player[i].GetComponent<MPPlayerRail>().points;
                     }
                 }
+                else if (player[i].GetComponent<PlayerArena>())
+                {
+                    T1.transform.GetChild(0).GetComponent<Text>().text = "Lives: " + player[i].GetComponent<PlayerArena>().lives;
+                    T1.transform.GetChild(1).GetComponent<Text>().text = "Points: " + player[i].GetComponent<PlayerArena>().score;
+                }
+                
             }
         }
     }
