@@ -71,6 +71,9 @@ public class MPSelector : MonoBehaviour
         {
             GameObject player = (GameObject)Instantiate(InfoTopass, Vector3.zero, Quaternion.identity);
             player.GetComponent<infotoopass_script>().carID[0] = num;
+            player.GetComponent<infotoopass_script>().carID[1] = num2;
+            player.GetComponent<infotoopass_script>().carID[2] = num3;
+            player.GetComponent<infotoopass_script>().carID[0] = num4;
             SceneManager.LoadScene("MultiInfinite");
         }
         //jugador 1

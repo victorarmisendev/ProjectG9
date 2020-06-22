@@ -34,7 +34,9 @@ public class GManager : MonoBehaviour
         {
             Debug.Log("YOUR NUMBER IS" + info.GetComponent<infotoopass_script>().carID[i]);
             GameObject player = (GameObject)Instantiate(playerTypes[info.GetComponent<infotoopass_script>().carID[i] - 1], my, Quaternion.identity);
+
             player.GetComponent<MPPlayerRail>().pad = pads[i];
+ 
             player.GetComponent<MPPlayerRail>().rails = rails;
             player.GetComponent<MPPlayerRail>().playerNum = i + 1;
             player.GetComponent<MPPlayerRail>().pauseMenu = PMenu;
@@ -73,12 +75,12 @@ public class GManager : MonoBehaviour
                     HUD.GetComponent<MPStats>().player[i] = player;
                     HUD.GetComponent<MPStats>().T4.SetActive(true);
                     player.transform.GetChild(0).gameObject.GetComponent<Renderer>().enabled = true;
-                    player.transform.GetChild(0).gameObject.GetComponent<Renderer>().sharedMaterial = colores[i];
+                    player.transform.GetChild(0).gameObject.GetComponent<Renderer>().sharedMaterial = colores[4];
                     break;
             }
          
         }
-        Destroy(GameObject.FindGameObjectWithTag("BScenes"));
+        //Destroy(GameObject.FindGameObjectWithTag("BScenes"));
     }
 
     void Update()
