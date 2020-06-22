@@ -80,7 +80,7 @@ public class GManager : MonoBehaviour
             }
          
         }
-        //Destroy(GameObject.FindGameObjectWithTag("BScenes"));
+        Destroy(GameObject.FindGameObjectWithTag("BScenes"));
     }
 
     void Update()
