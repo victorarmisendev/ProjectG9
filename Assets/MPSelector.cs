@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class MPSelector : MonoBehaviour
 {
@@ -27,6 +28,7 @@ public class MPSelector : MonoBehaviour
     private bool p4locked = false;
 
     public GameObject[] player1Car, player2Car, player3Car, player4Car;
+    public TextMeshProUGUI[] readys;
 
     // Start is called before the first frame update
     void Start()
@@ -76,6 +78,24 @@ public class MPSelector : MonoBehaviour
             player.GetComponent<infotoopass_script>().carID[3] = num4;
             SceneManager.LoadScene("MultiInfinite");
         }
+
+        if (p1locked)
+            readys[0].color = Color.green;
+        else
+            readys[0].color = Color.white;
+        if (p2locked)
+            readys[1].color = Color.green;
+        else
+            readys[1].color = Color.white;
+        if (p3locked)
+            readys[2].color = Color.green;
+        else
+            readys[2].color = Color.white;
+        if (p4locked)
+            readys[3].color = Color.green;
+        else
+            readys[3].color = Color.white;
+
         //jugador 1
         if (pads.Length > 0)
         {
