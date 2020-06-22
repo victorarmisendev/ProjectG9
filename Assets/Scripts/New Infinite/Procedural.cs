@@ -6,6 +6,9 @@ public class Procedural : MonoBehaviour
 {
     //Procedural variant of the procedural scripts: MyProceduralMap
     public GameObject[] fields;
+    public GameObject[] fields2;
+    public GameObject[] fields3;
+    public GameObject[] fields4;
     private Vector3 newPos = Vector3.zero;
     public GameObject lastField;
     public float timeSpawn = 1.5f;
@@ -32,6 +35,18 @@ public class Procedural : MonoBehaviour
     {
         return fields[Random.Range(0, fields.Length)];
     }
+    GameObject RandomFunction2(GameObject[] fields2)
+    {
+        return fields2[Random.Range(0, fields2.Length)];
+    }
+    GameObject RandomFunction3(GameObject[] fields3)
+    {
+        return fields3[Random.Range(0, fields3.Length)];
+    }
+    GameObject RandomFunction4(GameObject[] fields4)
+    {
+        return fields4[Random.Range(0, fields4.Length)];
+    }
 
     public void Instance()
     {
@@ -55,7 +70,6 @@ public class Procedural : MonoBehaviour
         GameObject chunkToDestroy;
         chunkToDestroy = myQueue.Dequeue();
         Destroy(chunkToDestroy);
-        counter--;
     }
 
 }
