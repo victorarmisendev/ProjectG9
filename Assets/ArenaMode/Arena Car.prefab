@@ -231,6 +231,8 @@ MonoBehaviour:
   lives: 3
   shield: 0
   score: 0
+  CarID: 0
+  PlayerID: 1
 --- !u!54 &7203302544728107241
 Rigidbody:
   m_ObjectHideFlags: 0
