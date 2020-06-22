@@ -58,6 +58,9 @@ public class MenuGlobal : MonoBehaviour
         options[1].text = "Graphics: Ultra";
         options[3].text = "Fullscreen: ON";
 
+        //ClickA = GetComponent<AudioSource>();
+        //ClickB = GetComponent<AudioSource>();
+        
     }
     
     void Update()
@@ -454,27 +457,27 @@ public class MenuGlobal : MonoBehaviour
                         }
 
 
-                        switch (volume)
-                        {
-                            case 1:
+                        //switch (volume)
+                        //{
+                        //    case 1:
 
-                                options[2].text = "Volume: 1";
-                                SetVolum(1.25f);
-                                break;
-                            case 2:
-                                options[2].text = "Volume: 1";
-                                SetVolum(1.5f);
-                                break;
-                            case 3:
-                                options[2].text = "Volume: 3";
-                                SetVolum(1.75f);
-                                break;
-                            case 4:
-                                SetVolum(1.0f);
-                                options[2].text = "Volume: 4";
+                        //        options[2].text = "Volume: 1";
+                        //        SetVolum(1.25f);
+                        //        break;
+                        //    case 2:
+                        //        options[2].text = "Volume: 1";
+                        //        SetVolum(1.5f);
+                        //        break;
+                        //    case 3:
+                        //        options[2].text = "Volume: 3";
+                        //        SetVolum(1.75f);
+                        //        break;
+                        //    case 4:
+                        //        SetVolum(1.0f);
+                        //        options[2].text = "Volume: 4";
    
-                                break;
-                        }
+                        //        break;
+                        //}
 
                         //Volume
                         break;
