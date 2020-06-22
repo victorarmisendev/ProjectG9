@@ -21,6 +21,7 @@ TagManager:
   - Shield
   - camera
   - BScenes
+  - Save
   layers:
   - Default
   - TransparentFX

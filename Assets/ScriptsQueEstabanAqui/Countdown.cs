@@ -11,7 +11,7 @@ public class Countdown : MonoBehaviour
     public Text countdown;
 
     private IEnumerator coroutine;
-
+    public AudioSource clip;
 
     // Start is called before the first frame update
     void Start()
@@ -42,14 +42,16 @@ public class Countdown : MonoBehaviour
         else
         {
             countdown.text = "GO!";
-
+            //
             StartCoroutine(coroutine);
         }
     }
 
     IEnumerator ExecuteAfterTime()
     {
+        
         yield return new WaitForSeconds(2);
+        clip.Play();
         Destroy(countdown.gameObject);
         // Code to execute after the delay
     }

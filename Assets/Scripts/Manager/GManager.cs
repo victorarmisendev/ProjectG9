@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 
 public class GManager : MonoBehaviour
 { 
@@ -39,12 +39,13 @@ public class GManager : MonoBehaviour
             player.GetComponent<MPPlayerRail>().playerNum = i + 1;
             player.GetComponent<MPPlayerRail>().pauseMenu = PMenu;
             player.GetComponent<MPPlayerRail>().main = Mycamera;
-            
+            player.GetComponent<MPPlayerRail>().CarID = info.GetComponent<infotoopass_script>().carID[i] - 1;
             switch (i)
             {
                 case 0:
                     player.GetComponent<MPPlayerRail>().count = i;
                     player.GetComponent<MPPlayerRail>().SetPosition();
+                  
                     HUD.GetComponent<MPStats>().player[i] = player;
                     HUD.GetComponent<MPStats>().T1.SetActive(true);
                     player.transform.GetChild(0).gameObject.GetComponent<Renderer>().enabled = true;
@@ -77,17 +78,21 @@ public class GManager : MonoBehaviour
             }
          
         }
+        Destroy(GameObject.FindGameObjectWithTag("BScenes"));
     }
 
     void Update()
     {
-        /*if(GameObject.FindGameObjectsWithTag("Player").Length == 1)
+        if(GameObject.FindGameObjectsWithTag("Player").Length == 1)
         {
             Time.timeScale = 0;
-            EndCanvas.SetActive(true);
-            EndCanvas.GetComponent<MPFINISH>().player = FindObjectOfType<MPPlayerRail>();
-            HUD.SetActive( false);
-        }*/
+            GameObject Record = GameObject.FindGameObjectWithTag("Save");
+            Record.GetComponent<inGameRecord>().newAScore = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<MPPlayerRail>().points;
+            Record.GetComponent<inGameRecord>().CARID = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<MPPlayerRail>().CarID;
+            Record.GetComponent<inGameRecord>().Gamemode = 3;
+            Record.GetComponent<inGameRecord>().PlayerID = 1;
+            SceneManager.LoadScene("End");
+        }
     }
 
 }

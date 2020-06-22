@@ -17,6 +17,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Modos de juego/Arena.unity
     guid: 3914f2d099b02e745a9cd04391b94e94
+  - enabled: 1
+    path: Assets/Scenes/Modos de juego/Selection/End.unity
+    guid: a3704aa6ff798b04087c156a68d30430
+  - enabled: 1
+    path: Assets/Scenes/Modos de juego/Selection/ArenaSelector.unity
+    guid: 8a86ff929203d994185e3d444ddea85a
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 33ba080b2c0ac1f429d2039491b71e48,
       type: 2}

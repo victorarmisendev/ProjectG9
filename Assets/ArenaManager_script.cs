@@ -25,6 +25,7 @@ public class ArenaManager_script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (pads[0].leftStick.left.wasPressedThisFrame)
         {
             num--;

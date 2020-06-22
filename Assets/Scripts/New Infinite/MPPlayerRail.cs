@@ -30,6 +30,7 @@ public class MPPlayerRail : MonoBehaviour
     public int speedChangeRail;
     public bool isDead = false;
 
+    public int CarID;
     // Start is called before the first frame update
     void Start()
     {

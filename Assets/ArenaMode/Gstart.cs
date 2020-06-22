@@ -17,7 +17,8 @@ public class Gstart : MonoBehaviour
             {
                 if (info.GetComponent<infotoopass_script>().carID[i] > 0)
                 {
-                    GameObject player = (GameObject)Instantiate(playerTypes[info.GetComponent<infotoopass_script>().carID[i] - 1], Vector3.zero, Quaternion.identity);
+                    GameObject player = (GameObject)Instantiate(playerTypes[info.GetComponent<infotoopass_script>().carID[i]-1], Vector3.zero, Quaternion.identity);
+                    player.GetComponent<PlayerArena>().CarID = info.GetComponent<infotoopass_script>().carID[i] - 1;
                     HUD.GetComponent<MPStats>().player[0] = player;
                     HUD.GetComponent<MPStats>().T1.SetActive(true);
                 }

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerArena : MonoBehaviour
 {
@@ -19,6 +20,9 @@ public class PlayerArena : MonoBehaviour
 
     public bool shield = false;
     public int score = 0;
+
+    public int CarID;
+    public int PlayerID = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -122,7 +126,12 @@ public class PlayerArena : MonoBehaviour
         lives--;
         if(lives <=0)
         {
-            Destroy(gameObject);
+            GameObject Record = GameObject.FindGameObjectWithTag("Save");
+            Record.GetComponent<inGameRecord>().newAScore = score;
+            Record.GetComponent<inGameRecord>().CARID = CarID;
+            Record.GetComponent<inGameRecord>().Gamemode = 3;
+            Record.GetComponent<inGameRecord>().PlayerID = 1;
+            SceneManager.LoadScene("End");
         }
         else
         {
