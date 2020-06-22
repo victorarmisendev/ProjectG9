@@ -1026,18 +1026,23 @@ PrefabInstance:
     - target: {fileID: 7049299361182286721, guid: e1391fd3585ba234ba553d8dcb687652,
         type: 3}
       propertyPath: Loop
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7049299361182286721, guid: e1391fd3585ba234ba553d8dcb687652,
         type: 3}
       propertyPath: m_PlayOnAwake
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7049299361182286721, guid: e1391fd3585ba234ba553d8dcb687652,
         type: 3}
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 17beec66449fb1643943c4d08bb7b45c, type: 3}
+    - target: {fileID: 7049299361182286721, guid: e1391fd3585ba234ba553d8dcb687652,
+        type: 3}
+      propertyPath: MinDistance
+      value: 1653.9734
+      objectReference: {fileID: 0}
     - target: {fileID: 7049299361182286722, guid: e1391fd3585ba234ba553d8dcb687652,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1076,7 +1081,7 @@ PrefabInstance:
     - target: {fileID: 7049299361182286722, guid: e1391fd3585ba234ba553d8dcb687652,
         type: 3}
       propertyPath: m_RootOrder
-      value: 29
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 7049299361182286722, guid: e1391fd3585ba234ba553d8dcb687652,
         type: 3}
@@ -3341,13 +3346,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 17beec66449fb1643943c4d08bb7b45c, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.06
+  m_Volume: 0.02
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 159
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 5386.349
@@ -3437,7 +3442,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 30
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &514654888
 GameObject:
@@ -11017,12 +11022,17 @@ PrefabInstance:
     - target: {fileID: 8407254624611461440, guid: f748beda7e7da5d4d82e716745a8c82b,
         type: 3}
       propertyPath: Loop
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8407254624611461440, guid: f748beda7e7da5d4d82e716745a8c82b,
         type: 3}
       propertyPath: m_PlayOnAwake
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8407254624611461440, guid: f748beda7e7da5d4d82e716745a8c82b,
+        type: 3}
+      propertyPath: MinDistance
+      value: 1531.052
       objectReference: {fileID: 0}
     - target: {fileID: 8407254624611461441, guid: f748beda7e7da5d4d82e716745a8c82b,
         type: 3}
@@ -11067,7 +11077,7 @@ PrefabInstance:
     - target: {fileID: 8407254624611461447, guid: f748beda7e7da5d4d82e716745a8c82b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 28
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 8407254624611461447, guid: f748beda7e7da5d4d82e716745a8c82b,
         type: 3}
@@ -12204,7 +12214,7 @@ PrefabInstance:
     - target: {fileID: 5876027775002844513, guid: afa1b75614df3024e952bca0ef02614d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 27
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: 5876027775002844513, guid: afa1b75614df3024e952bca0ef02614d,
         type: 3}
@@ -12224,12 +12234,17 @@ PrefabInstance:
     - target: {fileID: 5876027775002844514, guid: afa1b75614df3024e952bca0ef02614d,
         type: 3}
       propertyPath: Loop
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5876027775002844514, guid: afa1b75614df3024e952bca0ef02614d,
         type: 3}
       propertyPath: m_PlayOnAwake
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5876027775002844514, guid: afa1b75614df3024e952bca0ef02614d,
+        type: 3}
+      propertyPath: MinDistance
+      value: 2082.2407
       objectReference: {fileID: 0}
     - target: {fileID: 5876027775002844515, guid: afa1b75614df3024e952bca0ef02614d,
         type: 3}
@@ -12924,7 +12939,7 @@ MonoBehaviour:
   resolution: 0
   graphics: 1
   volume: 1
-  AS: {fileID: 307079286}
+  AS: {fileID: 0}
   ClickA: {fileID: 1269261123}
   ClickB: {fileID: 1886604031}
   MoveJoystick: {fileID: 1963546098}
@@ -15228,7 +15243,7 @@ Light:
   m_BounceIntensity: 9.54
   m_ColorTemperature: 6570
   m_UseColorTemperature: 1
-  m_BoundingSphereOverride: {x: 3.633e-41, y: 1.04e-43, z: 4.2681e-41, w: 0}
+  m_BoundingSphereOverride: {x: 1.5046328e-36, y: 1.009742e-28, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -15297,7 +15312,7 @@ PrefabInstance:
     - target: {fileID: 3001323367112878667, guid: 3313a93a882dd20469fed8926838e6c2,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3001323367112878676, guid: 3313a93a882dd20469fed8926838e6c2,
         type: 3}
