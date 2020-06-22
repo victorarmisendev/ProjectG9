@@ -26,6 +26,10 @@ public class inGameRecord : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+       if( GameObject.FindObjectsOfType<inGameRecord>().Length>1)
+        {
+            Destroy(gameObject);
+        }
         DontDestroyOnLoad(gameObject);
         PlayerData Data = RecordHolder.LoadRecord();
         if (Data != null)

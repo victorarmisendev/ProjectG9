@@ -24,7 +24,7 @@ public class MPPlayerRail : MonoBehaviour
     public int playerNum;
     //
     public int lives = 3;
-    public int points=0;
+    public int points= 500;
     //Speeds    
     public int speed; //Constant speed player
     public int speedChangeRail;
@@ -93,6 +93,15 @@ public class MPPlayerRail : MonoBehaviour
                 //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
             }
 
+            if(pad.yButton.wasPressedThisFrame)
+            {
+                GameObject Record = GameObject.FindGameObjectWithTag("Save");
+                Record.GetComponent<inGameRecord>().newAScore = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<MPPlayerRail>().points;
+                Record.GetComponent<inGameRecord>().CARID = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<MPPlayerRail>().CarID;
+                Record.GetComponent<inGameRecord>().Gamemode = 3;
+                Record.GetComponent<inGameRecord>().PlayerID = 1;
+                SceneManager.LoadScene("End");
+            }
 
             if (partOfTheCar.GetComponent<Renderer>().isVisible == false)
             {
