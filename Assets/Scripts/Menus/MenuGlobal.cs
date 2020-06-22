@@ -35,8 +35,10 @@ public class MenuGlobal : MonoBehaviour
     public int volume = 1;
 
     public AudioSource AS;
+    public AudioSource ClickA, ClickB, MoveJoystick;
 
     public bool FULL = false;
+
 
     private void Start()
     {
@@ -179,6 +181,7 @@ public class MenuGlobal : MonoBehaviour
                 {
                     //Cambio de section. 
                     stateMenu = 2;
+                    ClickA.Play();
                 }
                 break;
             case 2:
@@ -192,9 +195,17 @@ public class MenuGlobal : MonoBehaviour
             if (pad.leftStick.down.wasPressedThisFrame)
                 aux++;
             if (pad.aButton.wasPressedThisFrame)
-                stateMenu = aux; //Confirmacion de a donde vamos.      
+                {
+     stateMenu = aux; //Confirmacion de a donde vamos.  
+                    ClickA.Play();
+                }
+               
             if (pad.bButton.wasPressedThisFrame)
-                stateMenu = 1;
+                {
+                    ClickB.Play();
+                    stateMenu = 1;
+                }
+                
 
             aux = Mathf.Clamp(aux, 3, 7);
 
@@ -263,6 +274,7 @@ public class MenuGlobal : MonoBehaviour
                     //stateMenu = aux; //Confirmacion de a donde vamos. 
                     //Change scene to mode selected. 
                     Color metal = new Color(204, 169, 90);
+                    ClickA.Play();
                     switch (aux2)
                     {
                         case 1:
@@ -283,7 +295,11 @@ public class MenuGlobal : MonoBehaviour
                     }
                 }
                 if (pad.bButton.wasPressedThisFrame)
-                stateMenu = 2;
+                {
+                    ClickB.Play();
+                    stateMenu = 2;
+                }
+                
                 break;
 
             case 4: // Controls
@@ -307,7 +323,11 @@ public class MenuGlobal : MonoBehaviour
                 }
 
                 if (pad.bButton.wasPressedThisFrame)
-                stateMenu = 2;
+                {
+                    ClickB.Play();
+                    stateMenu = 2;
+                }
+                
                 break;
 
             case 5: // Options: Put the controls to modify the menu. 
@@ -336,6 +356,7 @@ public class MenuGlobal : MonoBehaviour
                         if (pad.aButton.wasPressedThisFrame)
                         {
                             resolution++;
+                            ClickA.Play();
                             if (resolution > 4)
                                 resolution = 1;
                         }
@@ -377,6 +398,7 @@ public class MenuGlobal : MonoBehaviour
                         if (pad.aButton.wasPressedThisFrame)
                         {
                             graphics++;
+                            ClickA.Play();
                             if (graphics > 4)
                                 graphics = 1;
                         }
@@ -424,6 +446,7 @@ public class MenuGlobal : MonoBehaviour
                         if (pad.aButton.wasPressedThisFrame)
                         {
                             volume++;
+                            ClickA.Play();
                             if (volume > 4)
                                 volume = 1;
                         }
@@ -472,6 +495,7 @@ public class MenuGlobal : MonoBehaviour
                         if (pad.aButton.wasPressedThisFrame)
                         {
                             FULL = !FULL;
+                            ClickA.Play();
                             Screen.fullScreen = FULL;
                         }
         
@@ -481,19 +505,33 @@ public class MenuGlobal : MonoBehaviour
 
 
                 if (pad.bButton.wasPressedThisFrame)
+                {
+                    ClickB.Play();
                     stateMenu = 2;
+                }
+                   
                 break;
 
             case 6: // Credits
                 if (pad.bButton.wasPressedThisFrame)
-                    stateMenu = 2;
+                {
+                    ClickB.Play();stateMenu = 2;
+                }
+                    
                 break;
 
             case 7: // Exit 
                 if (pad.bButton.wasPressedThisFrame)
-                    stateMenu = 2;
-                if(pad.aButton.wasPressedThisFrame)
+                {
+ stateMenu = 2; ClickB.Play();
+                }
+                   
+                if (pad.aButton.wasPressedThisFrame)
+                {
+                    ClickA.Play();
                     Application.Quit();
+                }
+                    
                 break;
         }
             MoveTo(stateMenu);
