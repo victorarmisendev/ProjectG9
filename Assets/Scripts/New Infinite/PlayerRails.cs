@@ -22,11 +22,14 @@ public class PlayerRails : MonoBehaviour
     public Camera main;
     public GameObject finishCanvas;
     //
-    public int lives = 3, points;
+    public int lives = 3;
+    public int points;
     //Speeds    
     private int speed = 50; //Constant speed player
     public int speedChangeRail;
     public bool isDead = false;
+
+    public int CarID;
 
     void Start()
     {
@@ -108,8 +111,12 @@ public class PlayerRails : MonoBehaviour
         if (lives <= 0)
         {
             //Finish the match.
-            isDead = true;
-            StartCoroutine(Finish(5.0f));
+            GameObject Record = GameObject.FindGameObjectWithTag("Save");
+            Record.GetComponent<inGameRecord>().newSScore = points;
+            Record.GetComponent<inGameRecord>().CARID = CarID;
+            Record.GetComponent<inGameRecord>().Gamemode = 1;
+            Record.GetComponent<inGameRecord>().PlayerID = 1;
+            SceneManager.LoadScene("End");
         }
     }
     IEnumerator Finish(float seconds)
@@ -120,7 +127,7 @@ public class PlayerRails : MonoBehaviour
         //Destroy(this.gameObject);
         //Destroy(par, 3.0f);
         //SceneManager.LoadScene("Splash"); //Deberia ser esto. 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); //Deberia ser esto. 
+         //Deberia ser esto. 
     }
 
 

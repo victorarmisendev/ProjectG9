@@ -20,6 +20,7 @@ public class GManagerSP : MonoBehaviour
             if (info.GetComponent<infotoopass_script>().carID[i] > 0)
             {
                 GameObject player = (GameObject)Instantiate(playerTypes[info.GetComponent<infotoopass_script>().carID[i]-1], Vector3.zero, Quaternion.identity);
+                player.GetComponent<PlayerRails>().CarID = info.GetComponent<infotoopass_script>().carID[i] - 1;
                 player.GetComponent<PlayerRails>().rails = rails;
                 player.GetComponent<PlayerRails>().main = main;
                 player.GetComponent<PlayerRails>().finishCanvas = finishCanvas;

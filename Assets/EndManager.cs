@@ -51,15 +51,15 @@ public class EndManager : MonoBehaviour
             t4.SetActive(false);
             if(Record.GetComponent<inGameRecord>().Gamemode==1)
             {
-                t1.transform.GetChild(0).GetComponent<Text>().text = "Lives: " + Record.GetComponent<inGameRecord>().newSScore;
+                t1.transform.GetChild(0).GetComponent<Text>().text = "Points: " + Record.GetComponent<inGameRecord>().newSScore;
             }
             else if(Record.GetComponent<inGameRecord>().Gamemode==2)
             {
-                t1.transform.GetChild(0).GetComponent<Text>().text = "Lives: " + Record.GetComponent<inGameRecord>().newMScore;
+                t1.transform.GetChild(0).GetComponent<Text>().text = "Points: " + Record.GetComponent<inGameRecord>().newMScore;
             }
             else if(Record.GetComponent<inGameRecord>().Gamemode==3)
             {
-                t1.transform.GetChild(0).GetComponent<Text>().text = "Lives: " + Record.GetComponent<inGameRecord>().newAScore;
+                t1.transform.GetChild(0).GetComponent<Text>().text = "Points: " + Record.GetComponent<inGameRecord>().newAScore;
             }
             
         }
@@ -71,15 +71,15 @@ public class EndManager : MonoBehaviour
             t4.SetActive(false);
             if (Record.GetComponent<inGameRecord>().Gamemode == 1)
             {
-                t2.transform.GetChild(0).GetComponent<Text>().text = "Lives: " + Record.GetComponent<inGameRecord>().newSScore;
+                t2.transform.GetChild(0).GetComponent<Text>().text = "Points: " + Record.GetComponent<inGameRecord>().newSScore;
             }
             else if (Record.GetComponent<inGameRecord>().Gamemode == 2)
             {
-                t2.transform.GetChild(0).GetComponent<Text>().text = "Lives: " + Record.GetComponent<inGameRecord>().newMScore;
+                t2.transform.GetChild(0).GetComponent<Text>().text = "Points: " + Record.GetComponent<inGameRecord>().newMScore;
             }
             else if (Record.GetComponent<inGameRecord>().Gamemode == 3)
             {
-                t2.transform.GetChild(0).GetComponent<Text>().text = "Lives: " + Record.GetComponent<inGameRecord>().newAScore;
+                t2.transform.GetChild(0).GetComponent<Text>().text = "Points: " + Record.GetComponent<inGameRecord>().newAScore;
             }
         }
         else if (Record.GetComponent<inGameRecord>().PlayerID == 3)
@@ -90,15 +90,15 @@ public class EndManager : MonoBehaviour
             t4.SetActive(false);
             if (Record.GetComponent<inGameRecord>().Gamemode == 1)
             {
-                t3.transform.GetChild(0).GetComponent<Text>().text = "Lives: " + Record.GetComponent<inGameRecord>().newSScore;
+                t3.transform.GetChild(0).GetComponent<Text>().text = "Points: " + Record.GetComponent<inGameRecord>().newSScore;
             }
             else if (Record.GetComponent<inGameRecord>().Gamemode == 2)
             {
-                t3.transform.GetChild(0).GetComponent<Text>().text = "Lives: " + Record.GetComponent<inGameRecord>().newMScore;
+                t3.transform.GetChild(0).GetComponent<Text>().text = "Points: " + Record.GetComponent<inGameRecord>().newMScore;
             }
             else if (Record.GetComponent<inGameRecord>().Gamemode == 3)
             {
-                t3.transform.GetChild(0).GetComponent<Text>().text = "Lives: " + Record.GetComponent<inGameRecord>().newAScore;
+                t3.transform.GetChild(0).GetComponent<Text>().text = "Points: " + Record.GetComponent<inGameRecord>().newAScore;
             }
         }
         else if(Record.GetComponent<inGameRecord>().PlayerID==4)
@@ -109,38 +109,38 @@ public class EndManager : MonoBehaviour
             t4.SetActive(true);
             if (Record.GetComponent<inGameRecord>().Gamemode == 1)
             {
-                t4.transform.GetChild(0).GetComponent<Text>().text = "Lives: " + Record.GetComponent<inGameRecord>().newSScore;
+                t4.transform.GetChild(0).GetComponent<Text>().text = "Points: " + Record.GetComponent<inGameRecord>().newSScore;
             }
             else if (Record.GetComponent<inGameRecord>().Gamemode == 2)
             {
-                t4.transform.GetChild(0).GetComponent<Text>().text = "Lives: " + Record.GetComponent<inGameRecord>().newMScore;
+                t4.transform.GetChild(0).GetComponent<Text>().text = "Points: " + Record.GetComponent<inGameRecord>().newMScore;
             }
             else if (Record.GetComponent<inGameRecord>().Gamemode == 3)
             {
-                t4.transform.GetChild(0).GetComponent<Text>().text = "Lives: " + Record.GetComponent<inGameRecord>().newAScore;
+                t4.transform.GetChild(0).GetComponent<Text>().text = "Points: " + Record.GetComponent<inGameRecord>().newAScore;
             }
         }
         if (Record.GetComponent<inGameRecord>().Gamemode == 1)
         {
-            if(Record.GetComponent<inGameRecord>().newAScore > Record.GetComponent<inGameRecord>().FSP)
+            if(Record.GetComponent<inGameRecord>().newSScore > Record.GetComponent<inGameRecord>().FSP)
             {
                 Record.GetComponent<inGameRecord>().TSP = Record.GetComponent<inGameRecord>().SSP;
                 Record.GetComponent<inGameRecord>().SSP = Record.GetComponent<inGameRecord>().FSP;
-                Record.GetComponent<inGameRecord>().FSP = Record.GetComponent<inGameRecord>().newAScore;
+                Record.GetComponent<inGameRecord>().FSP = Record.GetComponent<inGameRecord>().newSScore;
 
                 S1.SetActive(true);
             }
-            else if (Record.GetComponent<inGameRecord>().newAScore > Record.GetComponent<inGameRecord>().SSP)
+            else if (Record.GetComponent<inGameRecord>().newSScore > Record.GetComponent<inGameRecord>().SSP)
             {
                 Record.GetComponent<inGameRecord>().TSP = Record.GetComponent<inGameRecord>().SSP;
-                Record.GetComponent<inGameRecord>().SSP = Record.GetComponent<inGameRecord>().newAScore;
+                Record.GetComponent<inGameRecord>().SSP = Record.GetComponent<inGameRecord>().newSScore;
 
 
                 S2.SetActive(true);
             }
-            else if (Record.GetComponent<inGameRecord>().newAScore > Record.GetComponent<inGameRecord>().SSP)
+            else if (Record.GetComponent<inGameRecord>().newSScore > Record.GetComponent<inGameRecord>().SSP)
             {
-                Record.GetComponent<inGameRecord>().TSP = Record.GetComponent<inGameRecord>().newAScore;
+                Record.GetComponent<inGameRecord>().TSP = Record.GetComponent<inGameRecord>().newSScore;
 
                 S3.SetActive(true);
             }
@@ -151,26 +151,26 @@ public class EndManager : MonoBehaviour
         }
         else if (Record.GetComponent<inGameRecord>().Gamemode == 2)
         {
-            if (Record.GetComponent<inGameRecord>().newAScore > Record.GetComponent<inGameRecord>().FMP)
+            if (Record.GetComponent<inGameRecord>().newMScore > Record.GetComponent<inGameRecord>().FMP)
             {
                 Record.GetComponent<inGameRecord>().TMP = Record.GetComponent<inGameRecord>().SMP;
                 Record.GetComponent<inGameRecord>().SMP = Record.GetComponent<inGameRecord>().FMP;
-                Record.GetComponent<inGameRecord>().FMP = Record.GetComponent<inGameRecord>().newAScore;
+                Record.GetComponent<inGameRecord>().FMP = Record.GetComponent<inGameRecord>().newMScore;
 
 
                 S1.SetActive(true);
             }
-            else if (Record.GetComponent<inGameRecord>().newAScore > Record.GetComponent<inGameRecord>().SMP)
+            else if (Record.GetComponent<inGameRecord>().newMScore > Record.GetComponent<inGameRecord>().SMP)
             {
                 Record.GetComponent<inGameRecord>().TMP = Record.GetComponent<inGameRecord>().SMP;
-                Record.GetComponent<inGameRecord>().SMP = Record.GetComponent<inGameRecord>().newAScore;
+                Record.GetComponent<inGameRecord>().SMP = Record.GetComponent<inGameRecord>().newMScore;
 
 
                 S2.SetActive(true);
             }
-            else if (Record.GetComponent<inGameRecord>().newAScore > Record.GetComponent<inGameRecord>().SMP)
+            else if (Record.GetComponent<inGameRecord>().newMScore > Record.GetComponent<inGameRecord>().SMP)
             {
-                Record.GetComponent<inGameRecord>().TMP = Record.GetComponent<inGameRecord>().newAScore;
+                Record.GetComponent<inGameRecord>().TMP = Record.GetComponent<inGameRecord>().newMScore;
 
                 S3.SetActive(true);
             }
@@ -216,8 +216,8 @@ public class EndManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Record.GetComponent<inGameRecord>().SaveME();
-        if(Gamepad.all[0].startButton.wasPressedThisFrame)
+        //Record.GetComponent<inGameRecord>().SaveME();
+        if(Gamepad.all[0].startButton.isPressed)
         {
             SceneManager.LoadScene("Splash");
         }

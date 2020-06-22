@@ -203,9 +203,9 @@ MonoBehaviour:
   finishCanvas: {fileID: 0}
   lives: 3
   points: 0
-  speed: 50
   speedChangeRail: 3
   isDead: 0
+  CarID: 0
 --- !u!1 &40263251
 GameObject:
   m_ObjectHideFlags: 0
@@ -286,6 +286,80 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 40263251}
   m_Mesh: {fileID: 4300018, guid: ac557d46635d21847b2642a4035d3475, type: 3}
+--- !u!1001 &80019085
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3001323367112878666, guid: 3313a93a882dd20469fed8926838e6c2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 720.7228
+      objectReference: {fileID: 0}
+    - target: {fileID: 3001323367112878666, guid: 3313a93a882dd20469fed8926838e6c2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -207.1254
+      objectReference: {fileID: 0}
+    - target: {fileID: 3001323367112878666, guid: 3313a93a882dd20469fed8926838e6c2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -815.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3001323367112878666, guid: 3313a93a882dd20469fed8926838e6c2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3001323367112878666, guid: 3313a93a882dd20469fed8926838e6c2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3001323367112878666, guid: 3313a93a882dd20469fed8926838e6c2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3001323367112878666, guid: 3313a93a882dd20469fed8926838e6c2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3001323367112878666, guid: 3313a93a882dd20469fed8926838e6c2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 3001323367112878666, guid: 3313a93a882dd20469fed8926838e6c2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3001323367112878666, guid: 3313a93a882dd20469fed8926838e6c2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3001323367112878666, guid: 3313a93a882dd20469fed8926838e6c2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3001323367112878676, guid: 3313a93a882dd20469fed8926838e6c2,
+        type: 3}
+      propertyPath: m_Name
+      value: GameObject (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3001323367112878676, guid: 3313a93a882dd20469fed8926838e6c2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Save
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3313a93a882dd20469fed8926838e6c2, type: 3}
 --- !u!1 &81877996
 GameObject:
   m_ObjectHideFlags: 0
@@ -2977,9 +3051,9 @@ MonoBehaviour:
   finishCanvas: {fileID: 0}
   lives: 3
   points: 0
-  speed: 50
   speedChangeRail: 3
   isDead: 0
+  CarID: 0
 --- !u!65 &446105745
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3409,9 +3483,9 @@ MonoBehaviour:
   finishCanvas: {fileID: 0}
   lives: 3
   points: 0
-  speed: 50
   speedChangeRail: 3
   isDead: 0
+  CarID: 0
 --- !u!1 &607202609
 GameObject:
   m_ObjectHideFlags: 0
@@ -3842,9 +3916,9 @@ MonoBehaviour:
   finishCanvas: {fileID: 0}
   lives: 3
   points: 0
-  speed: 50
   speedChangeRail: 3
   isDead: 0
+  CarID: 0
 --- !u!65 &660162761
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3930,9 +4004,9 @@ MonoBehaviour:
   finishCanvas: {fileID: 0}
   lives: 3
   points: 0
-  speed: 50
   speedChangeRail: 3
   isDead: 0
+  CarID: 0
 --- !u!65 &670809290
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4426,6 +4500,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countdown: {fileID: 0}
+  clip: {fileID: 0}
 --- !u!1 &741709512
 GameObject:
   m_ObjectHideFlags: 0
@@ -4847,9 +4922,9 @@ MonoBehaviour:
   finishCanvas: {fileID: 0}
   lives: 3
   points: 0
-  speed: 50
   speedChangeRail: 3
   isDead: 0
+  CarID: 0
 --- !u!65 &835614227
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5171,6 +5246,9 @@ MonoBehaviour:
   - {fileID: 554593776432444411, guid: c9aee75f5a3568a489a019d4894f7d0d, type: 3}
   - {fileID: 554593776432444411, guid: b45d0712601ad8a4b8fe1bcfcbc041b1, type: 3}
   - {fileID: 554593776432444411, guid: 897bb9a25cdd10f4a907fef6e0c639ac, type: 3}
+  fields2: []
+  fields3: []
+  fields4: []
   lastField: {fileID: 0}
   timeSpawn: 1.5
 --- !u!4 &847011908
@@ -9565,9 +9643,9 @@ MonoBehaviour:
   finishCanvas: {fileID: 0}
   lives: 3
   points: 0
-  speed: 50
   speedChangeRail: 3
   isDead: 0
+  CarID: 0
 --- !u!1 &1566113677
 GameObject:
   m_ObjectHideFlags: 0
