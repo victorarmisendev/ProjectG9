@@ -43,46 +43,62 @@ public class TutorialRunner : MonoBehaviour
     {
         if(ARENA)
         {
-            if (pad.rightTrigger.isPressed)
-            {
-                if (speed < 0.8f)
-                {
-                    speed += 0.003f;
-                }
-                else if (speed >= 0.08f)
-                {
-                    speed = 0.8f;
-                }
+            //if (pad.rightTrigger.isPressed)
+            //{
+            //    if (speed < 0.8f)
+            //    {
+            //        speed += 0.003f;
+            //    }
+            //    else if (speed >= 0.08f)
+            //    {
+            //        speed = 0.8f;
+            //    }
 
-            }
-            else if (pad.leftTrigger.isPressed)
-            {
-                print("left");
-                if (speed > -0.3f)
-                {
-                    speed -= 0.003f;
-                }
-                else if (speed <= -0.3f)
-                {
-                    speed = -0.3f;
-                }
-            }
-            else if (!pad.rightTrigger.isPressed)
-            {
+            //}
+            //else if (pad.leftTrigger.isPressed)
+            //{
+            //    print("left");
+            //    if (speed > -0.3f)
+            //    {
+            //        speed -= 0.003f;
+            //    }
+            //    else if (speed <= -0.3f)
+            //    {
+            //        speed = -0.3f;
+            //    }
+            //}
+            //else if (!pad.rightTrigger.isPressed)
+            //{
 
-                if (!pad.leftTrigger.isPressed)
-                {
-                    if (speed > 0.0f)
-                    {
-                        speed -= 0.005f;
-                    }
-                    else
-                    {
-                        speed = 0.0f;
-                    }
-                }
+            //    if (!pad.leftTrigger.isPressed)
+            //    {
+            //        if (speed > 0.0f)
+            //        {
+            //            speed -= 0.005f;
+            //        }
+            //        else
+            //        {
+            //            speed = 0.0f;
+            //        }
+            //    }
 
-            }
+            //}
+            //if (speed > 0.003f)
+            //{
+            //    engineSound.volume = speed;
+            //    if (!engineSound.isPlaying)
+            //    {
+            //        engineSound.Play();
+            //    }
+            //}
+            //else
+            //{
+
+            //    if (engineSound.isPlaying)
+            //    {
+            //        engineSound.Stop();
+            //    }
+            //}
             if (pad.leftStick.left.isPressed)
             {
                 direction = -2.5f;
@@ -95,28 +111,28 @@ public class TutorialRunner : MonoBehaviour
             {
                 direction = -0.0f;
             }
-            if (speed >= 0.0f)
-            {
-                transform.Translate(Vector3.forward * (speed/2));
-            }
-            else
-            {
-                transform.Translate(Vector3.back * (speed/2));
-            }
+            //if (speed >= 0.0f)
+            //{
+            //    transform.Translate(Vector3.forward * speed);
+            //}
+            //else
+            //{
+            //    transform.Translate(Vector3.back * speed);
+            //}
 
             //transform.Rotate(0.0f, direction, 0.0f);
-            //if (pad.rightTrigger.isPressed)
-            //{
-            //    rb.MovePosition(rb.position + transform.forward * 3.0f);
-            //}
+            if (pad.rightTrigger.isPressed)
+            {
+                rb.MovePosition(rb.position + transform.forward * 3.0f);
+            }
 
-            //if (pad.leftTrigger.isPressed)
-            //{
-            //    rb.MovePosition(rb.position + transform.forward * -3.0f);
-            //}
+            if (pad.leftTrigger.isPressed)
+            {
+                rb.MovePosition(rb.position + transform.forward * -3.0f);
+            }
 
-            //Quaternion deltaRot = Quaternion.Euler(0.0f, direction, 0.0f);
-            //rb.MoveRotation(rb.rotation * deltaRot);
+            Quaternion deltaRot = Quaternion.Euler(0.0f, direction, 0.0f);
+            rb.MoveRotation(rb.rotation * deltaRot);
         } 
         else
         {
