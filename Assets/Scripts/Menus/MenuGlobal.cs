@@ -245,7 +245,7 @@ public class MenuGlobal : MonoBehaviour
                 //sections[0].SetActive(false);
                 //sections[1].SetActive(false);
                 //sections[2].SetActive(true);
-                aux2 = Mathf.Clamp(aux2, 1, 3);
+                aux2 = Mathf.Clamp(aux2, 1, 4);
                 if (pad.leftStick.right.wasPressedThisFrame)
                     aux2++;
                 if (pad.leftStick.left.wasPressedThisFrame)
@@ -256,6 +256,8 @@ public class MenuGlobal : MonoBehaviour
                     indicatorPlay.transform.position = selectorPosition[1].position;
                 if (aux2 == 3)
                     indicatorPlay.transform.position = selectorPosition[2].position;
+                if (aux2 == 4)
+                    indicatorPlay.transform.position = selectorPosition[3].position;
                 if (pad.aButton.wasPressedThisFrame)
                 {
                     //stateMenu = aux; //Confirmacion de a donde vamos. 
@@ -285,6 +287,14 @@ public class MenuGlobal : MonoBehaviour
                             //carteles[1].GetComponent<Renderer>().material.color = metal;
                             //carteles[2].GetComponent<Renderer>().material.color = Color.green;
                             SceneManager.LoadScene(3);
+                            break;
+                        case 4:
+                            //Change: 
+                            //SceneManager.LoadScene("Tutorial"); //IMPORTANT
+                            //carteles[0].GetComponent<Renderer>().material.color = metal;
+                            //carteles[1].GetComponent<Renderer>().material.color = metal;
+                            //carteles[2].GetComponent<Renderer>().material.color = Color.green;
+                            SceneManager.LoadScene(4);
                             break;
                     }
                 }
