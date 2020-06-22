@@ -32,7 +32,7 @@ public static class RecordHolder
         }
         else
         {
-            Debug.LogError("Save file no found");
+            //Debug.LogError("Save file no found");
 
             return null;
         }
