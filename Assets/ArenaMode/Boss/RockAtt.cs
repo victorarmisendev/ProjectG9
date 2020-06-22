@@ -25,9 +25,9 @@ public class RockAtt : MonoBehaviour
             {
                 other.gameObject.GetComponentInParent<PlayerArena>().Respwan();
             }
-            if(!other.gameObject.GetComponentInParent<PlayerArena>())
+            else if(other.gameObject.GetComponent<PlayerArena>().shield)
             {
-                Debug.Log("HEY");
+                other.gameObject.GetComponent<PlayerArena>().shield = false;
             }
             for (int i = 0; i < elements1.Length; i++)
             {
