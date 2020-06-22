@@ -133,6 +133,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.55168784, y: 0.810084, z: 1.6294433}
   m_Center: {x: -0.024223685, y: 0.4125226, z: -0.054109156}
+--- !u!65 &6086539698229950653
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7786466169015552908}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.6350832, y: 0.5864303, z: 1.2233903}
+  m_Center: {x: -0.02292943, y: 0.2067848, z: -0.009151558}
 --- !u!1 &8670585603594053432
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,7 +419,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100008, guid: bab9bd88669500845b952f4cd883ff28, type: 3}
       propertyPath: m_TagString
-      value: PlayerArena
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: bab9bd88669500845b952f4cd883ff28, type: 3}
       propertyPath: m_LocalPosition.x
@@ -522,6 +535,12 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: a097f58e4480a9643abdc5c83108a708, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bab9bd88669500845b952f4cd883ff28, type: 3}
+--- !u!1 &7786466169015552908 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100008, guid: bab9bd88669500845b952f4cd883ff28,
+    type: 3}
+  m_PrefabInstance: {fileID: 7786466169015586084}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7786466169015457708 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400008, guid: bab9bd88669500845b952f4cd883ff28,

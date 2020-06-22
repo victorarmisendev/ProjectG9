@@ -22,12 +22,28 @@ public class Boss : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("PlayerArena");
-        playerPos = player.transform.position;
-        InvokeRepeating("attack", 4, 4);
-        BossAnimator = gameObject.GetComponent<Animator>();
+        if (player != null)
+        {
+            playerPos = player.transform.position;
+            InvokeRepeating("attack", 4, 4);
+            BossAnimator = gameObject.GetComponent<Animator>();
+        }
         
     }
 
+    void Update()
+    {
+        if(player==null)
+        {
+            player = GameObject.FindGameObjectWithTag("PlayerArena");
+            if (player != null)
+            {
+                playerPos = player.transform.position;
+                InvokeRepeating("attack", 4, 4);
+                BossAnimator = gameObject.GetComponent<Animator>();
+            }
+        }
+    }
     void attack()
     {
         counterAttacks++;
