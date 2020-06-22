@@ -10,6 +10,9 @@ public class infotoopass_script : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(this.gameObject);
+        carID[1] = 1;
+        carID[2] = 1;
+        carID[3] = 1;
     }
 
     // Update is called once per frame
