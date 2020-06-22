@@ -14,6 +14,7 @@ public class ArenaManager_script : MonoBehaviour
     public int num = 1;
     public GameObject[] artCars;
     public bool SP = false, Arena = false;
+    public bool MULTI = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -55,6 +56,14 @@ public class ArenaManager_script : MonoBehaviour
         {
 
                 SceneManager.LoadScene("Splash");
+        }
+
+        if(MULTI)
+        {
+            for (int i = 0; i < artCars.Length; i++)
+            {
+                artCars[i] = new GameObject();
+            }
         }
 
         switch(num)
