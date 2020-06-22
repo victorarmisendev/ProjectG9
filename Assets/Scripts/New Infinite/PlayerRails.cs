@@ -8,8 +8,9 @@ public class PlayerRails : MonoBehaviour
 {
 
     //Objects   
-    public GameObject toSpawn = null;
+    GameObject toSpawn = null;
    public GameObject partOfTheCar;
+    public GameObject Spawntriger;
     //Arrays   
     public GameObject[] rails;
     //Pos   
@@ -40,6 +41,7 @@ public class PlayerRails : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         initialRot = rb.rotation;
         InvokeRepeating("accelerate", 8.0f, 8.0f);
+        toSpawn = Spawntriger.GetComponent<GetRespawn>().toSpawn;
 
     }
 
@@ -91,19 +93,7 @@ public class PlayerRails : MonoBehaviour
                 count = Mathf.Clamp(count, 0, rails.Length - 1);
             }
 
-            //speed:
-            RaycastHit hit;
-            if (Physics.Raycast(main.transform.position,
-                main.transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity))
-            {
-                if (hit.transform.gameObject.tag == "field")
-                {
-                    var boneChild = hit.transform.Find("Reset");
-                    toSpawn = boneChild.gameObject;
-                    //Debug.Log("Enter" + " :" + hit.transform.name);
-                }
-                //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-            }
+ 
 
 
             if (partOfTheCar.GetComponent<Renderer>().isVisible == false)
@@ -111,7 +101,7 @@ public class PlayerRails : MonoBehaviour
                 lives--;
                 //Change pos. Change pos in a place without collision or walls. 
                 //Get a visibles fields seen in the camera.
-                transform.position = toSpawn.transform.position;
+                transform.position = Spawntriger.GetComponent<GetRespawn>().toSpawn.transform.position;
 
             }
          

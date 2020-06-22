@@ -1,5 +1,63 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3140762748114640469
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5330970015808932448}
+  - component: {fileID: 1069637338553941830}
+  - component: {fileID: 1274038561812995277}
+  m_Layer: 0
+  m_Name: GameObject (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5330970015808932448
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3140762748114640469}
+  m_LocalRotation: {x: -0.000000021855694, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.33, y: 0.008, z: 0.772}
+  m_LocalScale: {x: 1.6378399, y: 1.4037024, z: 1.6378399}
+  m_Children: []
+  m_Father: {fileID: 3349869819260823888}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1069637338553941830
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3140762748114640469}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.6422796, y: 0.66619635, z: 2.0114517}
+  m_Center: {x: 0.050723877, y: 0.16690272, z: 0.50572026}
+--- !u!114 &1274038561812995277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3140762748114640469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43fcfcb929565684194afac1ececc5e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toSpawn: {fileID: 0}
 --- !u!1 &3349869819260335378
 GameObject:
   m_ObjectHideFlags: 0
@@ -678,6 +736,7 @@ Transform:
   - {fileID: 3349869819260823882}
   - {fileID: 5939324848168327163}
   - {fileID: 2599606954502803675}
+  - {fileID: 5330970015808932448}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -723,6 +782,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   partOfTheCar: {fileID: 3349869819260335480}
+  Spawntriger: {fileID: 3140762748114640469}
   rails:
   - {fileID: 0}
   - {fileID: 0}
@@ -732,7 +792,6 @@ MonoBehaviour:
   finishCanvas: {fileID: 0}
   lives: 3
   points: 0
-  speedChangeRail: 3
   isDead: 0
   CarID: 0
 --- !u!1 &3349869819260335474

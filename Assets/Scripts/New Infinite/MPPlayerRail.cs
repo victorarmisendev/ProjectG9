@@ -95,26 +95,13 @@ public class MPPlayerRail : MonoBehaviour
                 count++;
                 count = Mathf.Clamp(count, 0, rails.Length - 1);
             }
-            //speed:
-            RaycastHit hit;
-            if (Physics.Raycast(main.transform.position,
-                main.transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity))
-            {
-                if (hit.transform.gameObject.tag == "field")
-                {
-                    var boneChild = hit.transform.Find("Reset");
-                    toSpawn = boneChild.gameObject;
-                    //Debug.Log("Enter" + " :" + hit.transform.name);
-                }
-                //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-            }
-
+            
             if (partOfTheCar.GetComponent<Renderer>().isVisible == false)
             {
                 lives--;
                 //Change pos. Change pos in a place without collision or walls. 
                 //Get a visibles fields seen in the camera.
-                transform.position = toSpawn.transform.position;
+                transform.position = toSpawn.GetComponent<GetRespawn>().toSpawn.transform.position;
 
             }
 
