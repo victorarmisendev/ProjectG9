@@ -964,7 +964,7 @@ GameObject:
   - component: {fileID: 7327143026235699025}
   m_Layer: 0
   m_Name: Player5
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -994,6 +994,7 @@ Transform:
   - {fileID: 1248035351458052324}
   - {fileID: 1248035351458052326}
   - {fileID: 1248035351458052320}
+  - {fileID: 8794187053428140409}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1019,7 +1020,6 @@ MonoBehaviour:
   finishCanvas: {fileID: 0}
   lives: 3
   points: 0
-  speed: 50
   speedChangeRail: 3
   isDead: 0
 --- !u!54 &4966996552650350893
@@ -1209,3 +1209,47 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &7782537472434622614
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8794187053428140409}
+  - component: {fileID: 7641638781544617291}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: camera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8794187053428140409
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7782537472434622614}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.0338079, y: 1.600981, z: -4.6803274}
+  m_LocalScale: {x: 1.0739197, y: 0.94732606, z: 1.1435473}
+  m_Children: []
+  m_Father: {fileID: 1248035351458052346}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &7641638781544617291
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7782537472434622614}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.42457753, z: 1}
+  m_Center: {x: 0, y: 1.34405, z: 0}
