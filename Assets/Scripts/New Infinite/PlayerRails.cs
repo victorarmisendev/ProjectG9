@@ -36,7 +36,7 @@ public class PlayerRails : MonoBehaviour
         //The position with the player starts. 
         //SINGLER PLAYER: MODE. 
         pad = Gamepad.all[0];
-        transform.position = rails[0].transform.position;
+        transform.position = rails[2].transform.position;
         rb = GetComponent<Rigidbody>();
         initialRot = rb.rotation;
         InvokeRepeating("accelerate", 8.0f, 8.0f);

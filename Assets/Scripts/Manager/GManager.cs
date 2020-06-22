@@ -32,7 +32,7 @@ public class GManager : MonoBehaviour
         //Create and Spawn players in random position and assign pads. 
         for (int i = 0; i < NumPlayers; i++)
         {
-            Debug.Log("YOUR NUMBER IS" +i);
+            Debug.Log("YOUR NUMBER IS" + info.GetComponent<infotoopass_script>().carID[i]);
             GameObject player = (GameObject)Instantiate(playerTypes[info.GetComponent<infotoopass_script>().carID[i] - 1], my, Quaternion.identity);
             player.GetComponent<MPPlayerRail>().pad = pads[i];
             player.GetComponent<MPPlayerRail>().rails = rails;
