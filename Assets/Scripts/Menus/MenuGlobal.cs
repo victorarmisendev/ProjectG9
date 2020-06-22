@@ -267,34 +267,18 @@ public class MenuGlobal : MonoBehaviour
                     {
                         case 1:
                             //Change: 
-                            SceneManager.LoadScene(1);
-                            //carteles[0].GetComponent<Renderer>().material.color = Color.green;
-                            //carteles[1].GetComponent<Renderer>().material.color = metal;
-                            //carteles[2].GetComponent<Renderer>().material.color = metal;
+                            SceneManager.LoadScene("SPSelector"); //Solo 
                             break;
                         case 2:
-                            //Change: 
-                            //SceneManager.LoadScene("Arena");
-                            //carteles[0].GetComponent<Renderer>().material.color = metal;
-                            //carteles[1].GetComponent<Renderer>().material.color = Color.green;
-                            //carteles[2].GetComponent<Renderer>().material.color = metal;
-                            SceneManager.LoadScene(2);
+                            SceneManager.LoadScene("MPSelector"); // Multi
                             break;
                         case 3:
                             //Change: 
-                            //SceneManager.LoadScene("Tutorial"); //IMPORTANT
-                            //carteles[0].GetComponent<Renderer>().material.color = metal;
-                            //carteles[1].GetComponent<Renderer>().material.color = metal;
-                            //carteles[2].GetComponent<Renderer>().material.color = Color.green;
-                            SceneManager.LoadScene(3);
+                            SceneManager.LoadScene("ArenaSelector"); //Arena 
                             break;
                         case 4:
                             //Change: 
-                            //SceneManager.LoadScene("Tutorial"); //IMPORTANT
-                            //carteles[0].GetComponent<Renderer>().material.color = metal;
-                            //carteles[1].GetComponent<Renderer>().material.color = metal;
-                            //carteles[2].GetComponent<Renderer>().material.color = Color.green;
-                            SceneManager.LoadScene(4);
+                            SceneManager.LoadScene("Tutorial"); //Tutorial
                             break;
                     }
                 }

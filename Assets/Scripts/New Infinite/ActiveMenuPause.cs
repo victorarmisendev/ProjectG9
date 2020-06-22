@@ -63,6 +63,7 @@ public class ActiveMenuPause : MonoBehaviour
 
             if (pad.aButton.wasPressedThisFrame && state == 1)
             {
+                Time.timeScale = 1;
                 SceneManager.LoadScene("Splash");
             }
 
